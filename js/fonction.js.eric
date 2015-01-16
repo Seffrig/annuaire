@@ -1,0 +1,277 @@
+﻿
+function affiche_ferme (cache) {	if (document.getElementById(cache).style.display=='inline'){document.getElementById(cache).style.display='none'}
+									else {document.getElementById(cache).style.display='inline' }					
+}
+function affiche_nom_prenom(cache) {if (document.getElementById('nom_auteur')){document.getElementById(cache).style.display='inline'}
+									else {document.getElementById(cache).style.display='none' }					
+};
+
+function killreadonly(elem) {
+	document.getElementById(elem).readOnly=false;
+}
+
+function couleur(obj) {
+     obj.style.backgroundColor = "#FFFFFF";
+}
+ 
+function check_personne() {
+ 	// /*courriel pro*/
+	var msg='';
+
+	if (document.formulaire.courriel_pro.value != "")	{				
+		indexAroba = document.formulaire.courriel_pro.value.indexOf('@');
+		indexPoint = document.formulaire.courriel_pro.value.indexOf('.');
+		if ((indexAroba < 0) || (indexPoint < 0))		{
+		document.formulaire.courriel_pro.style.backgroundColor = "#FF6533";
+			msg += "Le courriel professionnel est incorrect\n";
+		}
+	}
+	else	{
+		if (document.formulaire.courriel_perso.value=="") {
+		document.formulaire.courriel_pro.style.backgroundColor = "#FF6533";
+		msg += "Veuillez saisir au moins un courriel.\n";
+		}
+	}
+	/* courriel perso  ( il peut etre vide)*/
+	if (document.formulaire.courriel_perso.value != "")	{
+		indexAroba = document.formulaire.courriel_perso.value.indexOf('@');
+		indexPoint = document.formulaire.courriel_perso.value.indexOf('.');
+		if ((indexAroba < 0) || (indexPoint < 0))		{
+		document.formulaire.courriel_perso.style.backgroundColor = "#FF6533";
+			msg += "Le courriel personnel est incorrect\n";
+		}
+	}		
+	/*nom*/
+	if (document.formulaire.nom.value == "")	{
+		msg += "Veuillez saisir votre nom\n";
+		document.formulaire.nom.style.backgroundColor = "#FF6533";
+	}  
+	/*prenom*/
+	if (document.formulaire.prenom.value == "")	{
+		msg += "Veuillez saisir votre prenom\n";		
+		document.formulaire.prenom.style.backgroundColor = "#FF6533";		
+	}	
+	/* corps*/
+	if (document.formulaire.id_corps.value == "")	{
+		msg += "Veuillez saisir votre corps\n";
+		document.formulaire.id_corps.style.backgroundColor = "#FF6533";
+	}	 	
+	/* nom_rue_pro*/
+	if (document.formulaire.nom_rue_pro.value == "")	{
+		msg += "Veuillez saisir le nom de rue\n";
+		document.formulaire.nom_rue_pro.style.backgroundColor = "#FF6533";
+	}	
+	/* code_postal_pro*/
+	if (document.formulaire.code_postal_pro.value == "")	{
+		msg += "Veuillez saisir votre code postal professionnel\n";
+		document.formulaire.code_postal_pro.style.backgroundColor = "#FF6533";
+	}	 
+	// /*localite_pro*/
+	if (document.formulaire.localite_pro.value == "")	{
+		msg += "Veuillez saisir votre ville professionnel\n";
+		document.formulaire.localite_pro.style.backgroundColor = "#FF6533";
+	}		
+	if (msg == "") {document.formulaire.submit();}
+	else{
+		alert(msg);
+		return(false);
+	}
+}
+
+function check_publi() {
+	var msg = "";		
+	if (document.formulaire.titre_communication) {		
+		if ( document.formulaire.titre_communication.value == "") {	
+			if (document.formulaire.titre_conf) {
+				 if (document.formulaire.titre_conf.value== "") {
+					msg += "Veuillez saisir au moins le titre.\n";		
+					document.formulaire.titre_communication.style.backgroundColor = "#FF6533";	
+				}
+			}
+			else {
+				msg += "Veuillez saisir au moins le titre.\n";		
+				document.formulaire.titre_communication.style.backgroundColor = "#FF6533";	
+			}			
+		}
+	}	
+	else 
+	if(document.formulaire.titre_conf) {
+		if (document.formulaire.titre_conf.value== "") {
+					msg += "Veuillez saisir au moins le titre.\n";	
+					document.formulaire.titre_conf.style.backgroundColor = "#FF6533";		
+		}
+	}	
+	
+	
+	if(document.formulaire.date_publi){  
+		if(document.formulaire.date_publi.value < 1900) {
+			msg += 'Date de publication incorrect\n'; 
+			document.formulaire.date_publi.style.backgroundColor = "#FF6533";				
+		}
+	}
+	if(document.formulaire.page_deb) 
+	{ 
+		if(document.formulaire.page_fin.value < document.formulaire.page_deb.value) {
+			msg += "Valeurs des pages entrées incorrect.\n";		
+		}	
+	}	
+	if (msg == "") return(true);
+	else	{
+		alert(msg);
+		return(false);
+	}
+}
+
+//4 chiffres pour les années
+function chiffres(event) {
+	// Compatibilité IE / Firefox
+	if(!event&&window.event) {
+		event=window.event;
+	}
+	// IE
+	if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode != 8) && (event.keyCode != 9) && (event.keyCode != 11)) {
+		event.returnValue = false;
+		event.cancelBubble = true;
+	}
+	// DOM
+	if((event.which < 48 || event.which > 57) && (event.which != 8) && (event.which != 9) && (event.keyCode != 11)) {
+		event.preventDefault();
+		event.stopPropagation();
+	}
+}
+
+// on appelle cette fonction lorsque on change le type de la publication, pour le distinguer du submit normal,  on modifie la value de l input hidden modif_type et le passe a true 
+function on_modif_type() {
+	document.formulaire.modif_type.value='true';
+	document.formulaire.submit();
+}
+ 
+
+function addInput(){
+	//On repère la div dans laquelle ajouter un champ grace à son id
+	var target = document.getElementById('extendForm');	
+	var p = document.createElement('p'); //On créé un paragraphe
+	var suppr = document.createElement('input');
+	var label  = document.createElement('label'); //On crée un label
+	var label2  = document.createElement('label'); //On crée un label	
+	var input = document.createElement('input'); //On crée un input
+	//Puis on défini les attributs de cet input
+	input.type = 'text';
+	input.name = 'noms[]';
+	input.id = 'nom_auteur';
+	input.size = '15';	
+	var input2 = document.createElement('input'); //On crée un input
+	//Puis on défini les attributs de cet input
+	input2.type = 'text';
+	input2.name = 'noms[]';
+	input2.size = '15';
+	//On insère l'input dans le paragraphe
+	p.appendChild(input);
+	p.appendChild(input2);	
+	//Bonus : on place le focus sur l'input ajouté (le curseur y est placé pour pouvoir écrire directement)
+	input.focus();		
+	suppr.type = 'button';
+	suppr.value = 'Supprimer';
+	// Suppression d'une ligne
+	suppr.onclick = function(){
+	   // Elément à enlever
+	   lediv = this.parentNode;
+	   // Elément auquel on enlève
+	   lefieldset = lediv.parentNode;
+	   // On enlève !
+	   lefieldset.removeChild(lediv);
+	}
+	p.appendChild(suppr);	
+	target.appendChild(p);	
+}
+
+function suppr($this) {
+  // Elément à enlever
+	   lediv = $this.parentNode;
+	   // Elément auquel on enlève
+	   lefieldset = lediv.parentNode;
+	   // On enlève !
+	   lefieldset.removeChild(lediv);
+}
+
+
+
+
+
+// fonction formulaire lié 
+/* 
+ * Script réalisé par TEDDY FERRERE
+ * REUNION FRANCE
+ * Written by TEDDY FERRERE, http://www.roodali.com
+ * Copyright 2007, Licence: Creative Commons "Attribution-ShareAlike 2.0 France" BY-SA (FR),
+ * http://creativecommons.org/licenses/by-sa/2.0/fr/
+ * - Attribution. You must give the original author credit
+ * - Share Alike. If you alter, transform, or build upon this work,
+ *   you may distribute the resulting work only under a license identical to this one
+ * - The French law is authoritative
+ * - Any of these conditions can be waived if you get permission from teddy FERRERE
+ * - Please send to teddy FERRERE the modifications you make,
+ *   in order to improve this file for the benefit of everybody
+ */
+/*____________________________________________________________________________________________________________________________________________*/
+function formu_lie(data, page, method, elem)
+{
+    if(window.ActiveXObject)
+    {
+        //Internet Explorer
+        var FerTedObjc = new ActiveXObject("Microsoft.XMLHTTP") ;
+    }//fin if
+    else
+    {
+        //Mozilla
+        var FerTedObjc = new XMLHttpRequest();
+    }//fin else
+    
+    //définition de l'endroit d'affichage:
+    var content = document.getElementById(elem);
+    
+    //si on envoie par la méthode GET:
+    if(method == "GET")
+    {
+        if(data == 'null')
+        {
+            //Ouverture du fichier sélectionné:
+            FerTedObjc.open("GET", page);
+        }//fin if
+        else
+        {
+            //Ouverture du fichier en methode GET
+            FerTedObjc.open("GET", page+"?"+data);
+        }//fin else
+    }//fin if
+    else if(method == "POST")
+    {
+        //Ouverture du fichier en methode POST
+        FerTedObjc.open("POST", page);
+    }//fin elseif
+    FerTedObjc.onreadystatechange = function()
+    {
+		//tant que la réponse n'est pas arrivé afficher l'image d'attente
+		if (FerTedObjc.readyState < 4){
+			
+			content.innerHTML = '<img src="test.gif">';
+		}
+		else {
+		//sinon retourner la réponse	
+		content.innerHTML = FerTedObjc.responseText;
+		
+		}
+    }    
+    if(method == "GET")
+    {
+        FerTedObjc.send(null);
+    }//fin if
+    else if(method == "POST")
+    {
+        FerTedObjc.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        FerTedObjc.send(data);
+		
+    }//fin elseif
+}//fin fonction iLanceLoZaFair
+/*____________________________________________________________________________________________________________________________________________*/
+

@@ -1,0 +1,6 @@
+<?php
+$serveurSSO="cas.univ-fcomte.fr";
+$serveurSSOuB="cas.u-bourgogne.fr";
+$serveurSSOPort=443;
+$serveurSSORacine='/cas';
+?>

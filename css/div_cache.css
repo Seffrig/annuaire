@@ -1,0 +1,10 @@
+	/* Ce style CSS ne dois pas être enlevé, sinon les divs ne se cacherons pas ... */
+	.cachediv {
+		visibility: hidden;
+		overflow: hidden;
+		height: 1px;
+		margin-top: -1px;
+		position: absolute;
+		
+	}
+	

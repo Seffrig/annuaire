@@ -1,0 +1,1191 @@
+445D .START phpCAS-1.3.2 ****************** [CAS.php:450]
+445D .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+445D .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+445D .|    |    Starting a new session [Client.php:792]
+445D .|    <= ''
+445D .<= ''
+445D .=> phpCAS::setNoCasServerValidation() [index.php:15]
+445D .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+445D .<= ''
+445D .=> phpCAS::forceAuthentication() [index.php:18]
+445D .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+445D .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+445D .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+445D .|    |    |    |    no user found [Client.php:1375]
+445D .|    |    |    <= false
+445D .|    |    |    no ticket found [Client.php:1258]
+445D .|    |    <= false
+445D .|    |    => CAS_Client::redirectToCas(false) [Client.php:1092]
+445D .|    |    |    => CAS_Client::getServerLoginURL(false, false) [Client.php:1396]
+445D .|    |    |    |    => CAS_Client::getURL() [Client.php:328]
+445D .|    |    |    |    |    Final URI: http://localhost:8080/annuaire/ [Client.php:3071]
+445D .|    |    |    |    <= 'http://localhost:8080/annuaire/'
+445D .|    |    |    <= 'https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2F'
+445D .|    |    |    Redirect to : https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2F [Client.php:1402]
+445D .|    |    |    exit()
+445D .|    |    |    -
+445D .|    |    -
+445D .|    -
+F221 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+F221 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+F221 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+F221 .|    |    Starting a new session [Client.php:792]
+F221 .|    |    Ticket 'ST-986066-p66nIbuEVTo4Ol3CAwdp-cas.univ-fcomte.fr' found [Client.php:870]
+F221 .|    <= ''
+F221 .<= ''
+F221 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+F221 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+F221 .<= ''
+F221 .=> phpCAS::forceAuthentication() [index.php:18]
+F221 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+F221 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+F221 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+F221 .|    |    |    |    no user found [Client.php:1375]
+F221 .|    |    |    <= false
+F221 .|    |    |    CAS 2.0 ticket `ST-986066-p66nIbuEVTo4Ol3CAwdp-cas.univ-fcomte.fr' is present [Client.php:1223]
+F221 .|    |    |    => CAS_Client::validateCAS20('', NULL, NULL) [Client.php:1224]
+F221 .|    |    |    |     [Client.php:2747]
+F221 .|    |    |    |    => CAS_Client::getServerServiceValidateURL() [Client.php:2753]
+F221 .|    |    |    |    |    => CAS_Client::getURL() [Client.php:417]
+F221 .|    |    |    |    |    |    Final URI: http://localhost:8080/annuaire/ [Client.php:3071]
+F221 .|    |    |    |    |    <= 'http://localhost:8080/annuaire/'
+F221 .|    |    |    |    <= 'https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2F'
+F221 .|    |    |    |    => CAS_Client::_readURL('https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2F&ticket=ST-986066-p66nIbuEVTo4Ol3CAwdp-cas.univ-fcomte.fr', NULL, NULL, NULL) [Client.php:2762]
+F221 .|    |    |    |    |    => CAS_Request_CurlRequest::sendRequest() [AbstractRequest.php:220]
+F221 .|    |    |    |    |    |    Response Body: 
+F221 .|    |    |    |    |    |    <cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+F221 .|    |    |    |    |    |    	<cas:authenticationSuccess>
+F221 .|    |    |    |    |    |    		<cas:user>flitot</cas:user>
+F221 .|    |    |    |    |    |    
+F221 .|    |    |    |    |    |    
+F221 .|    |    |    |    |    |    	</cas:authenticationSuccess>
+F221 .|    |    |    |    |    |    </cas:serviceResponse>
+F221 .|    |    |    |    |    |     [CurlRequest.php:82]
+F221 .|    |    |    |    |    <= true
+F221 .|    |    |    |    <= true
+F221 .|    |    |    |    => CAS_Client::_readExtraAttributesCas20(DOMNodeList) [Client.php:2813]
+F221 .|    |    |    |    |    Testing for rubycas style attributes [Client.php:2923]
+F221 .|    |    |    |    <= ''
+F221 .|    |    |    |    Storing Proxy List [Client.php:2822]
+F221 .|    |    |    |    => CAS_ProxyChain_AllowedList::isProxyListAllowed(array ()) [Client.php:2825]
+F221 .|    |    |    |    |    No proxies were found in the response [AllowedList.php:81]
+F221 .|    |    |    |    <= true
+F221 .|    |    |    |    => CAS_Client::_renameSession('ST-986066-p66nIbuEVTo4Ol3CAwdp-cas.univ-fcomte.fr') [Client.php:2856]
+F221 .|    |    |    |    |    Session ID: ST-986066-p66nIbuEVTo4Ol3CAwdp-casuniv-fcomtefr [Client.php:3180]
+F221 .|    |    |    |    |    Restoring old session vars [Client.php:3183]
+F221 .|    |    |    |    <= ''
+F221 .|    |    |    <= true
+F221 .|    |    |    CAS 2.0 ticket `ST-986066-p66nIbuEVTo4Ol3CAwdp-cas.univ-fcomte.fr' was validated [Client.php:1225]
+F221 .|    |    |    => CAS_Client::getURL() [Client.php:1279]
+F221 .|    |    |    <= 'http://localhost:8080/annuaire/'
+F221 .|    |    |    Prepare redirect to : http://localhost:8080/annuaire/ [Client.php:1279]
+F221 .|    |    |    => CAS_Client::getURL() [Client.php:1280]
+F221 .|    |    |    <= 'http://localhost:8080/annuaire/'
+F221 .|    |    |    exit()
+F221 .|    |    |    -
+F221 .|    |    -
+F221 .|    -
+DB71 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+DB71 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+DB71 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+DB71 .|    |    Starting a new session [Client.php:792]
+DB71 .|    <= ''
+DB71 .<= ''
+DB71 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+DB71 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+DB71 .<= ''
+DB71 .=> phpCAS::forceAuthentication() [index.php:18]
+DB71 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+DB71 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+DB71 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+DB71 .|    |    |    |    user = `flitot' [Client.php:1365]
+DB71 .|    |    |    <= true
+DB71 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+DB71 .|    |    <= true
+DB71 .|    |    no need to authenticate [Client.php:1085]
+DB71 .|    <= true
+DB71 .<= ''
+3F29 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+3F29 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+3F29 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+3F29 .|    |    Starting a new session [Client.php:792]
+3F29 .|    <= ''
+3F29 .<= ''
+3F29 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+3F29 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+3F29 .<= ''
+3F29 .=> phpCAS::forceAuthentication() [index.php:18]
+3F29 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+3F29 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+3F29 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+3F29 .|    |    |    |    user = `flitot' [Client.php:1365]
+3F29 .|    |    |    <= true
+3F29 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+3F29 .|    |    <= true
+3F29 .|    |    no need to authenticate [Client.php:1085]
+3F29 .|    <= true
+3F29 .<= ''
+96A0 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+96A0 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+96A0 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+96A0 .|    |    Starting a new session [Client.php:792]
+96A0 .|    <= ''
+96A0 .<= ''
+96A0 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+96A0 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+96A0 .<= ''
+96A0 .=> phpCAS::forceAuthentication() [index.php:18]
+96A0 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+96A0 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+96A0 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+96A0 .|    |    |    |    user = `flitot' [Client.php:1365]
+96A0 .|    |    |    <= true
+96A0 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+96A0 .|    |    <= true
+96A0 .|    |    no need to authenticate [Client.php:1085]
+96A0 .|    <= true
+96A0 .<= ''
+2197 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+2197 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+2197 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+2197 .|    |    Starting a new session [Client.php:792]
+2197 .|    <= ''
+2197 .<= ''
+2197 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+2197 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+2197 .<= ''
+2197 .=> phpCAS::forceAuthentication() [index.php:18]
+2197 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+2197 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+2197 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+2197 .|    |    |    |    user = `flitot' [Client.php:1365]
+2197 .|    |    |    <= true
+2197 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+2197 .|    |    <= true
+2197 .|    |    no need to authenticate [Client.php:1085]
+2197 .|    <= true
+2197 .<= ''
+A9B9 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+A9B9 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+A9B9 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+A9B9 .|    |    Starting a new session [Client.php:792]
+A9B9 .|    <= ''
+A9B9 .<= ''
+A9B9 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+A9B9 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+A9B9 .<= ''
+A9B9 .=> phpCAS::forceAuthentication() [index.php:18]
+A9B9 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+A9B9 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+A9B9 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+A9B9 .|    |    |    |    user = `flitot' [Client.php:1365]
+A9B9 .|    |    |    <= true
+A9B9 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+A9B9 .|    |    <= true
+A9B9 .|    |    no need to authenticate [Client.php:1085]
+A9B9 .|    <= true
+A9B9 .<= ''
+804D .START phpCAS-1.3.2 ****************** [CAS.php:450]
+804D .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+804D .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+804D .|    |    Starting a new session [Client.php:792]
+804D .|    <= ''
+804D .<= ''
+804D .=> phpCAS::setNoCasServerValidation() [index.php:15]
+804D .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+804D .<= ''
+804D .=> phpCAS::forceAuthentication() [index.php:18]
+804D .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+804D .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+804D .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+804D .|    |    |    |    user = `flitot' [Client.php:1365]
+804D .|    |    |    <= true
+804D .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+804D .|    |    <= true
+804D .|    |    no need to authenticate [Client.php:1085]
+804D .|    <= true
+804D .<= ''
+5C25 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+5C25 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+5C25 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+5C25 .|    |    Starting a new session [Client.php:792]
+5C25 .|    <= ''
+5C25 .<= ''
+5C25 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+5C25 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+5C25 .<= ''
+5C25 .=> phpCAS::forceAuthentication() [index.php:18]
+5C25 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+5C25 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+5C25 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+5C25 .|    |    |    |    user = `flitot' [Client.php:1365]
+5C25 .|    |    |    <= true
+5C25 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+5C25 .|    |    <= true
+5C25 .|    |    no need to authenticate [Client.php:1085]
+5C25 .|    <= true
+5C25 .<= ''
+BCC9 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+BCC9 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+BCC9 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+BCC9 .|    |    Starting a new session [Client.php:792]
+BCC9 .|    <= ''
+BCC9 .<= ''
+BCC9 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+BCC9 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+BCC9 .<= ''
+BCC9 .=> phpCAS::forceAuthentication() [index.php:18]
+BCC9 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+BCC9 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+BCC9 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+BCC9 .|    |    |    |    user = `flitot' [Client.php:1365]
+BCC9 .|    |    |    <= true
+BCC9 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+BCC9 .|    |    <= true
+BCC9 .|    |    no need to authenticate [Client.php:1085]
+BCC9 .|    <= true
+BCC9 .<= ''
+4886 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+4886 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+4886 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+4886 .|    |    Starting a new session [Client.php:792]
+4886 .|    <= ''
+4886 .<= ''
+4886 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+4886 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+4886 .<= ''
+4886 .=> phpCAS::forceAuthentication() [index.php:18]
+4886 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+4886 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+4886 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+4886 .|    |    |    |    user = `flitot' [Client.php:1365]
+4886 .|    |    |    <= true
+4886 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+4886 .|    |    <= true
+4886 .|    |    no need to authenticate [Client.php:1085]
+4886 .|    <= true
+4886 .<= ''
+047D .START phpCAS-1.3.2 ****************** [CAS.php:450]
+047D .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+047D .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+047D .|    |    Starting a new session [Client.php:792]
+047D .|    <= ''
+047D .<= ''
+047D .=> phpCAS::setNoCasServerValidation() [index.php:15]
+047D .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+047D .<= ''
+047D .=> phpCAS::forceAuthentication() [index.php:18]
+047D .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+047D .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+047D .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+047D .|    |    |    |    user = `flitot' [Client.php:1365]
+047D .|    |    |    <= true
+047D .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+047D .|    |    <= true
+047D .|    |    no need to authenticate [Client.php:1085]
+047D .|    <= true
+047D .<= ''
+759E .START phpCAS-1.3.2 ****************** [CAS.php:450]
+759E .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+759E .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+759E .|    |    Starting a new session [Client.php:792]
+759E .|    |    Ticket 'ST-986200-KzUVglDpvueYxwz6ZdHi-cas.univ-fcomte.fr' found [Client.php:870]
+759E .|    <= ''
+759E .<= ''
+759E .=> phpCAS::setNoCasServerValidation() [index.php:15]
+759E .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+759E .<= ''
+759E .=> phpCAS::forceAuthentication() [index.php:18]
+759E .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+759E .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+759E .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+759E .|    |    |    |    user = `flitot' [Client.php:1365]
+759E .|    |    |    <= true
+759E .|    |    |    ticket was present and will be discarded, use renewAuthenticate() [Client.php:1192]
+759E .|    |    |    => CAS_Client::getURL() [Client.php:1194]
+759E .|    |    |    |    Final URI: http://localhost:8080/annuaire/ [Client.php:3071]
+759E .|    |    |    <= 'http://localhost:8080/annuaire/'
+759E .|    |    |    Prepare redirect to : http://localhost:8080/annuaire/ [Client.php:1194]
+759E .|    |    |    => CAS_Client::getURL() [Client.php:1195]
+759E .|    |    |    <= 'http://localhost:8080/annuaire/'
+759E .|    |    |    exit()
+759E .|    |    |    -
+759E .|    |    -
+759E .|    -
+4AFF .START phpCAS-1.3.2 ****************** [CAS.php:450]
+4AFF .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+4AFF .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+4AFF .|    |    Starting a new session [Client.php:792]
+4AFF .|    <= ''
+4AFF .<= ''
+4AFF .=> phpCAS::setNoCasServerValidation() [index.php:15]
+4AFF .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+4AFF .<= ''
+4AFF .=> phpCAS::forceAuthentication() [index.php:18]
+4AFF .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+4AFF .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+4AFF .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+4AFF .|    |    |    |    user = `flitot' [Client.php:1365]
+4AFF .|    |    |    <= true
+4AFF .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+4AFF .|    |    <= true
+4AFF .|    |    no need to authenticate [Client.php:1085]
+4AFF .|    <= true
+4AFF .<= ''
+B41B .START phpCAS-1.3.2 ****************** [CAS.php:450]
+B41B .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+B41B .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+B41B .|    |    Starting a new session [Client.php:792]
+B41B .|    <= ''
+B41B .<= ''
+B41B .=> phpCAS::setNoCasServerValidation() [index.php:15]
+B41B .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+B41B .<= ''
+B41B .=> phpCAS::forceAuthentication() [index.php:18]
+B41B .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+B41B .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+B41B .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+B41B .|    |    |    |    user = `flitot' [Client.php:1365]
+B41B .|    |    |    <= true
+B41B .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+B41B .|    |    <= true
+B41B .|    |    no need to authenticate [Client.php:1085]
+B41B .|    <= true
+B41B .<= ''
+1655 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+1655 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+1655 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+1655 .|    |    Starting a new session [Client.php:792]
+1655 .|    <= ''
+1655 .<= ''
+1655 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+1655 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+1655 .<= ''
+1655 .=> phpCAS::forceAuthentication() [index.php:18]
+1655 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+1655 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+1655 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+1655 .|    |    |    |    user = `flitot' [Client.php:1365]
+1655 .|    |    |    <= true
+1655 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+1655 .|    |    <= true
+1655 .|    |    no need to authenticate [Client.php:1085]
+1655 .|    <= true
+1655 .<= ''
+1947 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+1947 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+1947 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+1947 .|    |    Starting a new session [Client.php:792]
+1947 .|    <= ''
+1947 .<= ''
+1947 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+1947 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+1947 .<= ''
+1947 .=> phpCAS::forceAuthentication() [index.php:18]
+1947 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+1947 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+1947 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+1947 .|    |    |    |    no user found [Client.php:1375]
+1947 .|    |    |    <= false
+1947 .|    |    |    no ticket found [Client.php:1258]
+1947 .|    |    <= false
+1947 .|    |    => CAS_Client::redirectToCas(false) [Client.php:1092]
+1947 .|    |    |    => CAS_Client::getServerLoginURL(false, false) [Client.php:1396]
+1947 .|    |    |    |    => CAS_Client::getURL() [Client.php:328]
+1947 .|    |    |    |    |    Final URI: http://localhost:8080/annuaire/index.php [Client.php:3071]
+1947 .|    |    |    |    <= 'http://localhost:8080/annuaire/index.php'
+1947 .|    |    |    <= 'https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php'
+1947 .|    |    |    Redirect to : https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php [Client.php:1402]
+1947 .|    |    |    exit()
+1947 .|    |    |    -
+1947 .|    |    -
+1947 .|    -
+D9A0 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+D9A0 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+D9A0 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+D9A0 .|    |    Starting a new session [Client.php:792]
+D9A0 .|    |    Ticket 'ST-986249-N5MepIMTLqadNfIWuu1t-cas.univ-fcomte.fr' found [Client.php:870]
+D9A0 .|    <= ''
+D9A0 .<= ''
+D9A0 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+D9A0 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+D9A0 .<= ''
+D9A0 .=> phpCAS::forceAuthentication() [index.php:18]
+D9A0 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+D9A0 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+D9A0 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+D9A0 .|    |    |    |    no user found [Client.php:1375]
+D9A0 .|    |    |    <= false
+D9A0 .|    |    |    CAS 2.0 ticket `ST-986249-N5MepIMTLqadNfIWuu1t-cas.univ-fcomte.fr' is present [Client.php:1223]
+D9A0 .|    |    |    => CAS_Client::validateCAS20('', NULL, NULL) [Client.php:1224]
+D9A0 .|    |    |    |     [Client.php:2747]
+D9A0 .|    |    |    |    => CAS_Client::getServerServiceValidateURL() [Client.php:2753]
+D9A0 .|    |    |    |    |    => CAS_Client::getURL() [Client.php:417]
+D9A0 .|    |    |    |    |    |    Final URI: http://localhost:8080/annuaire/index.php [Client.php:3071]
+D9A0 .|    |    |    |    |    <= 'http://localhost:8080/annuaire/index.php'
+D9A0 .|    |    |    |    <= 'https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php'
+D9A0 .|    |    |    |    => CAS_Client::_readURL('https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php&ticket=ST-986249-N5MepIMTLqadNfIWuu1t-cas.univ-fcomte.fr', NULL, NULL, NULL) [Client.php:2762]
+D9A0 .|    |    |    |    |    => CAS_Request_CurlRequest::sendRequest() [AbstractRequest.php:220]
+D9A0 .|    |    |    |    |    |    Response Body: 
+D9A0 .|    |    |    |    |    |    <cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+D9A0 .|    |    |    |    |    |    	<cas:authenticationSuccess>
+D9A0 .|    |    |    |    |    |    		<cas:user>flitot</cas:user>
+D9A0 .|    |    |    |    |    |    
+D9A0 .|    |    |    |    |    |    
+D9A0 .|    |    |    |    |    |    	</cas:authenticationSuccess>
+D9A0 .|    |    |    |    |    |    </cas:serviceResponse>
+D9A0 .|    |    |    |    |    |     [CurlRequest.php:82]
+D9A0 .|    |    |    |    |    <= true
+D9A0 .|    |    |    |    <= true
+D9A0 .|    |    |    |    => CAS_Client::_readExtraAttributesCas20(DOMNodeList) [Client.php:2813]
+D9A0 .|    |    |    |    |    Testing for rubycas style attributes [Client.php:2923]
+D9A0 .|    |    |    |    <= ''
+D9A0 .|    |    |    |    Storing Proxy List [Client.php:2822]
+D9A0 .|    |    |    |    => CAS_ProxyChain_AllowedList::isProxyListAllowed(array ()) [Client.php:2825]
+D9A0 .|    |    |    |    |    No proxies were found in the response [AllowedList.php:81]
+D9A0 .|    |    |    |    <= true
+D9A0 .|    |    |    |    => CAS_Client::_renameSession('ST-986249-N5MepIMTLqadNfIWuu1t-cas.univ-fcomte.fr') [Client.php:2856]
+D9A0 .|    |    |    |    |    Session ID: ST-986249-N5MepIMTLqadNfIWuu1t-casuniv-fcomtefr [Client.php:3180]
+D9A0 .|    |    |    |    |    Restoring old session vars [Client.php:3183]
+D9A0 .|    |    |    |    <= ''
+D9A0 .|    |    |    <= true
+D9A0 .|    |    |    CAS 2.0 ticket `ST-986249-N5MepIMTLqadNfIWuu1t-cas.univ-fcomte.fr' was validated [Client.php:1225]
+D9A0 .|    |    |    => CAS_Client::getURL() [Client.php:1279]
+D9A0 .|    |    |    <= 'http://localhost:8080/annuaire/index.php'
+D9A0 .|    |    |    Prepare redirect to : http://localhost:8080/annuaire/index.php [Client.php:1279]
+D9A0 .|    |    |    => CAS_Client::getURL() [Client.php:1280]
+D9A0 .|    |    |    <= 'http://localhost:8080/annuaire/index.php'
+D9A0 .|    |    |    exit()
+D9A0 .|    |    |    -
+D9A0 .|    |    -
+D9A0 .|    -
+0847 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+0847 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+0847 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+0847 .|    |    Starting a new session [Client.php:792]
+0847 .|    <= ''
+0847 .<= ''
+0847 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+0847 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+0847 .<= ''
+0847 .=> phpCAS::forceAuthentication() [index.php:18]
+0847 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+0847 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+0847 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+0847 .|    |    |    |    user = `flitot' [Client.php:1365]
+0847 .|    |    |    <= true
+0847 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+0847 .|    |    <= true
+0847 .|    |    no need to authenticate [Client.php:1085]
+0847 .|    <= true
+0847 .<= ''
+B19D .START phpCAS-1.3.2 ****************** [CAS.php:450]
+B19D .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+B19D .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+B19D .|    |    Starting a new session [Client.php:792]
+B19D .|    <= ''
+B19D .<= ''
+B19D .=> phpCAS::setNoCasServerValidation() [index.php:15]
+B19D .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+B19D .<= ''
+B19D .=> phpCAS::forceAuthentication() [index.php:18]
+B19D .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+B19D .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+B19D .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+B19D .|    |    |    |    no user found [Client.php:1375]
+B19D .|    |    |    <= false
+B19D .|    |    |    no ticket found [Client.php:1258]
+B19D .|    |    <= false
+B19D .|    |    => CAS_Client::redirectToCas(false) [Client.php:1092]
+B19D .|    |    |    => CAS_Client::getServerLoginURL(false, false) [Client.php:1396]
+B19D .|    |    |    |    => CAS_Client::getURL() [Client.php:328]
+B19D .|    |    |    |    |    Final URI: http://localhost:8080/annuaire/index.php [Client.php:3071]
+B19D .|    |    |    |    <= 'http://localhost:8080/annuaire/index.php'
+B19D .|    |    |    <= 'https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php'
+B19D .|    |    |    Redirect to : https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php [Client.php:1402]
+B19D .|    |    |    exit()
+B19D .|    |    |    -
+B19D .|    |    -
+B19D .|    -
+502C .START phpCAS-1.3.2 ****************** [CAS.php:450]
+502C .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+502C .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+502C .|    |    Starting a new session [Client.php:792]
+502C .|    |    Ticket 'ST-986251-dYb6refSsuOnUheDmKtf-cas.univ-fcomte.fr' found [Client.php:870]
+502C .|    <= ''
+502C .<= ''
+502C .=> phpCAS::setNoCasServerValidation() [index.php:15]
+502C .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+502C .<= ''
+502C .=> phpCAS::forceAuthentication() [index.php:18]
+502C .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+502C .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+502C .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+502C .|    |    |    |    no user found [Client.php:1375]
+502C .|    |    |    <= false
+502C .|    |    |    CAS 2.0 ticket `ST-986251-dYb6refSsuOnUheDmKtf-cas.univ-fcomte.fr' is present [Client.php:1223]
+502C .|    |    |    => CAS_Client::validateCAS20('', NULL, NULL) [Client.php:1224]
+502C .|    |    |    |     [Client.php:2747]
+502C .|    |    |    |    => CAS_Client::getServerServiceValidateURL() [Client.php:2753]
+502C .|    |    |    |    |    => CAS_Client::getURL() [Client.php:417]
+502C .|    |    |    |    |    |    Final URI: http://localhost:8080/annuaire/index.php [Client.php:3071]
+502C .|    |    |    |    |    <= 'http://localhost:8080/annuaire/index.php'
+502C .|    |    |    |    <= 'https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php'
+502C .|    |    |    |    => CAS_Client::_readURL('https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php&ticket=ST-986251-dYb6refSsuOnUheDmKtf-cas.univ-fcomte.fr', NULL, NULL, NULL) [Client.php:2762]
+502C .|    |    |    |    |    => CAS_Request_CurlRequest::sendRequest() [AbstractRequest.php:220]
+502C .|    |    |    |    |    |    Response Body: 
+502C .|    |    |    |    |    |    <cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+502C .|    |    |    |    |    |    	<cas:authenticationSuccess>
+502C .|    |    |    |    |    |    		<cas:user>flitot</cas:user>
+502C .|    |    |    |    |    |    
+502C .|    |    |    |    |    |    
+502C .|    |    |    |    |    |    	</cas:authenticationSuccess>
+502C .|    |    |    |    |    |    </cas:serviceResponse>
+502C .|    |    |    |    |    |     [CurlRequest.php:82]
+502C .|    |    |    |    |    <= true
+502C .|    |    |    |    <= true
+502C .|    |    |    |    => CAS_Client::_readExtraAttributesCas20(DOMNodeList) [Client.php:2813]
+502C .|    |    |    |    |    Testing for rubycas style attributes [Client.php:2923]
+502C .|    |    |    |    <= ''
+502C .|    |    |    |    Storing Proxy List [Client.php:2822]
+502C .|    |    |    |    => CAS_ProxyChain_AllowedList::isProxyListAllowed(array ()) [Client.php:2825]
+502C .|    |    |    |    |    No proxies were found in the response [AllowedList.php:81]
+502C .|    |    |    |    <= true
+502C .|    |    |    |    => CAS_Client::_renameSession('ST-986251-dYb6refSsuOnUheDmKtf-cas.univ-fcomte.fr') [Client.php:2856]
+502C .|    |    |    |    |    Session ID: ST-986251-dYb6refSsuOnUheDmKtf-casuniv-fcomtefr [Client.php:3180]
+502C .|    |    |    |    |    Restoring old session vars [Client.php:3183]
+502C .|    |    |    |    <= ''
+502C .|    |    |    <= true
+502C .|    |    |    CAS 2.0 ticket `ST-986251-dYb6refSsuOnUheDmKtf-cas.univ-fcomte.fr' was validated [Client.php:1225]
+502C .|    |    |    => CAS_Client::getURL() [Client.php:1279]
+502C .|    |    |    <= 'http://localhost:8080/annuaire/index.php'
+502C .|    |    |    Prepare redirect to : http://localhost:8080/annuaire/index.php [Client.php:1279]
+502C .|    |    |    => CAS_Client::getURL() [Client.php:1280]
+502C .|    |    |    <= 'http://localhost:8080/annuaire/index.php'
+502C .|    |    |    exit()
+502C .|    |    |    -
+502C .|    |    -
+502C .|    -
+B191 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+B191 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+B191 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+B191 .|    |    Starting a new session [Client.php:792]
+B191 .|    <= ''
+B191 .<= ''
+B191 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+B191 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+B191 .<= ''
+B191 .=> phpCAS::forceAuthentication() [index.php:18]
+B191 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+B191 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+B191 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+B191 .|    |    |    |    user = `flitot' [Client.php:1365]
+B191 .|    |    |    <= true
+B191 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+B191 .|    |    <= true
+B191 .|    |    no need to authenticate [Client.php:1085]
+B191 .|    <= true
+B191 .<= ''
+1DA8 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+1DA8 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+1DA8 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+1DA8 .|    |    Starting a new session [Client.php:792]
+1DA8 .|    <= ''
+1DA8 .<= ''
+1DA8 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+1DA8 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+1DA8 .<= ''
+1DA8 .=> phpCAS::forceAuthentication() [index.php:18]
+1DA8 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+1DA8 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+1DA8 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+1DA8 .|    |    |    |    no user found [Client.php:1375]
+1DA8 .|    |    |    <= false
+1DA8 .|    |    |    no ticket found [Client.php:1258]
+1DA8 .|    |    <= false
+1DA8 .|    |    => CAS_Client::redirectToCas(false) [Client.php:1092]
+1DA8 .|    |    |    => CAS_Client::getServerLoginURL(false, false) [Client.php:1396]
+1DA8 .|    |    |    |    => CAS_Client::getURL() [Client.php:328]
+1DA8 .|    |    |    |    |    Final URI: http://localhost:8080/annuaire/index.php?mode=deconnection [Client.php:3071]
+1DA8 .|    |    |    |    <= 'http://localhost:8080/annuaire/index.php?mode=deconnection'
+1DA8 .|    |    |    <= 'https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php%3Fmode%3Ddeconnection'
+1DA8 .|    |    |    Redirect to : https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php%3Fmode%3Ddeconnection [Client.php:1402]
+1DA8 .|    |    |    exit()
+1DA8 .|    |    |    -
+1DA8 .|    |    -
+1DA8 .|    -
+2CDA .START phpCAS-1.3.2 ****************** [CAS.php:450]
+2CDA .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+2CDA .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+2CDA .|    |    Starting a new session [Client.php:792]
+2CDA .|    |    Ticket 'ST-986706-KseJ9s4nY7gYcgphYOSf-cas.univ-fcomte.fr' found [Client.php:870]
+2CDA .|    <= ''
+2CDA .<= ''
+2CDA .=> phpCAS::setNoCasServerValidation() [index.php:15]
+2CDA .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+2CDA .<= ''
+2CDA .=> phpCAS::forceAuthentication() [index.php:18]
+2CDA .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+2CDA .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+2CDA .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+2CDA .|    |    |    |    no user found [Client.php:1375]
+2CDA .|    |    |    <= false
+2CDA .|    |    |    CAS 2.0 ticket `ST-986706-KseJ9s4nY7gYcgphYOSf-cas.univ-fcomte.fr' is present [Client.php:1223]
+2CDA .|    |    |    => CAS_Client::validateCAS20('', NULL, NULL) [Client.php:1224]
+2CDA .|    |    |    |     [Client.php:2747]
+2CDA .|    |    |    |    => CAS_Client::getServerServiceValidateURL() [Client.php:2753]
+2CDA .|    |    |    |    |    => CAS_Client::getURL() [Client.php:417]
+2CDA .|    |    |    |    |    |    Final URI: http://localhost:8080/annuaire/index.php?mode=deconnection [Client.php:3071]
+2CDA .|    |    |    |    |    <= 'http://localhost:8080/annuaire/index.php?mode=deconnection'
+2CDA .|    |    |    |    <= 'https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php%3Fmode%3Ddeconnection'
+2CDA .|    |    |    |    => CAS_Client::_readURL('https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php%3Fmode%3Ddeconnection&ticket=ST-986706-KseJ9s4nY7gYcgphYOSf-cas.univ-fcomte.fr', NULL, NULL, NULL) [Client.php:2762]
+2CDA .|    |    |    |    |    => CAS_Request_CurlRequest::sendRequest() [AbstractRequest.php:220]
+2CDA .|    |    |    |    |    |    Response Body: 
+2CDA .|    |    |    |    |    |    <cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+2CDA .|    |    |    |    |    |    	<cas:authenticationSuccess>
+2CDA .|    |    |    |    |    |    		<cas:user>flitot</cas:user>
+2CDA .|    |    |    |    |    |    
+2CDA .|    |    |    |    |    |    
+2CDA .|    |    |    |    |    |    	</cas:authenticationSuccess>
+2CDA .|    |    |    |    |    |    </cas:serviceResponse>
+2CDA .|    |    |    |    |    |     [CurlRequest.php:82]
+2CDA .|    |    |    |    |    <= true
+2CDA .|    |    |    |    <= true
+2CDA .|    |    |    |    => CAS_Client::_readExtraAttributesCas20(DOMNodeList) [Client.php:2813]
+2CDA .|    |    |    |    |    Testing for rubycas style attributes [Client.php:2923]
+2CDA .|    |    |    |    <= ''
+2CDA .|    |    |    |    Storing Proxy List [Client.php:2822]
+2CDA .|    |    |    |    => CAS_ProxyChain_AllowedList::isProxyListAllowed(array ()) [Client.php:2825]
+2CDA .|    |    |    |    |    No proxies were found in the response [AllowedList.php:81]
+2CDA .|    |    |    |    <= true
+2CDA .|    |    |    |    => CAS_Client::_renameSession('ST-986706-KseJ9s4nY7gYcgphYOSf-cas.univ-fcomte.fr') [Client.php:2856]
+2CDA .|    |    |    |    |    Session ID: ST-986706-KseJ9s4nY7gYcgphYOSf-casuniv-fcomtefr [Client.php:3180]
+2CDA .|    |    |    |    |    Restoring old session vars [Client.php:3183]
+2CDA .|    |    |    |    <= ''
+2CDA .|    |    |    <= true
+2CDA .|    |    |    CAS 2.0 ticket `ST-986706-KseJ9s4nY7gYcgphYOSf-cas.univ-fcomte.fr' was validated [Client.php:1225]
+2CDA .|    |    |    => CAS_Client::getURL() [Client.php:1279]
+2CDA .|    |    |    <= 'http://localhost:8080/annuaire/index.php?mode=deconnection'
+2CDA .|    |    |    Prepare redirect to : http://localhost:8080/annuaire/index.php?mode=deconnection [Client.php:1279]
+2CDA .|    |    |    => CAS_Client::getURL() [Client.php:1280]
+2CDA .|    |    |    <= 'http://localhost:8080/annuaire/index.php?mode=deconnection'
+2CDA .|    |    |    exit()
+2CDA .|    |    |    -
+2CDA .|    |    -
+2CDA .|    -
+CF19 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+CF19 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+CF19 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+CF19 .|    |    Starting a new session [Client.php:792]
+CF19 .|    <= ''
+CF19 .<= ''
+CF19 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+CF19 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+CF19 .<= ''
+CF19 .=> phpCAS::forceAuthentication() [index.php:18]
+CF19 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+CF19 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+CF19 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+CF19 .|    |    |    |    user = `flitot' [Client.php:1365]
+CF19 .|    |    |    <= true
+CF19 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+CF19 .|    |    <= true
+CF19 .|    |    no need to authenticate [Client.php:1085]
+CF19 .|    <= true
+CF19 .<= ''
+0D42 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+0D42 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+0D42 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+0D42 .|    |    Starting a new session [Client.php:792]
+0D42 .|    <= ''
+0D42 .<= ''
+0D42 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+0D42 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+0D42 .<= ''
+0D42 .=> phpCAS::forceAuthentication() [index.php:18]
+0D42 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+0D42 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+0D42 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+0D42 .|    |    |    |    no user found [Client.php:1375]
+0D42 .|    |    |    <= false
+0D42 .|    |    |    no ticket found [Client.php:1258]
+0D42 .|    |    <= false
+0D42 .|    |    => CAS_Client::redirectToCas(false) [Client.php:1092]
+0D42 .|    |    |    => CAS_Client::getServerLoginURL(false, false) [Client.php:1396]
+0D42 .|    |    |    |    => CAS_Client::getURL() [Client.php:328]
+0D42 .|    |    |    |    |    Final URI: http://localhost:8080/annuaire/index.php?mode=deconnection [Client.php:3071]
+0D42 .|    |    |    |    <= 'http://localhost:8080/annuaire/index.php?mode=deconnection'
+0D42 .|    |    |    <= 'https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php%3Fmode%3Ddeconnection'
+0D42 .|    |    |    Redirect to : https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php%3Fmode%3Ddeconnection [Client.php:1402]
+0D42 .|    |    |    exit()
+0D42 .|    |    |    -
+0D42 .|    |    -
+0D42 .|    -
+778C .START phpCAS-1.3.2 ****************** [CAS.php:450]
+778C .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+778C .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+778C .|    |    Starting a new session [Client.php:792]
+778C .|    |    Ticket 'ST-986708-w096EiZGRzhO1yHWBAbA-cas.univ-fcomte.fr' found [Client.php:870]
+778C .|    <= ''
+778C .<= ''
+778C .=> phpCAS::setNoCasServerValidation() [index.php:15]
+778C .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+778C .<= ''
+778C .=> phpCAS::forceAuthentication() [index.php:18]
+778C .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+778C .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+778C .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+778C .|    |    |    |    no user found [Client.php:1375]
+778C .|    |    |    <= false
+778C .|    |    |    CAS 2.0 ticket `ST-986708-w096EiZGRzhO1yHWBAbA-cas.univ-fcomte.fr' is present [Client.php:1223]
+778C .|    |    |    => CAS_Client::validateCAS20('', NULL, NULL) [Client.php:1224]
+778C .|    |    |    |     [Client.php:2747]
+778C .|    |    |    |    => CAS_Client::getServerServiceValidateURL() [Client.php:2753]
+778C .|    |    |    |    |    => CAS_Client::getURL() [Client.php:417]
+778C .|    |    |    |    |    |    Final URI: http://localhost:8080/annuaire/index.php?mode=deconnection [Client.php:3071]
+778C .|    |    |    |    |    <= 'http://localhost:8080/annuaire/index.php?mode=deconnection'
+778C .|    |    |    |    <= 'https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php%3Fmode%3Ddeconnection'
+778C .|    |    |    |    => CAS_Client::_readURL('https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php%3Fmode%3Ddeconnection&ticket=ST-986708-w096EiZGRzhO1yHWBAbA-cas.univ-fcomte.fr', NULL, NULL, NULL) [Client.php:2762]
+778C .|    |    |    |    |    => CAS_Request_CurlRequest::sendRequest() [AbstractRequest.php:220]
+778C .|    |    |    |    |    |    Response Body: 
+778C .|    |    |    |    |    |    <cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+778C .|    |    |    |    |    |    	<cas:authenticationSuccess>
+778C .|    |    |    |    |    |    		<cas:user>flitot</cas:user>
+778C .|    |    |    |    |    |    
+778C .|    |    |    |    |    |    
+778C .|    |    |    |    |    |    	</cas:authenticationSuccess>
+778C .|    |    |    |    |    |    </cas:serviceResponse>
+778C .|    |    |    |    |    |     [CurlRequest.php:82]
+778C .|    |    |    |    |    <= true
+778C .|    |    |    |    <= true
+778C .|    |    |    |    => CAS_Client::_readExtraAttributesCas20(DOMNodeList) [Client.php:2813]
+778C .|    |    |    |    |    Testing for rubycas style attributes [Client.php:2923]
+778C .|    |    |    |    <= ''
+778C .|    |    |    |    Storing Proxy List [Client.php:2822]
+778C .|    |    |    |    => CAS_ProxyChain_AllowedList::isProxyListAllowed(array ()) [Client.php:2825]
+778C .|    |    |    |    |    No proxies were found in the response [AllowedList.php:81]
+778C .|    |    |    |    <= true
+778C .|    |    |    |    => CAS_Client::_renameSession('ST-986708-w096EiZGRzhO1yHWBAbA-cas.univ-fcomte.fr') [Client.php:2856]
+778C .|    |    |    |    |    Session ID: ST-986708-w096EiZGRzhO1yHWBAbA-casuniv-fcomtefr [Client.php:3180]
+778C .|    |    |    |    |    Restoring old session vars [Client.php:3183]
+778C .|    |    |    |    <= ''
+778C .|    |    |    <= true
+778C .|    |    |    CAS 2.0 ticket `ST-986708-w096EiZGRzhO1yHWBAbA-cas.univ-fcomte.fr' was validated [Client.php:1225]
+778C .|    |    |    => CAS_Client::getURL() [Client.php:1279]
+778C .|    |    |    <= 'http://localhost:8080/annuaire/index.php?mode=deconnection'
+778C .|    |    |    Prepare redirect to : http://localhost:8080/annuaire/index.php?mode=deconnection [Client.php:1279]
+778C .|    |    |    => CAS_Client::getURL() [Client.php:1280]
+778C .|    |    |    <= 'http://localhost:8080/annuaire/index.php?mode=deconnection'
+778C .|    |    |    exit()
+778C .|    |    |    -
+778C .|    |    -
+778C .|    -
+A99E .START phpCAS-1.3.2 ****************** [CAS.php:450]
+A99E .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+A99E .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+A99E .|    |    Starting a new session [Client.php:792]
+A99E .|    <= ''
+A99E .<= ''
+A99E .=> phpCAS::setNoCasServerValidation() [index.php:15]
+A99E .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+A99E .<= ''
+A99E .=> phpCAS::forceAuthentication() [index.php:18]
+A99E .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+A99E .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+A99E .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+A99E .|    |    |    |    user = `flitot' [Client.php:1365]
+A99E .|    |    |    <= true
+A99E .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+A99E .|    |    <= true
+A99E .|    |    no need to authenticate [Client.php:1085]
+A99E .|    <= true
+A99E .<= ''
+82FF .START phpCAS-1.3.2 ****************** [CAS.php:450]
+82FF .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+82FF .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+82FF .|    |    Starting a new session [Client.php:792]
+82FF .|    <= ''
+82FF .<= ''
+82FF .=> phpCAS::setNoCasServerValidation() [index.php:15]
+82FF .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+82FF .<= ''
+82FF .=> phpCAS::forceAuthentication() [index.php:18]
+82FF .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+82FF .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+82FF .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+82FF .|    |    |    |    no user found [Client.php:1375]
+82FF .|    |    |    <= false
+82FF .|    |    |    no ticket found [Client.php:1258]
+82FF .|    |    <= false
+82FF .|    |    => CAS_Client::redirectToCas(false) [Client.php:1092]
+82FF .|    |    |    => CAS_Client::getServerLoginURL(false, false) [Client.php:1396]
+82FF .|    |    |    |    => CAS_Client::getURL() [Client.php:328]
+82FF .|    |    |    |    |    Final URI: http://localhost:8080/annuaire/index.php?mode=deconnection [Client.php:3071]
+82FF .|    |    |    |    <= 'http://localhost:8080/annuaire/index.php?mode=deconnection'
+82FF .|    |    |    <= 'https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php%3Fmode%3Ddeconnection'
+82FF .|    |    |    Redirect to : https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php%3Fmode%3Ddeconnection [Client.php:1402]
+82FF .|    |    |    exit()
+82FF .|    |    |    -
+82FF .|    |    -
+82FF .|    -
+B12B .START phpCAS-1.3.2 ****************** [CAS.php:450]
+B12B .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+B12B .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+B12B .|    |    Starting a new session [Client.php:792]
+B12B .|    |    Ticket 'ST-986714-YRjtecMu0dpJCPDzYBB2-cas.univ-fcomte.fr' found [Client.php:870]
+B12B .|    <= ''
+B12B .<= ''
+B12B .=> phpCAS::setNoCasServerValidation() [index.php:15]
+B12B .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+B12B .<= ''
+B12B .=> phpCAS::forceAuthentication() [index.php:18]
+B12B .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+B12B .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+B12B .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+B12B .|    |    |    |    no user found [Client.php:1375]
+B12B .|    |    |    <= false
+B12B .|    |    |    CAS 2.0 ticket `ST-986714-YRjtecMu0dpJCPDzYBB2-cas.univ-fcomte.fr' is present [Client.php:1223]
+B12B .|    |    |    => CAS_Client::validateCAS20('', NULL, NULL) [Client.php:1224]
+B12B .|    |    |    |     [Client.php:2747]
+B12B .|    |    |    |    => CAS_Client::getServerServiceValidateURL() [Client.php:2753]
+B12B .|    |    |    |    |    => CAS_Client::getURL() [Client.php:417]
+B12B .|    |    |    |    |    |    Final URI: http://localhost:8080/annuaire/index.php?mode=deconnection [Client.php:3071]
+B12B .|    |    |    |    |    <= 'http://localhost:8080/annuaire/index.php?mode=deconnection'
+B12B .|    |    |    |    <= 'https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php%3Fmode%3Ddeconnection'
+B12B .|    |    |    |    => CAS_Client::_readURL('https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php%3Fmode%3Ddeconnection&ticket=ST-986714-YRjtecMu0dpJCPDzYBB2-cas.univ-fcomte.fr', NULL, NULL, NULL) [Client.php:2762]
+B12B .|    |    |    |    |    => CAS_Request_CurlRequest::sendRequest() [AbstractRequest.php:220]
+B12B .|    |    |    |    |    |    Response Body: 
+B12B .|    |    |    |    |    |    <cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+B12B .|    |    |    |    |    |    	<cas:authenticationSuccess>
+B12B .|    |    |    |    |    |    		<cas:user>flitot</cas:user>
+B12B .|    |    |    |    |    |    
+B12B .|    |    |    |    |    |    
+B12B .|    |    |    |    |    |    	</cas:authenticationSuccess>
+B12B .|    |    |    |    |    |    </cas:serviceResponse>
+B12B .|    |    |    |    |    |     [CurlRequest.php:82]
+B12B .|    |    |    |    |    <= true
+B12B .|    |    |    |    <= true
+B12B .|    |    |    |    => CAS_Client::_readExtraAttributesCas20(DOMNodeList) [Client.php:2813]
+B12B .|    |    |    |    |    Testing for rubycas style attributes [Client.php:2923]
+B12B .|    |    |    |    <= ''
+B12B .|    |    |    |    Storing Proxy List [Client.php:2822]
+B12B .|    |    |    |    => CAS_ProxyChain_AllowedList::isProxyListAllowed(array ()) [Client.php:2825]
+B12B .|    |    |    |    |    No proxies were found in the response [AllowedList.php:81]
+B12B .|    |    |    |    <= true
+B12B .|    |    |    |    => CAS_Client::_renameSession('ST-986714-YRjtecMu0dpJCPDzYBB2-cas.univ-fcomte.fr') [Client.php:2856]
+B12B .|    |    |    |    |    Session ID: ST-986714-YRjtecMu0dpJCPDzYBB2-casuniv-fcomtefr [Client.php:3180]
+B12B .|    |    |    |    |    Restoring old session vars [Client.php:3183]
+B12B .|    |    |    |    <= ''
+B12B .|    |    |    <= true
+B12B .|    |    |    CAS 2.0 ticket `ST-986714-YRjtecMu0dpJCPDzYBB2-cas.univ-fcomte.fr' was validated [Client.php:1225]
+B12B .|    |    |    => CAS_Client::getURL() [Client.php:1279]
+B12B .|    |    |    <= 'http://localhost:8080/annuaire/index.php?mode=deconnection'
+B12B .|    |    |    Prepare redirect to : http://localhost:8080/annuaire/index.php?mode=deconnection [Client.php:1279]
+B12B .|    |    |    => CAS_Client::getURL() [Client.php:1280]
+B12B .|    |    |    <= 'http://localhost:8080/annuaire/index.php?mode=deconnection'
+B12B .|    |    |    exit()
+B12B .|    |    |    -
+B12B .|    |    -
+B12B .|    -
+4B15 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+4B15 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:12]
+4B15 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+4B15 .|    |    Starting a new session [Client.php:792]
+4B15 .|    <= ''
+4B15 .<= ''
+4B15 .=> phpCAS::setNoCasServerValidation() [index.php:15]
+4B15 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+4B15 .<= ''
+4B15 .=> phpCAS::forceAuthentication() [index.php:18]
+4B15 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+4B15 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+4B15 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+4B15 .|    |    |    |    user = `flitot' [Client.php:1365]
+4B15 .|    |    |    <= true
+4B15 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+4B15 .|    |    <= true
+4B15 .|    |    no need to authenticate [Client.php:1085]
+4B15 .|    <= true
+4B15 .<= ''
+3E73 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+3E73 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:18]
+3E73 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+3E73 .|    |    Starting a new session [Client.php:792]
+3E73 .|    <= ''
+3E73 .<= ''
+3E73 .=> phpCAS::setNoCasServerValidation() [index.php:21]
+3E73 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+3E73 .<= ''
+3E73 .=> phpCAS::forceAuthentication() [index.php:24]
+3E73 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+3E73 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+3E73 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+3E73 .|    |    |    |    no user found [Client.php:1375]
+3E73 .|    |    |    <= false
+3E73 .|    |    |    no ticket found [Client.php:1258]
+3E73 .|    |    <= false
+3E73 .|    |    => CAS_Client::redirectToCas(false) [Client.php:1092]
+3E73 .|    |    |    => CAS_Client::getServerLoginURL(false, false) [Client.php:1396]
+3E73 .|    |    |    |    => CAS_Client::getURL() [Client.php:328]
+3E73 .|    |    |    |    |    Final URI: http://localhost:8080/annuaire/index.php [Client.php:3071]
+3E73 .|    |    |    |    <= 'http://localhost:8080/annuaire/index.php'
+3E73 .|    |    |    <= 'https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php'
+3E73 .|    |    |    Redirect to : https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php [Client.php:1402]
+3E73 .|    |    |    exit()
+3E73 .|    |    |    -
+3E73 .|    |    -
+3E73 .|    -
+2461 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+2461 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:18]
+2461 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+2461 .|    |    Starting a new session [Client.php:792]
+2461 .|    |    Ticket 'ST-986743-BUlLfFAtB9J3bocvepio-cas.univ-fcomte.fr' found [Client.php:870]
+2461 .|    <= ''
+2461 .<= ''
+2461 .=> phpCAS::setNoCasServerValidation() [index.php:21]
+2461 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+2461 .<= ''
+2461 .=> phpCAS::forceAuthentication() [index.php:24]
+2461 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+2461 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+2461 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+2461 .|    |    |    |    no user found [Client.php:1375]
+2461 .|    |    |    <= false
+2461 .|    |    |    CAS 2.0 ticket `ST-986743-BUlLfFAtB9J3bocvepio-cas.univ-fcomte.fr' is present [Client.php:1223]
+2461 .|    |    |    => CAS_Client::validateCAS20('', NULL, NULL) [Client.php:1224]
+2461 .|    |    |    |     [Client.php:2747]
+2461 .|    |    |    |    => CAS_Client::getServerServiceValidateURL() [Client.php:2753]
+2461 .|    |    |    |    |    => CAS_Client::getURL() [Client.php:417]
+2461 .|    |    |    |    |    |    Final URI: http://localhost:8080/annuaire/index.php [Client.php:3071]
+2461 .|    |    |    |    |    <= 'http://localhost:8080/annuaire/index.php'
+2461 .|    |    |    |    <= 'https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php'
+2461 .|    |    |    |    => CAS_Client::_readURL('https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2Findex.php&ticket=ST-986743-BUlLfFAtB9J3bocvepio-cas.univ-fcomte.fr', NULL, NULL, NULL) [Client.php:2762]
+2461 .|    |    |    |    |    => CAS_Request_CurlRequest::sendRequest() [AbstractRequest.php:220]
+2461 .|    |    |    |    |    |    Response Body: 
+2461 .|    |    |    |    |    |    <cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+2461 .|    |    |    |    |    |    	<cas:authenticationSuccess>
+2461 .|    |    |    |    |    |    		<cas:user>flitot</cas:user>
+2461 .|    |    |    |    |    |    
+2461 .|    |    |    |    |    |    
+2461 .|    |    |    |    |    |    	</cas:authenticationSuccess>
+2461 .|    |    |    |    |    |    </cas:serviceResponse>
+2461 .|    |    |    |    |    |     [CurlRequest.php:82]
+2461 .|    |    |    |    |    <= true
+2461 .|    |    |    |    <= true
+2461 .|    |    |    |    => CAS_Client::_readExtraAttributesCas20(DOMNodeList) [Client.php:2813]
+2461 .|    |    |    |    |    Testing for rubycas style attributes [Client.php:2923]
+2461 .|    |    |    |    <= ''
+2461 .|    |    |    |    Storing Proxy List [Client.php:2822]
+2461 .|    |    |    |    => CAS_ProxyChain_AllowedList::isProxyListAllowed(array ()) [Client.php:2825]
+2461 .|    |    |    |    |    No proxies were found in the response [AllowedList.php:81]
+2461 .|    |    |    |    <= true
+2461 .|    |    |    |    => CAS_Client::_renameSession('ST-986743-BUlLfFAtB9J3bocvepio-cas.univ-fcomte.fr') [Client.php:2856]
+2461 .|    |    |    |    |    Session ID: ST-986743-BUlLfFAtB9J3bocvepio-casuniv-fcomtefr [Client.php:3180]
+2461 .|    |    |    |    |    Restoring old session vars [Client.php:3183]
+2461 .|    |    |    |    <= ''
+2461 .|    |    |    <= true
+2461 .|    |    |    CAS 2.0 ticket `ST-986743-BUlLfFAtB9J3bocvepio-cas.univ-fcomte.fr' was validated [Client.php:1225]
+2461 .|    |    |    => CAS_Client::getURL() [Client.php:1279]
+2461 .|    |    |    <= 'http://localhost:8080/annuaire/index.php'
+2461 .|    |    |    Prepare redirect to : http://localhost:8080/annuaire/index.php [Client.php:1279]
+2461 .|    |    |    => CAS_Client::getURL() [Client.php:1280]
+2461 .|    |    |    <= 'http://localhost:8080/annuaire/index.php'
+2461 .|    |    |    exit()
+2461 .|    |    |    -
+2461 .|    |    -
+2461 .|    -
+F716 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+F716 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:18]
+F716 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+F716 .|    |    Starting a new session [Client.php:792]
+F716 .|    <= ''
+F716 .<= ''
+F716 .=> phpCAS::setNoCasServerValidation() [index.php:21]
+F716 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+F716 .<= ''
+F716 .=> phpCAS::forceAuthentication() [index.php:24]
+F716 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+F716 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+F716 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+F716 .|    |    |    |    user = `flitot' [Client.php:1365]
+F716 .|    |    |    <= true
+F716 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+F716 .|    |    <= true
+F716 .|    |    no need to authenticate [Client.php:1085]
+F716 .|    <= true
+F716 .<= ''
+2DC0 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+2DC0 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:18]
+2DC0 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+2DC0 .|    |    Starting a new session [Client.php:792]
+2DC0 .|    <= ''
+2DC0 .<= ''
+2DC0 .=> phpCAS::setNoCasServerValidation() [index.php:21]
+2DC0 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+2DC0 .<= ''
+2DC0 .=> phpCAS::forceAuthentication() [index.php:24]
+2DC0 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+2DC0 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+2DC0 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+2DC0 .|    |    |    |    user = `flitot' [Client.php:1365]
+2DC0 .|    |    |    <= true
+2DC0 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+2DC0 .|    |    <= true
+2DC0 .|    |    no need to authenticate [Client.php:1085]
+2DC0 .|    <= true
+2DC0 .<= ''
+E3DA .START phpCAS-1.3.2 ****************** [CAS.php:450]
+E3DA .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:18]
+E3DA .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+E3DA .|    |    Starting a new session [Client.php:792]
+E3DA .|    <= ''
+E3DA .<= ''
+E3DA .=> phpCAS::setNoCasServerValidation() [index.php:21]
+E3DA .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+E3DA .<= ''
+E3DA .=> phpCAS::forceAuthentication() [index.php:24]
+E3DA .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+E3DA .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+E3DA .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+E3DA .|    |    |    |    no user found [Client.php:1375]
+E3DA .|    |    |    <= false
+E3DA .|    |    |    no ticket found [Client.php:1258]
+E3DA .|    |    <= false
+E3DA .|    |    => CAS_Client::redirectToCas(false) [Client.php:1092]
+E3DA .|    |    |    => CAS_Client::getServerLoginURL(false, false) [Client.php:1396]
+E3DA .|    |    |    |    => CAS_Client::getURL() [Client.php:328]
+E3DA .|    |    |    |    |    Final URI: http://localhost:8080/annuaire/ [Client.php:3071]
+E3DA .|    |    |    |    <= 'http://localhost:8080/annuaire/'
+E3DA .|    |    |    <= 'https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2F'
+E3DA .|    |    |    Redirect to : https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2F [Client.php:1402]
+E3DA .|    |    |    exit()
+E3DA .|    |    |    -
+E3DA .|    |    -
+E3DA .|    -
+8763 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+8763 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:18]
+8763 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+8763 .|    |    Starting a new session [Client.php:792]
+8763 .|    |    Ticket 'ST-1002558-noafFsgCZ7aRGfwqozL9-cas.univ-fcomte.fr' found [Client.php:870]
+8763 .|    <= ''
+8763 .<= ''
+8763 .=> phpCAS::setNoCasServerValidation() [index.php:21]
+8763 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+8763 .<= ''
+8763 .=> phpCAS::forceAuthentication() [index.php:24]
+8763 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+8763 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+8763 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+8763 .|    |    |    |    no user found [Client.php:1375]
+8763 .|    |    |    <= false
+8763 .|    |    |    CAS 2.0 ticket `ST-1002558-noafFsgCZ7aRGfwqozL9-cas.univ-fcomte.fr' is present [Client.php:1223]
+8763 .|    |    |    => CAS_Client::validateCAS20('', NULL, NULL) [Client.php:1224]
+8763 .|    |    |    |     [Client.php:2747]
+8763 .|    |    |    |    => CAS_Client::getServerServiceValidateURL() [Client.php:2753]
+8763 .|    |    |    |    |    => CAS_Client::getURL() [Client.php:417]
+8763 .|    |    |    |    |    |    Final URI: http://localhost:8080/annuaire/ [Client.php:3071]
+8763 .|    |    |    |    |    <= 'http://localhost:8080/annuaire/'
+8763 .|    |    |    |    <= 'https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2F'
+8763 .|    |    |    |    => CAS_Client::_readURL('https://cas.univ-fcomte.fr/cas/serviceValidate?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2F&ticket=ST-1002558-noafFsgCZ7aRGfwqozL9-cas.univ-fcomte.fr', NULL, NULL, NULL) [Client.php:2762]
+8763 .|    |    |    |    |    => CAS_Request_CurlRequest::sendRequest() [AbstractRequest.php:220]
+8763 .|    |    |    |    |    |    Response Body: 
+8763 .|    |    |    |    |    |    <cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+8763 .|    |    |    |    |    |    	<cas:authenticationSuccess>
+8763 .|    |    |    |    |    |    		<cas:user>flitot</cas:user>
+8763 .|    |    |    |    |    |    
+8763 .|    |    |    |    |    |    
+8763 .|    |    |    |    |    |    	</cas:authenticationSuccess>
+8763 .|    |    |    |    |    |    </cas:serviceResponse>
+8763 .|    |    |    |    |    |     [CurlRequest.php:82]
+8763 .|    |    |    |    |    <= true
+8763 .|    |    |    |    <= true
+8763 .|    |    |    |    => CAS_Client::_readExtraAttributesCas20(DOMNodeList) [Client.php:2813]
+8763 .|    |    |    |    |    Testing for rubycas style attributes [Client.php:2923]
+8763 .|    |    |    |    <= ''
+8763 .|    |    |    |    Storing Proxy List [Client.php:2822]
+8763 .|    |    |    |    => CAS_ProxyChain_AllowedList::isProxyListAllowed(array ()) [Client.php:2825]
+8763 .|    |    |    |    |    No proxies were found in the response [AllowedList.php:81]
+8763 .|    |    |    |    <= true
+8763 .|    |    |    |    => CAS_Client::_renameSession('ST-1002558-noafFsgCZ7aRGfwqozL9-cas.univ-fcomte.fr') [Client.php:2856]
+8763 .|    |    |    |    |    Session ID: ST-1002558-noafFsgCZ7aRGfwqozL9-casuniv-fcomtefr [Client.php:3180]
+8763 .|    |    |    |    |    Restoring old session vars [Client.php:3183]
+8763 .|    |    |    |    <= ''
+8763 .|    |    |    <= true
+8763 .|    |    |    CAS 2.0 ticket `ST-1002558-noafFsgCZ7aRGfwqozL9-cas.univ-fcomte.fr' was validated [Client.php:1225]
+8763 .|    |    |    => CAS_Client::getURL() [Client.php:1279]
+8763 .|    |    |    <= 'http://localhost:8080/annuaire/'
+8763 .|    |    |    Prepare redirect to : http://localhost:8080/annuaire/ [Client.php:1279]
+8763 .|    |    |    => CAS_Client::getURL() [Client.php:1280]
+8763 .|    |    |    <= 'http://localhost:8080/annuaire/'
+8763 .|    |    |    exit()
+8763 .|    |    |    -
+8763 .|    |    -
+8763 .|    -
+966A .START phpCAS-1.3.2 ****************** [CAS.php:450]
+966A .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:18]
+966A .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+966A .|    |    Starting a new session [Client.php:792]
+966A .|    <= ''
+966A .<= ''
+966A .=> phpCAS::setNoCasServerValidation() [index.php:21]
+966A .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+966A .<= ''
+966A .=> phpCAS::forceAuthentication() [index.php:24]
+966A .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+966A .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+966A .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+966A .|    |    |    |    user = `flitot' [Client.php:1365]
+966A .|    |    |    <= true
+966A .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+966A .|    |    <= true
+966A .|    |    no need to authenticate [Client.php:1085]
+966A .|    <= true
+966A .<= ''
+2270 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+2270 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:18]
+2270 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+2270 .|    |    Starting a new session [Client.php:792]
+2270 .|    <= ''
+2270 .<= ''
+2270 .=> phpCAS::setNoCasServerValidation() [index.php:21]
+2270 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+2270 .<= ''
+2270 .=> phpCAS::forceAuthentication() [index.php:24]
+2270 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+2270 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+2270 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+2270 .|    |    |    |    user = `flitot' [Client.php:1365]
+2270 .|    |    |    <= true
+2270 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1206]
+2270 .|    |    <= true
+2270 .|    |    no need to authenticate [Client.php:1085]
+2270 .|    <= true
+2270 .<= ''
+1AB4 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+1AB4 .=> phpCAS::client('2.0', 'cas.univ-fcomte.fr', 443, '/cas') [index.php:18]
+1AB4 .|    => CAS_Client::__construct('2.0', false, 'cas.univ-fcomte.fr', 443, '/cas', true) [CAS.php:347]
+1AB4 .|    |    Starting a new session [Client.php:792]
+1AB4 .|    <= ''
+1AB4 .<= ''
+1AB4 .=> phpCAS::setNoCasServerValidation() [index.php:21]
+1AB4 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+1AB4 .<= ''
+1AB4 .=> phpCAS::forceAuthentication() [index.php:24]
+1AB4 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+1AB4 .|    |    => CAS_Client::isAuthenticated() [Client.php:1083]
+1AB4 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1189]
+1AB4 .|    |    |    |    no user found [Client.php:1375]
+1AB4 .|    |    |    <= false
+1AB4 .|    |    |    no ticket found [Client.php:1258]
+1AB4 .|    |    <= false
+1AB4 .|    |    => CAS_Client::redirectToCas(false) [Client.php:1092]
+1AB4 .|    |    |    => CAS_Client::getServerLoginURL(false, false) [Client.php:1396]
+1AB4 .|    |    |    |    => CAS_Client::getURL() [Client.php:328]
+1AB4 .|    |    |    |    |    Final URI: http://localhost:8080/annuaire/ [Client.php:3071]
+1AB4 .|    |    |    |    <= 'http://localhost:8080/annuaire/'
+1AB4 .|    |    |    <= 'https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2F'
+1AB4 .|    |    |    Redirect to : https://cas.univ-fcomte.fr/cas/login?service=http%3A%2F%2Flocalhost%3A8080%2Fannuaire%2F [Client.php:1402]
+1AB4 .|    |    |    exit()
+1AB4 .|    |    |    -
+1AB4 .|    |    -
+1AB4 .|    -

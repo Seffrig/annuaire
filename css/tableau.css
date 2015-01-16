@@ -1,0 +1,124 @@
+.Tableau span {
+   display:inline;
+   float:left;
+   border:1px solid #FF6600;
+   margin:0px;
+   padding:3px;
+   font-size: small;
+  }
+.Tableau p {
+   clear:left;
+   margin:0px;
+   padding:0px;
+   height:100% !important; height:1em;
+  }
+.Tableau p.legende {font-weight:bold}
+.Tableau span.col1 {width:150px}
+.Tableau span.col2 {width:150px}
+.Tableau span.col3 {width:320px}
+.Tableau span.col4 {width:150px}
+
+/**************************************************/
+/*                   tableau etablissements       */
+/**************************************************/
+
+
+#tableau_3_col p#legende {font-weight:bold;}
+#tableau_3_col span#col1 {width:250px;}
+#tableau_3_col span#col2 {width:250px;}
+#tableau_3_col span#col3 {width:250px;}
+
+
+#tableau_3_col span.fond_bleu {background-color:#BAE2E3;}
+#tableau_3_col span.fond_vert {background-color:#00CCCC;}
+#tableau_3_col span.fond_blanc {background-color:#FFFFFF;}
+#tableau_3_col span.pas_fond {}
+
+
+li#tableau_3_col span { 
+	display:table-cell;
+	border:0px solid #FF6600;
+	font-size: 14px;
+	margin:0px;
+	padding:3px;
+	/*width:130px;*/
+ }
+ 
+li#tableau_3_col { /*pour l'alignement des puces*/
+ list-style-image:none;
+ list-style-type:none;
+ background: url(pucegrise.gif) no-repeat 0% 50%;
+ padding-left:20px;
+ }
+ 
+/**************************************************/
+/*              tableau cotisation                */
+/**************************************************/
+
+
+#tableau_cotisations p#legende {font-weight:bold;}
+#tableau_cotisations span#col1 {width:80px;}
+#tableau_cotisations span#col2 {width:120px;}
+#tableau_cotisations span#col3 {width:80px;}
+#tableau_cotisations span#col4 {width:80px;}
+#tableau_cotisations span#col5 {width:60px;}
+#tableau_cotisations span#col6 {width:60px;}
+
+
+#tableau_cotisations span.fond_bleu {background-color:#BAE2E3;}
+#tableau_cotisations span.fond_vert {background-color:#00CCCC;}
+#tableau_cotisations span.fond_blanc {background-color:#FFFFFF;}
+#tableau_cotisations span.pas_fond {}
+
+
+li#tableau_cotisations span { 
+	display:table-cell;
+	border:1px solid #FF6600;
+	font-size: 14px;
+	margin:0px;
+	padding:3px;
+	/*width:130px;*/
+ }
+ 
+li#tableau_cotisations { /*pour l'alignement des puces*/
+ list-style-image:none;
+ list-style-type:none;
+ background: url(pucegrise.gif) no-repeat 0% 50%;
+ padding-left:20px;
+ }
+ 
+ /**************************************************/
+/*              tableau cotisation total          */
+/**************************************************/
+
+
+#tableau_cotisations_total p#legende {font-weight:bold;}
+#tableau_cotisations_total span#col1 {width:140px;}
+#tableau_cotisations_total span#col2 {width:140px;}
+#tableau_cotisations_total span#col3 {width:80px;}
+#tableau_cotisations_total span#col4 {width:80px;}
+#tableau_cotisations_total span#col5 {width:80px;}
+#tableau_cotisations_total span#col6 {width:80px;}
+
+
+#tableau_cotisations_total span.fond_bleu {background-color:#BAE2E3;}
+#tableau_cotisations_total span.fond_vert {background-color:#00CCCC;}
+#tableau_cotisations_total span.fond_blanc {background-color:#FFFFFF;}
+#tableau_cotisations_total span.pas_fond {}
+
+
+li#tableau_cotisations_total span { 
+	display:table-cell;
+	border:1px solid #FF6600;
+	font-size: 14px;
+	margin:0px;
+	padding:3px;
+	/*width:130px;*/
+ }
+ 
+li#tableau_cotisations_total { /*pour l'alignement des puces*/
+ list-style-image:none;
+ list-style-type:none;
+ background: url(pucegrise.gif) no-repeat 0% 50%;
+ padding-left:20px;
+ }
