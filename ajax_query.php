@@ -12,12 +12,15 @@ include("commun/connexion_db.php");
 
 if( isset( $_REQUEST['query'] ) && $_REQUEST['query'] != "" )
 {
+	$q_ss_cas = "lower('" . $q . "')";
+
 	$q = pg_escape_string ($_REQUEST['query'] );
 
 	// pour la recherche des logins
 	if( isset( $_REQUEST['identifier'] ) && $_REQUEST['identifier'] == "login")
     {
-		$sql = "SELECT * FROM utilisateur where position('$q' IN login) > 0 order by position ('$q' IN login), login ";
+
+		$sql = "SELECT * FROM utilisateur where position(". $q_ss_cas ." IN lower(login)) > 0 order by position (". $q_ss_cas ."  IN lower(login)), lower(login) ";
 
 		$r = pg_query($dbconn, $sql);
 		if ( $r )
