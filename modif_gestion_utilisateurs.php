@@ -44,11 +44,13 @@ include "templates/menu.php";
 	<br><br>
 	<?php  
 	//trouve_a_modifier($table, $champ, $libelle_rech)
-	$id_rech = trouve_a_modifier_LIKE('utilisateur','login',$_GET['login'], 'login');
+	$id_rech ='';
+	
+	if (isset($_GET['login']))
+		$id_rech = trouve_a_modifier_LIKE('utilisateur','login',$_GET['login'], 'login');
+	
 	if ($id_rech != '')
-	{
 		$_GET['id_rech'] = $id_rech;
-	}
 
 	?>					
 	<!--- FORMULAIRE DE RECHERCHE -->

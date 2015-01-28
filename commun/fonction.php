@@ -200,7 +200,7 @@ function affichage_colonne($id, $champ, $table, $page_modif, $page_sup)
 	{
 		$lettreCourante = strtoupper($row[0][0]);
 		
-		if(stripos($row[1] ,chr(65+i)) == 0 && $j == 0 && $lettreCourante != $lettreprec ){  //si lettre A en 1er puis B en 1er puis ...
+		if(stripos($row[1] ,chr(65+$i)) == 0 && $j == 0 && $lettreCourante != $lettreprec ){  //si lettre A en 1er puis B en 1er puis ...
 			$j=1;
 			if($lettreCourante > chr(68)){
 				echo "</div></div>";
@@ -237,11 +237,6 @@ function affichage_colonne($id, $champ, $table, $page_modif, $page_sup)
 		onclick="if(confirm('Cette suppression est définitive. Confirmez-vous?')){
 		 window.location.href='<?php echo $page_sup;?>?type_modif=supp&id_rech=<?php echo $row[0];?>';
 		}">
-		
-		
-		
-
-		
 		
 		<?php
 
@@ -406,27 +401,39 @@ function removeaccents($string)
 /* ******************************* */
 /* affichage des tableaux requêtes */
 /* ******************************* */
-function genere_test_caractere ($condition, $champ) {
-	if($_POST["$champ"] != "")
+function genere_test_caractere ($condition, $champ)
+{
+	if (isset($_POST["$champ"])) 
+		$ch = $_POST["$champ"];
+	else
+		$ch ="";
+	if($ch != "")
 	{
 		if ($condition != "")	
 		{
 			$condition = $condition ."AND ";
 		}
-		$condition = $condition ." $champ ILIKE '%".$_POST["$champ"]."%' ";
+		$condition = $condition ." $champ ILIKE '%".$ch."%' ";
 	} 	
 	return $condition;
+	
 } 
 
-function genere_test_nombre ($condition, $champ) {
-	if($_POST["$champ"] != "")
+function genere_test_nombre ($condition, $champ)
+ {
+	if (isset($_POST["$champ"])) 
+		$ch = $_POST["$champ"];
+	else
+		$ch ="";
+
+	if($ch != "")
 	{
 		// ilike ne fonctionne pas avec les nombres
 		if ($condition != "")	
 		{
 			$condition = $condition ."AND ";
 		}
-		$condition = $condition ." $champ = '".$_POST["$champ"]."'";
+		$condition = $condition ." $champ = '".$ch."'";
 	} 	
 	return $condition;
 } 

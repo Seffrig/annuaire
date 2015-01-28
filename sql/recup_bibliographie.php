@@ -393,6 +393,8 @@ function affichage_publications($id_personne, $nb_publications_afficher)
 		
 		echo " <a href='formulaire_modifier_bibliographie.php?type_modif=modif&id_publi=" . $id_publi . "&id_type_publi=" . $id_type_publi . "'><img width='12px' src='images/button_edit.png' ></a> -  ";
 		echo " <a href=\"javascript: if (confirm('Cette suppression est définitive. Confirmez-vous?')) { window.location.href='script_bibliographie.php?type_modif=supp&id_publi=" . $id_publi . "' } else { void('') }; \"> <img width='16px' src='images/croixsupprimer.gif' ></a> ";
+		echo " <a href='publication_PDF.php?id_publi=" . $id_publi . "'><img width='12px' src='images/pdf_logo.jpg' ></a> -  ";
+		
 		if ($selectionner_ordre == 1) {echo 'Choisi';}
 		echo '<br><br>';	
 

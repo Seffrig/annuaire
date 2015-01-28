@@ -22,7 +22,11 @@ include "templates/menu.php";
 // vérifie les droits pour la page
 $page="recherche";
 include("verification_droit.php");	
+
+include ("sql/recup_personne.php"); 
+
 ?>
+
 
 <form action="recherche_resultat.php" name="formulaire" id="formulaire" method="post">
 	<div class="panelRecherche">
@@ -34,7 +38,8 @@ include("verification_droit.php");
 			<label for="nom">Nom :</label>  <input type="text" maxlength="30" name="nom" id="nom" /><br>
 			<label for="nom">Prénom :</label> <input type="text" maxlength="30 "name="prenom" id="prenom" /><br>
 			<?php
-			select_ordre ('Corps', 'id_corps','corps', 'libelle', $old_id_corps );	
+			//select_ordre ('Corps', 'id_corps','corps', 'libelle', $old_id_corps );	
+			select_ordre ('Corps', 'id_corps','corps', 'libelle', "unused" );	
 			?>
 			&nbsp; 
 			<?php  
@@ -99,7 +104,7 @@ include("verification_droit.php");
 		</div>
 		<div class="panel-body">
 			<?php 
-			$nom_etabl_principal!= '';
+			//$nom_etabl_principal!= '';
 			include("formulaire_personne_etablissement.php"); 
 			?>
 		</div>	

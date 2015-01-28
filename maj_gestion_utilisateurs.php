@@ -10,31 +10,42 @@ include("commun/connexion_db.php");
 $today = date("j-n-Y à H:i:s");   
 $now =time();
 
+$id_rech = '';
+$login_cree = '';	
+$id_utilisateur = '';
+$id_type = 0;
+$pass_cree = '';
+
 // récupération du formulaire
-$id_rech = $_GET['id_rech'];
-$login_cree = pg_escape_string($_POST[login_cree]);	
-$id_utilisateur = pg_escape_string($_POST[id_utilisateur]);
-$id_type = pg_escape_string($_POST[id_type]);if ($_POST[id_type] == '') {$id_type = 0;}
+if(isset($_GET['id_rech']))
+	$id_rech = $_GET['id_rech'];
+
+if(isset($_POST['login_cree']))
+	$login_cree = pg_escape_string($_POST['login_cree']);	
+
+if(isset($_POST['id_utilisateur']))
+	$id_utilisateur = pg_escape_string($_POST['id_utilisateur']);
+
+if(isset($_POST['id_type']))
+	$id_type = pg_escape_string($_POST['id_type']);
 
 //traitement login
-$login_sans_accent = removeaccents($_POST[login_cree]);
+$login_sans_accent = removeaccents($login_cree);
 $login_sans_accent_maj = strtoupper($login_sans_accent);
 
 // traitement mot de passe
-$pass_cree = pg_escape_string($_POST[pass_cree]);
+if(isset($_POST['pass_cree']))
+	$pass_cree = pg_escape_string($_POST['pass_cree']);
 $mdp = htmlentities($pass_cree, ENT_QUOTES);
 $password_md5 = md5($mdp);
 
 // cas de l'ajout
-if ($_GET['type_modif'] == 'ajout')
+if ($_GET['type_modif'] == 'ajout' && $login_sans_accent_maj != '' && $pass_cree != ''  )
 { 
-	if(isset($_POST[login_cree]) && isset($_POST[pass_cree]) ) 
-	{		
-		$result = pg_query ($dbconn, "INSERT INTO utilisateur (login, pass, id_type) 
-									VALUES ('".$login_sans_accent_maj ."', '".$password_md5 ."', ".$id_type.") RETURNING login");
-		$insert_row = pg_fetch_row($result);
-		$id_rech = $insert_row[0];
-	}	
+	$result = pg_query ($dbconn, "INSERT INTO utilisateur (login, pass, id_type) 
+								VALUES ('".$login_sans_accent_maj ."', '".$password_md5 ."', ".$id_type.") RETURNING login");
+	$insert_row = pg_fetch_row($result);
+	$id_rech = $insert_row[0];	
 }
 
 // cas de suppression

@@ -16,6 +16,30 @@ include("commun/connexion_db.php");
 
 //menu
 include "templates/menu.php";
+$old_id_personne="";
+$old_titre_communication="";
+$old_titre_journal="";
+$old_auteur_sec="";
+$old_revue_volume="";
+$old_revue_fascicule="";
+$old_titre_ouvrage="";
+$old_editeur="";
+$old_editeur_ville="";
+$old_collection="";
+$old_url="";
+$old_page_deb="";
+$old_page_fin="";
+$old_nb_pages="";
+$old_date_conf="";
+$old_date_publi="";
+$old_id_pays_conf="";
+$old_id_langue="";
+$old_audience="";
+$old_etablissement="";
+$old_directeur="";
+$old_id_type_these="";
+$old_observation="";
+$old_selectionner_ordre="";
 
 ?>
 

@@ -50,8 +50,9 @@ $annee_actuel = date ('Y');
 				$nom_personne = $personne_row[1];
 				$prenom_personne = $personne_row[2];
 				if($nom_personne != ""){
-				echo '<td>'. $nom_personne .'</td>';	
+				echo "<td><a href='gestion_cotisations_personne.php?id_cotisant=".$id_personne."'>". $nom_personne ."</a></td>";	
 				echo '<td>'. $prenom_personne .'</td>';	
+			
 				$i=0;
 
 					while ($i<4) 

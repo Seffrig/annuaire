@@ -17,73 +17,89 @@ include("commun/connexion_db.php");
 //menu
 include "templates/menu.php";
 
-?>
-
-<?php
 $page='these';
 include("verification_droit.php");	// test si on a les droits sur la page si non deconnexion
 
 include("sql/recup_theses.php");			
-?>
 
-<?php
-	$id_personne = $_SESSION['id_personne'];
+
+
+$id_personne = $_SESSION['id_personne'];
+
 	// affichage des thèses 
-	affichage_theses($id_personne);	
+affichage_theses($id_personne);	
 	
 
 	$id_publi='';
-	// ajout 
-	if ($_GET['type_modif'] == 'ajout')
+
+	$old_id_publi = "";		
+	$old_titre_ouvrage = "";
+	$old_etablissement = "";
+	$old_directeur = "";
+	$old_nb_pages = "";
+	$old_date_publi = "";	
+	$old_date_conf = "";	
+	$old_url = "";	
+	$old_id_pays_conf = "";	
+	$old_id_langue = "";	
+	$old_observation = "";	
+	$old_id_type_these = "";
+	$old_libelle_these = "";
+	if (isset($_GET['type_modif'])) 
 	{
+		// ajout 
+		if ($_GET['type_modif'] == 'ajout')
+		{
 		?>
-		<div class="panel panel-info">
-		<div class="panel-heading">
+			<div class="panel panel-info">
+			<div class="panel-heading">
     		<h2 class="panel-title">Ajout d'une thèse</h2>
-  		</div>
-  		<div class="panel-body">
-  		<?php
-		echo "<form action='script_these.php?type_modif=ajout' onsubmit='return check_valider_these()' name='form_these' method='post'  >";
-	}
-	// modification
-	else if ($_GET['type_modif'] == 'modif')
-	{	
-		$id_publi = $_GET['id_publi'];
+  			</div>
+  			<div class="panel-body">
+  			<?php
+			echo "<form action='script_these.php?type_modif=ajout' onsubmit='return check_valider_these()' name='form_these' method='post'  >";
+		}
+		// modification
+		else if ($_GET['type_modif'] == 'modif')
+		{	
+			$id_publi = $_GET['id_publi'];
 
 		?>
-		<div class="panel panel-info">
-		<div class="panel-heading">
-    		<h2 class="panel-title">Modification d'une thèse</h2>
-  		</div>
-  		<div class="panel-body">
+			<div class="panel panel-info">
+			<div class="panel-heading">
+    			<h2 class="panel-title">Modification d'une thèse</h2>
+  			</div>
+  			<div class="panel-body">
   		<?php
-		echo "<form action='script_these.php?type_modif=modif' onsubmit='return check_valider_these()' name='form_these' method='post'  >";
+			echo "<form action='script_these.php?type_modif=modif' onsubmit='return check_valider_these()' name='form_these' method='post'  >";
 
-		$result_these = pg_query("SELECT  id, titre_ouvrage, etablissement, directeur, nb_pages, date_publi, 
-										date_conf, url, id_pays_conf, id_langue, observation, id_type_these
-									FROM publication 
-									WHERE  id_personne = ".$id_personne."
-									AND id = ". $id_publi ."
-									AND visible='true' 
-									AND id_type = 0 ");	
+			$result_these = pg_query("SELECT  id, titre_ouvrage, etablissement, directeur, nb_pages, date_publi, 
+											date_conf, url, id_pays_conf, id_langue, observation, id_type_these
+										FROM publication 
+										WHERE  id_personne = ".$id_personne."
+										AND id = ". $id_publi ."
+										AND visible='true' 
+										AND id_type = 0 ");	
 										
 		
-		$row_publications_theses = pg_fetch_row($result_these);
-		// on stock les informations de la publication enregistrée
+			$row_publications_theses = pg_fetch_row($result_these);
+			// on stock les informations de la publication enregistrée
 		
-		$old_id_publi = $row_publications_theses[0];		
-		$old_titre_ouvrage = $row_publications_theses[1];
-		$old_etablissement = $row_publications_theses[2];
-		$old_directeur = $row_publications_theses[3];
-		$old_nb_pages = $row_publications_theses[4];
-		$old_date_publi = $row_publications_theses[5];	
-		$old_date_conf = $row_publications_theses[6];	
-		$old_url = $row_publications_theses[7];	
-		$old_id_pays_conf = $row_publications_theses[8];	
-		$old_id_langue = $row_publications_theses[9];	
-		$old_observation = $row_publications_theses[10];	
-		$old_id_type_these = $row_publications_theses[11];
-		$old_libelle_these = $row_publications_theses[12];
+			$old_id_publi = $row_publications_theses[0];		
+			$old_titre_ouvrage = $row_publications_theses[1];
+			$old_etablissement = $row_publications_theses[2];
+			$old_directeur = $row_publications_theses[3];
+			$old_nb_pages = $row_publications_theses[4];
+			$old_date_publi = $row_publications_theses[5];	
+			$old_date_conf = $row_publications_theses[6];	
+			$old_url = $row_publications_theses[7];	
+			$old_id_pays_conf = $row_publications_theses[8];	
+			$old_id_langue = $row_publications_theses[9];	
+			$old_observation = $row_publications_theses[10];	
+			$old_id_type_these = $row_publications_theses[11];
+			$old_libelle_these = $row_publications_theses[12];
+		}
+
 	}
 
 	echo '<fieldset>';

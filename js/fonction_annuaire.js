@@ -1,6 +1,8 @@
 function DivStatus( nom, numero )
 		{
+			
 			var divID = nom + numero;
+			//alert(divID);
 			if ( document.getElementById && document.getElementById( divID ) ) // Pour les navigateurs récents
 				{
 					Pdiv = document.getElementById( divID );
@@ -149,3 +151,23 @@ function DivStatus( nom, numero )
 						}
 				}
 		}
+
+
+function hideshow(obj){
+	var nom = obj;
+	alert(nom);
+if (document.getElementById(nom).style.display =='none'){
+	alert("ici");
+	document.getElementById(nom).style.display = 'block';
+}
+if(document.getElementById(nom).style.display == 'block'){
+	alert("la");
+	document.getElementById(nom).style.display = 'none';
+}
+
+}
+
+function show(){
+	
+	document.getElementById('tabAjout').style.display = 'block';
+}

@@ -12,9 +12,9 @@ include("commun/connexion_db.php");
 
 if( isset( $_REQUEST['query'] ) && $_REQUEST['query'] != "" )
 {
-	$q_ss_cas = "lower('" . $q . "')";
 
 	$q = pg_escape_string ($_REQUEST['query'] );
+	$q_ss_cas = "lower('" . $q . "')";
 
 	// pour la recherche des logins
 	if( isset( $_REQUEST['identifier'] ) && $_REQUEST['identifier'] == "login")

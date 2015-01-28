@@ -7,6 +7,11 @@ $compte = substr_count ($monUrl,"compte" );
 $these = substr_count ($monUrl,"these" );
 $bibliographie = substr_count ($monUrl,"bibliographie" );
 $gestion = substr_count ($monUrl,"gestion" );
+$activeR = "";
+$activeC = "";
+$activeT = "";
+$activeB = "";
+$activeG = "";
 if($recherche >= 1){
   $activeR = "active";
 }
@@ -52,13 +57,8 @@ if($_SESSION['type_user'] == 2){
   <div id="bandeau">
   <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
     <ul class="nav navbar-nav">
-      <li class="dropdown <?php echo $activeG ?>">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gestion<span class="caret"></span></a>
-        <ul class="dropdown-menu" role="menu">
-          <li><a href="gestion_cotisations.php">Gestion des cotisations</a></li>
-        </ul>
-      </li>
-      <li ><a href="deconnexion.php">Deconnexion</a></li> 
+       <li><a href="gestion_cotisations.php">Gestion des cotisations</a></li>
+       <li  ><a style="margin-left: 78%;" href="deconnexion.php">Deconnexion</a></li> 
     </ul>
   </nav>
 </div>

@@ -47,6 +47,8 @@ include "templates/menu.php";
 	$condition=genere_test_caractere($condition, 'courriel_perso');
 	$condition=genere_test_caractere($condition, 'revue');
 	$condition=genere_test_caractere($condition, 'courrier');
+	//echo $condition;
+
 	?>
 
 	<table style='background-color:white' class="table table-bordered table-hover">
@@ -59,7 +61,7 @@ include "templates/menu.php";
 	  	<tr>
 		<?php
 
-			$result = pg_query("SELECT id, nom, prenom, id_etabl_princ FROM personne WHERE $condition ORDER BY nom");			
+			$result = pg_query("SELECT id, nom, prenom, id_etabl_princ FROM personne WHERE ".$condition ." ORDER BY nom");			
 			while ($rech = pg_fetch_row($result)) 
 			{ 
 				$id_rech=$rech[0];

@@ -2,7 +2,7 @@
 	// connexion à la base
 //$dbconn = pg_connect("host=localhost dbname=annuaire user=postgres password=localhost"); 
 //$dbconn = pg_connect("host=localhost dbname=annuaire user=elodie password=once-123"); 
-$dbconn = pg_connect("host=localhost dbname=annuaire user=benoit password=postgresql"); 
+$dbconn = pg_connect("host=localhost dbname=annuaire user=Benoit password=postgresql"); 
 if (!$dbconn) 
 {  
 	echo "Une erreur s'est produite au chargement de la database.\n";  

@@ -5,56 +5,81 @@ $id_personne=$_SESSION['id_personne'];
 
 if ($id_personne != 0) 
 {	
-	$result_personne = pg_query("SELECT  id, id_titre, nom, prenom, id_corps,
-										code_postal_pro, localite_pro, num_rue_pro, nom_rue_pro, complement_pro, 
-										code_postal_perso, localite_perso, num_rue_perso, nom_rue_perso, complement_perso,
-										tel_pro, tel_perso, courriel_pro, courriel_perso, revue,
-										courrier ,id_pays_pro, id_pays_perso, commentaire, id_etabl_princ, id_etabl_sec, id_equipe_princ,
-										dernier_paiement, id_type_personne, abonnement_revue, debut_coti, visible_email_perso, page_pro
+	$result_personne = pg_query("SELECT  id,  id_titre,  nom,  prenom,  id_corps,  localite_perso,  	
+								complement_perso,  id_type_personne,  nom_rue_perso,  
+								debut_coti,  courriel_perso,  courriel_pro,  	tel_perso,  
+								tel_pro,  date_suppression,  code_postal_pro,  localite_pro,  
+								nom_rue_pro,  complement_pro,  code_postal_perso,  	
+								num_rue_pro,  num_rue_perso,  dernier_paiement,  id_pays_pro,  	
+								id_pays_perso,  revue,  courrier,  abonnement_revue,  	
+								commentaire,  id_etabl_princ,  	id_etabl_sec,  id_equipe_princ,  	
+								visible,  visible_email_perso,  page_pro
 								FROM personne 
 								WHERE id='". $id_personne ."'				
 								");	
 		
 	while ($personne = pg_fetch_row($result_personne)) 
 	{ 
-		$id_personne=$personne[0];
-		$id_titre=$personne[1];
-		$nom=$personne[2];
-		$prenom=$personne[3];
-		$id_corps=$personne[4];	
-		$code_postal_pro=$personne[5];
-		$localite_pro=$personne[6];
-		$num_rue_pro=$personne[7];
-		$nom_rue_pro=$personne[8];
-		$complement_pro=$personne[9];	
-		$code_postal_perso=$personne[10];
-		$localite_perso=$personne[11];
-		$num_rue_perso=$personne[12];
-		$nom_rue_perso=$personne[13];
-		$complement_perso=$personne[14];
-		$tel_pro=$personne[15];
-		$tel_perso=$personne[16];
-		$courriel_pro=$personne[17];
-		$courriel_perso=$personne[18];
-		$revue=$personne[19];
-		$courrier=$personne[20];
-		$id_pays_pro=$personne[21];
-		$id_pays_perso=$personne[22];
-		$commentaire=$personne[23];
-		$id_etabl_princ=$personne[24];
-		$id_etabl_sec=$personne[25];
-		$id_equipe_princ=$personne[26];
-		$dernier_paiement=$personne[27];
-		$id_type_personne=$personne[28];
-		$abonnement_revue=$personne[29];
-		$date_debut_coti=$personne[30];
-		$visible_email_perso=$personne[31];
-		$page_pro=$personne[32];
-		
+		$id = $personne[0];
+		$id_titre = $personne[1];
+		$nom = $personne[2];
+		$prenom = $personne[3];
+		$id_corps = $personne[4];
+		$localite_perso = $personne[5];
+
+		$complement_perso = $personne[6];
+  		$id_type_personne = $personne[7];
+  		$nom_rue_perso = $personne[8];
+		$debut_coti = $personne[9];
+  		$courriel_perso = $personne[10];
+
+  		$courriel_pro = $personne[11];
+  		$tel_perso = $personne[12];
+		$tel_pro = $personne[13];
+  		$date_suppression = $personne[14];
+  		$code_postal_pro = $personne[15];
+
+  		$localite_pro = $personne[16];
+		$nom_rue_pro = $personne[17];
+  		$complement_pro = $personne[18];
+  		$code_postal_perso = $personne[19];
+		$num_rue_pro = $personne[20];
+
+  		$num_rue_perso = $personne[21];
+  		$dernier_paiement = $personne[22];
+  		$id_pays_pro = $personne[23];
+		$id_pays_perso = $personne[24];
+  		$revue = $personne[25];
+  		
+  		$courrier = $personne[26];
+  		$abonnement_revue = $personne[27];
+		$commentaire = $personne[28];
+  		$id_etabl_princ = $personne[29];
+  		$id_etabl_sec = $personne[30];
+
+  		$id_equipe_princ = $personne[31];
+		$visible = $personne[32];
+  		$visible_email_perso = $personne[33];
+  		$page_pro = $personne[34];
+
 		// date de suppresion (sert pour savoir quand supprimé), visible par rapprot à bd
 		
 		// récupération du libellé du corps	
 		$result_corps = pg_query("SELECT libelle FROM corps WHERE id='".$id_corps."'");			
+		$libelle_corps = ""; 
+		$libelle_pays_pro = ""; 
+		$libelle_pays_perso = ""; 
+		$id_etabl_principal = ""; 
+		$nom_etabl_principal = ""; 
+		$ville_etabl_principal = ""; 
+		$id_etabl_secondaire = ""; 
+		$nom_etabl_secondaire = ""; 
+		$ville_etabl_secondaire = ""; 
+		$id_equipe_princ = "";
+		$num_equipe_princ = ""; 
+		$accronyme_equipe_princ = ""; 
+		$libelle_type_personne = ""; 
+
 		while ($row_corps = pg_fetch_row($result_corps))
 		{	
 			$libelle_corps = $row_corps[0];

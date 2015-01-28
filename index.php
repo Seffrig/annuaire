@@ -16,20 +16,7 @@ remplace('templates/header.php',$changements);
 include("commun/connexion_db.php");
 ?> 
 
-<?php
 
-	if (isset($_GET["mode"]) && $_GET["mode"]=="erreur")
-	{
-		echo '<div id="centrage_hor">';
-		echo '	<div id="alerte">erreur de login ou/et de mot de passe</div>';
-		echo '</div> ';
-	
-	}
-	if(isset($_GET['mode']) && ($_GET['mode'] == "deconnection")) 
-	{	 		      
-		echo "<span class='blue_text'>D&eacute;connexion r&eacute;ussie. A bient&ocirc;t</span>";
-	}
-?>	
 		
 	<form action="test_login.php" method="post">
 		<p />
@@ -40,6 +27,18 @@ include("commun/connexion_db.php");
 			</div>
 			<div class="panel-body">			
 				<div id='centrage_hor' align="center">
+					<?php
+					if (isset($_GET["mode"]) && $_GET["mode"]=="erreur")
+					{
+						echo '	<span id="alerte" style="margin-left: 10%;">Erreur de login ou/et de mot de passe</span>';
+					}
+					if(isset($_GET['mode']) && ($_GET['mode'] == "deconnection")) 
+					{	 		      
+						echo "<span style='margin-left: 10%;'>D&eacute;connexion r&eacute;ussie. A bient&ocirc;t</span>";
+					}
+					?>
+					<br>
+					<br>
 					<label for="login">Nom d'utilisateur</label> : 
 					<input type="text" maxlength="30" name="login" id="login"/><br><br>
 					<label id="label2" for="pass">Mot de passe</label> : 
@@ -49,9 +48,14 @@ include("commun/connexion_db.php");
 					</div>
 				</div>
 			</div>
+			
+			
+		<br>
 		</div>
 	</form>	
-	<?php echo $_session['erreur'];?>	
+	<?php
+		if (isset($_SESSION['erreur'])) echo $_SESSION['erreur'];
+	?>	
 
 <?php
 	include "templates/footer.php";
