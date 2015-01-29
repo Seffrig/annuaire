@@ -411,7 +411,7 @@ function genere_test_caractere ($condition, $champ)
 	{
 		if ($condition != "")	
 		{
-			$condition = $condition ."AND ";
+			$condition = $condition ." AND ";
 		}
 		$condition = $condition ." $champ ILIKE '%".$ch."%' ";
 	} 	
@@ -431,7 +431,7 @@ function genere_test_nombre ($condition, $champ)
 		// ilike ne fonctionne pas avec les nombres
 		if ($condition != "")	
 		{
-			$condition = $condition ."AND ";
+			$condition = $condition ." AND ";
 		}
 		$condition = $condition ." $champ = '".$ch."'";
 	} 	

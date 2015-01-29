@@ -29,7 +29,7 @@ include "templates/menu.php";
 	$condition=genere_test_nombre($condition, 'id_corps');
 	$condition=genere_test_nombre($condition, 'id_pays_pro');
 	$condition=genere_test_nombre($condition, 'id_pays_perso');
-	$condition=genere_test_nombre($condition, 'new_id_etabl_principal');
+	//$condition=genere_test_nombre($condition, 'new_id_etabl_principal');
 	
 	$condition=genere_test_caractere($condition, 'code_postal_pro');
 	$condition=genere_test_caractere($condition, 'localite_pro');
@@ -60,7 +60,7 @@ include "templates/menu.php";
 	  	</tr>
 	  	<tr>
 		<?php
-
+			//echo "SELECT id, nom, prenom, id_etabl_princ FROM personne WHERE ".$condition ." ORDER BY nom";
 			$result = pg_query("SELECT id, nom, prenom, id_etabl_princ FROM personne WHERE ".$condition ." ORDER BY nom");			
 			while ($rech = pg_fetch_row($result)) 
 			{ 

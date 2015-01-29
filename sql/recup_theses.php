@@ -11,6 +11,7 @@ function affichage_theses($id_personne)
     		<h2 class="panel-title">Mes thèses </h2>
   		</div>
   		<div class="panel-body">
+
   			<?php
 	// récupération de la thèse (pub.id_type = 0 )
 	$requete_these = pg_query("SELECT  pub.id, pub.titre_ouvrage, pub.etablissement, pub.directeur, pub.nb_pages, pub.date_publi, 
@@ -61,7 +62,7 @@ function affichage_theses($id_personne)
 		echo '<br><br>';	
 		
 		echo '</p>';
-		echo '</div></div>';
+		echo '</div>';
 		
 	}	
 	

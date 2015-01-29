@@ -17,6 +17,11 @@ include("commun/connexion_db.php");
 //menu
 include "templates/menu.php";
 
+if(isset($_GET['id_personne']))
+	$idP = $_GET['id_personne'];
+else
+	$idP = '';
+
 ?>
 <br><br><br><br>
 <div class="panel panel-info">
@@ -28,9 +33,9 @@ include "templates/menu.php";
 	$id_personne=$_SESSION['id_personne'];
 
 	// si on est entré avec un get id_personne ( pour les admins ) 	
-	if ($_GET['id_personne']!='' && $_SESSION['type_user'] == 1) 
+	if ($idP!='' && $_SESSION['type_user'] == 1) 
 	{ 
-		$_SESSION['id_personne']=$_GET['id_personne'];
+		$_SESSION['id_personne']=$idP;
 	}	
 	// permet d'aller à la page d'ajout de personne s'il n'y a pas d'id_personne correspondant (cas d'une nouvelle inscription)
 	if ($id_personne==0 || $id_personne=='') 
