@@ -33,7 +33,13 @@ body {
 	background-position: 0 0;
 	
 }
-
+.petitlabel {width:66px;}
+.moyenlabel {width:95px;}
+.grandlabel {width:103px;}
+.grandlabelbis {width:113px;}
+.tresgrandlabel {width:220px;}
+.labelpublibase {width:145px;}
+.labelpublibase2 {width:190px;}
 /**************************************************/
 /*          conteneurs globaux de la page         */
 /**************************************************/
@@ -119,7 +125,7 @@ body {
 
 
 .indication {font-size: 9px;}
-.indication_form {font-size: 9px; margin-left: 120px;}
+.indication_form {font-size: 9px;}
 .ast {color: red; display: inline; } /* asterisque */
 
  
@@ -139,10 +145,11 @@ ul.liste li {display:block;width : 250px;height : 30px;float:left;}
 #cache3 {width:60%;display:none;}
 #cache4 {width:60%;display:none;}
 
-/* formulaire alignement*/
-label{display:block;	width:120px;float:left; position:relative;}
-input{margin-bottom: 1px;}
-select{margin-bottom: 1px;}      
+
+
+
+
+
 
 
 .extendForm   {display:block;	margin-left:120px ; position:relative;}   

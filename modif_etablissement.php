@@ -42,9 +42,12 @@ include "templates/menu.php";
 	<a href="formulaire_modifier_etablissement.php?type_modif=ajout" >Ajouter un établissement</a>
 	<br><br>
 	<?php  
+	$id_rech="";
+	if(isset($_GET['libelle_rech'])){
 	//trouve_a_modifier($table, $champ, $libelle_rech)
 	$id_rech = trouve_a_modifier('etablissement','nom',$_GET['libelle_rech']);
-	if ($id_rech != '')
+	}
+	if ($id_rech  != '')
 	{
 		$_GET['id_rech'] = $id_rech;
 	}

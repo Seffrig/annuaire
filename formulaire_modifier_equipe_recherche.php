@@ -38,7 +38,7 @@ include "templates/menu.php";
 							
 		$result_equipe_recherche = pg_query("SELECT  id, num_equipe, accronyme, num_rue, nom_rue, code_postal , ville, pays
 											FROM recherche 
-											WHERE id = ". $id_recherche ." ");	
+											WHERE id = ". $id_recherche ."");	
 											
 		$row_equipe_recherche = pg_fetch_row($result_equipe_recherche);
 

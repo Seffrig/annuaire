@@ -59,7 +59,9 @@ else
     			<h2 class="panel-title">Contact professionnel</h2>
   			</div>
   			<div class="panel-body">
-    			<b> Coordonnées: </b><br/><?php echo $complement_pro .' <br/>' .$num_rue_pro.' '.$nom_rue_pro; ?> <br>
+    			 Coordonnées: <br/>
+    			<?php echo $complement_pro .' <br/>' 
+    			.$num_rue_pro.' '.$nom_rue_pro; ?> <br>
 				<?php echo $code_postal_pro.' '.$localite_pro; ?> <br>
 				<b>Téléphone:  </b> <?php echo $tel_pro;?> &nbsp;	<br>
 				<b>Courriel: </b><?php echo $courriel_pro; ?> <br>

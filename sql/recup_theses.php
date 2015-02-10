@@ -55,7 +55,7 @@ function affichage_theses($id_personne)
 		
 		echo "" . $libelle_these . " : " . $titre_ouvrage . ", " . $date_publi . " " ;
 		
-
+		
 		echo " <a href='formulaire_modifier_these.php?type_modif=modif&id_publi=" . $id_publi . "'><img width='12px' src='images/button_edit.png' ></a> -  ";
 		echo " <a href=\"javascript: if (confirm('Cette suppression est définitive. Confirmez-vous?')) { window.location.href='script_these.php?type_modif=supp&id_publi=" . $id_publi . "' } else { void('') }; \"> <img width='16px' src='images/croixsupprimer.gif' ></a> ";
 
@@ -64,7 +64,9 @@ function affichage_theses($id_personne)
 		echo '</p>';
 		echo '</div>';
 		
+		
 	}	
-	
+	echo '</div>';
+	echo '</div>';
 }	
 ?>

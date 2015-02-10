@@ -2,7 +2,19 @@
  // utilisable pour la lecteur de personne  et la modification
 
 $id_personne=$_SESSION['id_personne'];
-
+$libelle_corps = ""; 
+$libelle_pays_pro = ""; 
+$libelle_pays_perso = ""; 
+$id_etabl_principal = ""; 
+$nom_etabl_principal = ""; 
+$ville_etabl_principal = ""; 
+$id_etabl_secondaire = ""; 
+$nom_etabl_secondaire = ""; 
+$ville_etabl_secondaire = ""; 
+$id_equipe_princ = "";
+$num_equipe_princ = ""; 
+$accronyme_equipe_princ = ""; 
+$libelle_type_personne = "";
 if ($id_personne != 0) 
 {	
 	$result_personne = pg_query("SELECT  id,  id_titre,  nom,  prenom,  id_corps,  localite_perso,  	
@@ -66,19 +78,7 @@ if ($id_personne != 0)
 		
 		// récupération du libellé du corps	
 		$result_corps = pg_query("SELECT libelle FROM corps WHERE id='".$id_corps."'");			
-		$libelle_corps = ""; 
-		$libelle_pays_pro = ""; 
-		$libelle_pays_perso = ""; 
-		$id_etabl_principal = ""; 
-		$nom_etabl_principal = ""; 
-		$ville_etabl_principal = ""; 
-		$id_etabl_secondaire = ""; 
-		$nom_etabl_secondaire = ""; 
-		$ville_etabl_secondaire = ""; 
-		$id_equipe_princ = "";
-		$num_equipe_princ = ""; 
-		$accronyme_equipe_princ = ""; 
-		$libelle_type_personne = ""; 
+		 
 
 		while ($row_corps = pg_fetch_row($result_corps))
 		{	
@@ -119,11 +119,10 @@ if ($id_personne != 0)
 				$ville_etabl_secondaire = $row_nom_ville_etabl_secondaire[2];
 			}
 		}
-		
 		// récupération du libellé equipe de recherche
 		if ($id_equipe_princ != '')
 		{
-			$result_equipe_rech_principal = pg_query("SELECT rech.id, rech.num_equipe, rech.accronyme FROM recherche rech, ville v WHERE rech.id='".$id_equipe_princ."'");		
+			$result_equipe_rech_principal = pg_query("SELECT rech.id, rech.num_equipe, rech.accronyme FROM recherche rech, ville v WHERE rech.id=".$id_equipe_princ."");		
 			while ($row_equipe_rech_principal = pg_fetch_row($result_equipe_rech_principal))
 			{	
 				$id_equipe_princ = $row_equipe_rech_principal[0];

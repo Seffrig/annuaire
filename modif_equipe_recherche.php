@@ -41,6 +41,7 @@ include "templates/menu.php";
 	<br><br>
 	<?php  
 	//trouve_a_modifier($table, $champ, $libelle_rech)
+	if(!isset($_GET['libelle_rech'])){$_GET['libelle_rech'] ="";}
 	$id_rech = trouve_a_modifier('recherche','num_equipe',$_GET['libelle_rech']);
 	if ($id_rech != '')
 	{
@@ -62,7 +63,7 @@ include "templates/menu.php";
 	}
 
 	//function affichage_colonne($id, $champ, $table, $page_modif, $page_sup) 
-	affichage_colonne('id', 'num_equipe', 'recherche','modif_equipe_recherche.php','maj_equipe_recherche.php');				    			
+	affichage_colonne('num_equipe', 'accronyme', 'recherche','modif_equipe_recherche.php','maj_equipe_recherche.php',"champ");				    			
 	?>	
 
 <?php

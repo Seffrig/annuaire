@@ -39,12 +39,12 @@ include("commun/connexion_db.php");
 					?>
 					<br>
 					<br>
-					<label for="login">Nom d'utilisateur</label> : 
-					<input type="text" maxlength="30" name="login" id="login"/><br><br>
-					<label id="label2" for="pass">Mot de passe</label> : 
+					<label style="width:118px" for="login">Nom d'utilisateur</label> : 
+					<input  type="text" maxlength="30" name="login" id="login"/><br><br>
+					<label style="width:118px" id="label2" for="pass">Mot de passe</label> : 
 					<input  type="password" maxlength="30 "name="pass" id="pass" /><br><br><br>
 					<div style="margin-left:28%">
-						<button style="width:130px ; height : 30px" type="submit" class="btn btn-default">Valider</button>
+						<button style="width:130px ; height : 30px;margin-left:-10%" type="submit" class="btn btn-default">Valider</button>
 					</div>
 				</div>
 			</div>

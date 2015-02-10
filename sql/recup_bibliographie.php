@@ -128,11 +128,13 @@ function affichage_publications($id_personne, $nb_publications_afficher)
 			FROM affichage_publi 
 			WHERE  id_type = " . $id_type_publi );	
 			
-							
+		
+
+
 		while ($droit_affichage_publi = pg_fetch_row($result_affichage_publi)) 
 		{			
-			$id_type_publi = $droit_affichage_publi[0];
 			
+			/*$id_type_publi = $droit_affichage_publi[0];*/
 			$visible_titre_communication = $droit_affichage_publi[1];
 			$ordre_titre_communication = $droit_affichage_publi[2];
 			$libelle_titre_communication = $droit_affichage_publi[3];
@@ -190,7 +192,7 @@ function affichage_publications($id_personne, $nb_publications_afficher)
 			$libelle_date_conf = $droit_affichage_publi[42];
 			
 			// permet d'afficher uniquement la date de publication si existe et pas celle oral ou de conf
-			if (date_publi_publi != "") {$visible_date_conf = false;}	
+			if ($date_publi_publi != "") {$visible_date_conf = false;}	
 	
 			$visible_date_publi = $droit_affichage_publi[43];
 			$ordre_date_publi = $droit_affichage_publi[44];
@@ -393,8 +395,6 @@ function affichage_publications($id_personne, $nb_publications_afficher)
 		
 		echo " <a href='formulaire_modifier_bibliographie.php?type_modif=modif&id_publi=" . $id_publi . "&id_type_publi=" . $id_type_publi . "'><img width='12px' src='images/button_edit.png' ></a> -  ";
 		echo " <a href=\"javascript: if (confirm('Cette suppression est définitive. Confirmez-vous?')) { window.location.href='script_bibliographie.php?type_modif=supp&id_publi=" . $id_publi . "' } else { void('') }; \"> <img width='16px' src='images/croixsupprimer.gif' ></a> ";
-		echo " <a href='publication_PDF.php?id_publi=" . $id_publi . "'><img width='12px' src='images/pdf_logo.jpg' ></a> -  ";
-		
 		if ($selectionner_ordre == 1) {echo 'Choisi';}
 		echo '<br><br>';	
 

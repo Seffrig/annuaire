@@ -9,14 +9,14 @@
 	if ($id_personne != 0) 
 	{	// si on veut charger les infos d'une personne
  
-		echo '<form action="script_personne.php?type=modif" name="formulaire" id="formulaire" method="post"  onSubmit="return check_personne();" >';
+		echo '<form action="script_personne.php?type=modif" name="formulaire" id="formulaire" method="get"  onSubmit="return check_personne();" >';
 		echo '<input  name="id_personne" type="HIDDEN" value='.$id_personne.' id="id_personne" />';
 		
 	}
 	//description pour formulaire d'ajout
 	else 
 	{ 
-		echo '<form action="script_personne.php?type=ajout" name="formulaire" id="formulaire" method="post" onSubmit="return check_personne();" > ';																								
+		echo '<form action="script_personne.php?type=ajout" name="formulaire" id="formulaire" method="get" onSubmit="return check_personne();" > ';																								
 	}
 	?>		
 	<br>
@@ -35,12 +35,17 @@
 	
 	<br>	
 		
-	<label for="new_nom">Nom</label>  
+	<label class="petitlabel" for="new_nom">Nom :</label>  
 	<input type="text" maxlength="30" name="new_nom" id="new_nom" 
-		<?php  if ($nom!= ''){echo "value='".stripslashes(htmlspecialchars($nom, ENT_QUOTES))."'";}?> onKeyUp="javascript:couleur(this);"/> 
+		<?php  
+		if ($nom!= ''){
+			echo "value='".stripslashes(htmlspecialchars($nom, ENT_QUOTES))."'";
+		}
+		?> onKeyUp="javascript:couleur(this);"/> 
+
 	<font class='ast'>*</font>		
 	<br>	
-	<label for="new_prenom">Prénom</label> 
+	<label class="petitlabel" for="new_prenom">Prénom :</label> 
 	<input type="text" maxlength="30" name="new_prenom" id="new_prenom" 
 		<?php  if ($prenom!= ''){echo "value='".stripslashes(htmlspecialchars($prenom, ENT_QUOTES))."'";}?> onKeyUp="javascript:couleur(this);"/> 
 	<font class='ast'>*</font>		
@@ -56,7 +61,7 @@
 	<br>
 			
 	<br>
-	<label for="new_commentaire">Autre(s) responsabilité(s) </label> 
+	<label for="new_commentaire">Autre(s) responsabilité(s) </label><br>
 	<TEXTAREA name="new_commentaire" id="new_commentaire" rows=3 COLS=60  maxlength="300"><?php if ($commentaire!= ''){echo $commentaire;}?></TEXTAREA><br>
 	<div class='indication_form'>(Responsabilités institutionnelles ou administratives)</div>	
 
@@ -75,33 +80,33 @@
 		</div>
 		<div class="panel-body">		
 					
-			<label for="new_num_rue_pro">Numéro de rue</label> 
+			<label class="grandlabelbis" for="new_num_rue_pro">Numéro de rue :</label> 
 			<input type="text" maxlength="30" name="new_num_rue_pro" id="new_num_rue_pro"  
 				<?php  if ($num_rue_pro!= ''){echo "value='$num_rue_pro'";}?> onKeyUp="javascript:couleur(this);"/> 	
 			<font class='ast'>*</font>
 			<br>	
-			<label for="new_nom_rue_pro">Nom de rue  </label> 
+			<label class="grandlabelbis" for="new_nom_rue_pro">Nom de rue :</label> 
 			<input type="text" maxlength="30" name="new_nom_rue_pro" id="new_nom_rue_pro"  
 				<?php  if ($nom_rue_pro!= ''){echo "value='".stripslashes(htmlspecialchars($nom_rue_pro, ENT_QUOTES))."'";}?> onKeyUp="javascript:couleur(this);"/> 
 			<font class='ast'>*</font>		
 			<br>			
-			<label for="new_complement_pro">(complément) </label> 
+			<label class="grandlabelbis" for="new_complement_pro">(complément) :</label> 
 			<input type="text" maxlength="30" name="new_complement_pro" id="new_complement_pro"  
 				<?php  if ($complement_pro!= ''){echo "value='".stripslashes(htmlspecialchars($complement_pro, ENT_QUOTES))."'";}?>/>
 			<br>				
-			<label for="new_code_postal_pro">Code postal </label> 
+			<label class="grandlabelbis" for="new_code_postal_pro">Code postal :</label> 
 			<input type="text" maxlength="30" name="new_code_postal_pro" id="new_code_postal_pro" 
 			<?php  if ($code_postal_pro!= ''){echo "value='$code_postal_pro'";}?>  onKeyUp="javascript:couleur(this);"/> 
 			<font class='ast'>*</font>		
 			<br>	
-			<label for="new_localite_pro">Ville</label> 
+			<label class="grandlabelbis" for="new_localite_pro">Ville :</label> 
 			<input type="text" maxlength="30" name="new_localite_pro" id="new_localite_pro" 
 			<?php  if ($localite_pro!= ''){echo "value='".stripslashes(htmlspecialchars($localite_pro, ENT_QUOTES))."'";}?>  onKeyUp="javascript:couleur(this);" /> 
 			<font class='ast'>*</font>		
 			<br>	
 			<?php
 				//select_ordre($libelle_affichage, $identifiant_css, $table, $champ, $preselection)) // retourn une liste triée
-				select_ordre ('Pays', 'new_id_pays_pro','pays', 'libelle', $id_pays_pro );	 
+				select_ordre ('Pays', 'new_id_pays_pro','pays', 'libelle', $id_pays_pro, "113px" );	 
 				if($_SESSION['modif_pays']=='t') 
 				{
 					echo"<a href='modif_pays.php'><img src='images/button_edit.png' ></a>";
@@ -109,12 +114,12 @@
 			?>
 
 			<br>				
-			<label for="new_tel_pro">Téléphone  </label> 
+			<label class="grandlabelbis" for="new_tel_pro">Téléphone :</label> 
 			<input type="text" maxlength="30" name="new_tel_pro" id="new_tel_pro" 
 				<?php  if ($tel_pro!= ''){echo "value='$tel_pro'";}?>  onKeyUp="javascript:couleur(this);"/> 
 			<font class='ast'>*</font>	
 			<br>	
-			<label for="new_courriel_pro">Courriel</label>  
+			<label class="grandlabelbis" for="new_courriel_pro">Courriel :</label>  
 			<input type="text" maxlength="100" name="new_courriel_pro" id="new_courriel_pro" 
 				<?php  if ($courriel_pro!= ''){echo "value='$courriel_pro'";}?>  onKeyUp="javascript:couleur(this);" /> 
 			<font class='ast'>*</font>		
@@ -126,29 +131,29 @@
 			<h2 class="panel-title">Contact personnel</h2>
 		</div>
 		<div class="panel-body">		
-			<label for="new_num_rue_perso">Numéro de rue</label>  
+			<label class="grandlabelbis" for="new_num_rue_perso">Numéro de rue :</label>  
 			<input type="text" maxlength="30" name="new_num_rue_perso" id="new_num_rue_perso"
 				<?php  if ($num_rue_perso!= ''){echo "value='$num_rue_perso'";}?> />
 			<br>
-			<label for="new_nom_rue_perso">Nom de rue  </label>  
+			<label class="grandlabelbis" for="new_nom_rue_perso">Nom de rue :</label>  
 			<input type="text" maxlength="30" name="new_nom_rue_perso" id="new_nom_rue_perso" 
 				<?php  if ($nom_rue_perso!= ''){echo "value='".stripslashes(htmlspecialchars($nom_rue_perso, ENT_QUOTES))."'";}?>  />
 			<br>	
-			<label for="new_complement_perso">(complément)  </label> 
+			<label class="grandlabelbis" for="new_complement_perso">(complément) :</label> 
 			<input type="text" maxlength="30" name="new_complement_perso" id="new_complement_perso"
 				<?php  if ($complement_perso!= ''){echo "value='".stripslashes(htmlspecialchars($complement_perso, ENT_QUOTES))."'";}?>  />
 			<br>	
-			<label for="new_code_postal_perso">Code postal </label> 
+			<label  class="grandlabelbis"for="new_code_postal_perso">Code postal :</label> 
 			<input type="text" maxlength="30" name="new_code_postal_perso" id="new_code_postal_perso"
 				<?php  if ($code_postal_perso!= ''){echo "value='$code_postal_perso'";}?>  />
 			<br>	
-			<label for="new_localite_perso">Ville</label> 
+			<label class="grandlabelbis"  for="new_localite_perso">Ville :</label> 
 			<input type="text" maxlength="100" name="new_localite_perso" id="new_localite_perso"
 				<?php  if ($localite_perso!= ''){echo "value='".stripslashes(htmlspecialchars($localite_perso, ENT_QUOTES))."'";}?>  />
 			<br>	
 			<?php 
 				//select_ordre($libelle_affichage, $identifiant_css, $table, $champ, $preselection) // retourn une liste triée
-				select_ordre ('Pays', 'new_id_pays_perso','pays', 'libelle', $id_pays_perso );	  
+				select_ordre ('Pays', 'new_id_pays_perso','pays', 'libelle', $id_pays_perso, "113px" );	  
 				if($_SESSION['modif_pays']=='t') 
 				{
 					echo"<a href='modif_pays.php'><img src='images/button_edit.png' ></a>";
@@ -156,11 +161,11 @@
 			?>
 	
 			<br>
-			<label for="new_tel_perso">Téléphone  </label> 
+			<label class="grandlabelbis" for="new_tel_perso">Téléphone :</label> 
 			<input type="text" maxlength="30" name="new_tel_perso" id="new_tel_perso"
 				<?php  if ($tel_perso!= ''){echo "value='$tel_perso'";}?>  />
 			<br>	
-			<label for="new_courriel_perso">Courriel </label> 
+			<label class="grandlabelbis" for="new_courriel_perso">Courriel :</label> 
 			<input type="text" maxlength="30" name="new_courriel_perso" id="new_courriel_perso"
 				<?php  if ($courriel_perso!= ''){echo "value='$courriel_perso'";}?> />
 			<br>
@@ -205,9 +210,10 @@
 				<h2 class="panel-title">Préférence d'envoi pour les courriels</h2>
 			</div>
 			<div class="panel-body">	
-				Adresse professionnelle
-				<input type="radio" name="new_courrier" value="pro" id="pro" checked='checked' /> 
-				<input type="radio" name="new_courrier" value="perso" id="perso" <?php if ($courrier=='perso') {echo "checked='checked'";}?>  /> Adresse personnelle
+				<input type="radio" name="new_courrier" value="pro" id="pro" checked='checked' />Adresse professionnelle</br>
+				<input type="radio" name="new_courrier" value="perso" id="perso" <?php if ($courrier=='perso') {echo "checked='checked'";}?>/>Adresse personnelle
+				
+
 			</div>
 		</div>
 		<br>		

@@ -1,9 +1,13 @@
 ﻿<?php session_start(); ?>
 
+
+
+
+	
 <?php
 //connection à la base
 include("commun/connexion_db.php");
-
+	if(!isset($_GET['type'])){$_GET['type'] ="";};
 	$today = date("j-n-Y à H:i:s");   
 	$now = time();	
 
@@ -37,36 +41,49 @@ include("commun/connexion_db.php");
 	$id_equipe_recherche_princ = "";
 
 	//récup des données
-	if (isset($_POST["id_personne"])) $id_personne = $_POST["id_personne"];
-	if (isset($_POST["new_titre"])) $id_titre = $_POST["new_titre"];
-	if (isset($_POST["new_nom"])) $nom = pg_escape_string($_POST["new_nom"]);
-	if (isset($_POST["new_prenom"])) $prenom = pg_escape_string($_POST["new_prenom"]);
-	if (isset($_POST["new_id_corps"])) $id_corps = $_POST["new_id_corps"];
-	if (isset($_POST["new_page_pro"])) $page_pro = $_POST["new_page_pro"];
-	if (isset($_POST["new_code_postal_pro"])) $code_postal_pro = pg_escape_string($_POST["new_code_postal_pro"]);
-	if (isset($_POST["new_localite_pro"])) $localite_pro = pg_escape_string($_POST["new_localite_pro"]);
-	if (isset($_POST["new_num_rue_pro"])) $num_rue_pro = pg_escape_string($_POST["new_num_rue_pro"]);
-	if (isset($_POST["new_nom_rue_pro"])) $nom_rue_pro = pg_escape_string($_POST["new_nom_rue_pro"]);
-	if (isset($_POST["new_complement_pro"])) $complement_pro = pg_escape_string($_POST["new_complement_pro"]);
-	if (isset($_POST["code_postal_perso"])) $code_postal_perso = pg_escape_string($_POST["new_code_postal_perso"]);
-	if (isset($_POST["new_localite_perso"])) $localite_perso = pg_escape_string($_POST["new_localite_perso"]);
-	if (isset($_POST["num_rue_perso"])) $num_rue_perso = pg_escape_string($_POST["new_num_rue_perso"]);
-	if (isset($_POST["nom_rue_perso"])) $nom_rue_perso = pg_escape_string($_POST["new_nom_rue_perso"]);
-	if (isset($_POST["complement_perso"])) $complement_perso = pg_escape_string($_POST["new_complement_perso"]);
-	if (isset($_POST["tel_pro"])) $tel_pro = pg_escape_string($_POST["new_tel_pro"]);
-	if (isset($_POST["tel_perso"])) $tel_perso = pg_escape_string($_POST["new_tel_perso"]);
-	if (isset($_POST["courriel_pro"])) $courriel_pro = pg_escape_string($_POST["new_courriel_pro"]);
-	if (isset($_POST["courriel_perso"])) $courriel_perso = pg_escape_string($_POST["new_courriel_perso"]);
-	if (isset($_POST["revue"])) $revue = pg_escape_string($_POST["new_revue"]);
-	if (isset($_POST["courrier"])) $courrier = pg_escape_string($_POST["new_courrier"]);
-	if (isset($_POST["id_pays_pro"])) $id_pays_pro = $_POST["new_id_pays_pro"];
-	if (isset($_POST["id_pays_perso"])) $id_pays_perso = $_POST["new_id_pays_perso"];
-	if (isset($_POST["commentaire"])) $commentaire = pg_escape_string($_POST["new_commentaire"]);
-	if (isset($_POST["id_etabl_princ"])) $id_etabl_princ = $_POST["new_id_etabl_principal"];
-	if (isset($_POST["id_equipe_recherche_princ"])) $id_equipe_recherche_princ = $_POST["new_id_equipe_recherche"];
-	
+	if (isset($_GET["id_personne"])) $id_personne = $_GET["id_personne"];
+	if (isset($_GET["new_titre"])) $id_titre = $_GET["new_titre"];
+	if (isset($_GET["new_nom"])) $nom = pg_escape_string($_GET["new_nom"]);
+	if (isset($_GET["new_prenom"])) $prenom = pg_escape_string($_GET["new_prenom"]);
+	if (isset($_GET["new_id_corps"])) $id_corps = $_GET["new_id_corps"];
+	if (isset($_GET["new_page_pro"])) $page_pro = $_GET["new_page_pro"];
+	if (isset($_GET["new_code_postal_pro"])) $code_postal_pro = pg_escape_string($_GET["new_code_postal_pro"]);
+	if (isset($_GET["new_localite_pro"])) $localite_pro = pg_escape_string($_GET["new_localite_pro"]);
+	if (isset($_GET["new_num_rue_pro"])) $num_rue_pro = pg_escape_string($_GET["new_num_rue_pro"]);
+	if (isset($_GET["new_nom_rue_pro"])) $nom_rue_pro = pg_escape_string($_GET["new_nom_rue_pro"]);
+	if (isset($_GET["new_complement_pro"])) $complement_pro = pg_escape_string($_GET["new_complement_pro"]);
+	if (isset($_GET["new_code_postal_perso"])) $code_postal_perso = pg_escape_string($_GET["new_code_postal_perso"]);
+	if (isset($_GET["new_localite_perso"])) $localite_perso = pg_escape_string($_GET["new_localite_perso"]);
+	if (isset($_GET["new_num_rue_perso"])) $num_rue_perso = pg_escape_string($_GET["new_num_rue_perso"]);
+	if (isset($_GET["new_nom_rue_perso"])) $nom_rue_perso = pg_escape_string($_GET["new_nom_rue_perso"]);
+	if (isset($_GET["new_complement_perso"])) $complement_perso = pg_escape_string($_GET["new_complement_perso"]);
+	if (isset($_GET["new_tel_pro"])) $tel_pro = pg_escape_string($_GET["new_tel_pro"]);
+	if (isset($_GET["new_tel_perso"])) $tel_perso = pg_escape_string($_GET["new_tel_perso"]);
+	if (isset($_GET["new_courriel_pro"])) $courriel_pro = pg_escape_string($_GET["new_courriel_pro"]);
+	if (isset($_GET["new_courriel_perso"])) $courriel_perso = pg_escape_string($_GET["new_courriel_perso"]);
+	if (isset($_GET["new_revue"])) $revue = pg_escape_string($_GET["new_revue"]);
+	if (isset($_GET["new_courrier"])) $courrier = pg_escape_string($_GET["new_courrier"]);
+	if (isset($_GET["new_id_pays_pro"])) $id_pays_pro = $_GET["new_id_pays_pro"];
+	if (isset($_GET["new_id_pays_perso"])) $id_pays_perso = $_GET["new_id_pays_perso"];
+	if (isset($_GET["new_commentaire"])) $commentaire = pg_escape_string($_GET["new_commentaire"]);
+	if (isset($_GET["new_id_etabl_principal"])) $id_etabl_princ = $_GET["new_id_etabl_principal"];
+	if (isset($_GET["new_id_equipe_recherche"])) $id_equipe_recherche_princ = $_GET["new_id_equipe_recherche"];
+	$var =  $commentaire;
+
+?>
+<script type="text/javascript">
+alert("azaz");
+alert("<?=$id_equipe_recherche_princ;?>");
+</script>
+
+
+
+<?php
+
+
+
 	$visible_email_perso = 'false';
-	if (isset($_POST['visible_email_perso'])) 
+	if (isset($_GET['visible_email_perso'])) 
 	{
 		$visible_email_perso = 'true';
 	}
@@ -143,5 +160,11 @@ include("commun/connexion_db.php");
 			// $sujet='Inscription';
 			// $message="truc s'est inscrit" ;
 			// mail($email_comptable,$subject,$message,$headers);  
+
 	echo "<script language='javascript' type='text/javascript'> window.location.replace('compte.php');	</script>";
+
 ?>
+<script type="text/javascript">
+alert("azaz");
+alert("<?=$id_equipe_recherche_princ;?>");
+</script>

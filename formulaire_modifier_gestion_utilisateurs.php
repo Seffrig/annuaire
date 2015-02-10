@@ -67,24 +67,26 @@ include "templates/menu.php";
 			
 
 			<br>		
-			<label for="login_cree">Login</label>
+			<label class='labelpublibase' for="login_cree">Login :</label>
 				<input size="10" type="text" maxlength="8" style='text-transform:uppercase' name="login_cree" id="login_cree" onKeyUp="javascript:couleur(this);"
-				<?php  if ($id_recherche != ''){echo 'value = "' . $id_recherche . '"  disabled';}  ?> /> 
+				<?php  
+				if (isset($id_recherche) && $id_recherche != '')
+					{echo 'value = "' . $id_recherche . '"  disabled';}  ?> /> 
 			(8 caractères maxi : 1ere lettre du prénom + 7 premières lettres du nom)
 			<font class='ast'>*</font>
-			<br/><br/>		
-			
-			<label for="pass_cree">Mot de passe</label> 
+			<br/>	
+			<label class='labelpublibase' for="pass_cree">Mot de passe :</label> 
 			<input size="20" type="password" name="pass_cree" id="pass_cree" onKeyUp="javascript:couleur(this);"/> 
 			<font class='ast'>*</font>
-			<br/><br/>	
+			<br/>
 			<?php
 			//selection_menu_der($libelle_affichage, $identifiant_css, $table, $champ, $preselection) 
-			selection_menu_der ("Type d'utilisateur ", "id_type","type_user", "libelle", $id_type_user );	 
+			if(isset( $id_type_user)){
+				selection_menu_der ("Type d'utilisateur ", "id_type","type_user", "libelle", $id_type_user,"145px" );
+				echo "<font class='ast'>*</font>";
+			}
+				 
 			?>
-			<font class='ast'>*</font>
-			</fieldset>	
-			<br/>
 			<br/>
 			<input type="submit" value="Valider" style="margin-left: 48%;"/>
 		</form>	

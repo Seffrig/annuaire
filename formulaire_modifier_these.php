@@ -103,30 +103,30 @@ affichage_theses($id_personne);
 	}
 
 	echo '<fieldset>';
-	echo '		<br><label for="titre_ouvrage">Intitulé de la thèse </label>'; 
+	echo '		<br><label class="tresgrandlabel" for="titre_ouvrage :">Intitulé de la thèse :</label><br>'; 
 	echo ' 		<TEXTAREA name="titre_ouvrage" rows=2 COLS=60 maxlength="300 "> ';
 				if ($old_titre_ouvrage != '') { echo stripslashes($old_titre_ouvrage); }
 	echo '		</TEXTAREA><br> ';
 	echo '</fieldset>';
 	
-	echo"<fieldset><br>";selection_menu_der('Type de thèse' , 'id_type_these','type_these', 'libelle', $old_id_type_these); echo"<font class='ast'>*</font><br></fieldset>";
+	echo"<fieldset><br>";selection_menu_der('Type de thèse :' , 'id_type_these','type_these', 'libelle', $old_id_type_these,"218px"); echo"<font class='ast'>*</font><br></fieldset>";
 
 	echo '<fieldset>';
-	echo '		<br><label style="width: 215px;"  for="directeur">Directeur de recherche</label>'; 
+	echo '		<br><label class="tresgrandlabel"  for="directeur">Directeur de recherche :</label>'; 
 	echo '<input type="text" '; 
 				if ($old_directeur != ''){echo 'value = "' . $old_directeur . '"';}
 	echo 'size="50" maxlength="200" name="directeur" id="directeur" /><br>';
 	echo '</fieldset>';		
 	
 	echo '<fieldset>';
-	echo '		<br><label style="width: 215px;" for="etablissement">Etablissement de soutenance</label>'; 
+	echo '		<br><label class="tresgrandlabel" for="etablissement">Etablissement de soutenance :</label>'; 
 	echo '<input type="text" '; 
 				if ($old_etablissement != ''){echo 'value = "' . $old_etablissement . '"';}
 	echo 'size="50" maxlength="200" name="etablissement" id="etablissement" /><br>';
 	echo '</fieldset>';		
 	
 	echo '<fieldset>';
-	echo '		<br><label style="width: 150px;" for="date_conf">Date de soutenance<br> (Année)</label>'; 
+	echo '		<br><label class="tresgrandlabel" for="date_conf">Date de soutenance :<br> (Année)</label>'; 
 	echo '<input type="text" onkeypress="chiffres(event)"';  
 				if ($old_date_conf != ''){echo 'value = "' . $old_date_conf . '"';}
 	echo 'size="50" maxlength="4" name="date_conf" id="date_conf" /><br>';
@@ -134,32 +134,32 @@ affichage_theses($id_personne);
 			
 	
 	echo '<fieldset>';
-	echo '		<br><label style="width: 150px;" for="date_publi">Date de publication<br> (Année)</label>'; 
+	echo '		<br><label class="tresgrandlabel" for="date_publi">Date de publication :<br> (Année)</label>'; 
 	echo '<input type="text" onkeypress="chiffres(event)"'; 
 				if ($old_date_publi != ''){echo 'value = "' . $old_date_publi . '"';}
 	echo 'size="10" maxlength="4" name="date_publi" id="date_publi" /><br>';
 	echo '</fieldset>';		
 
 	echo '<fieldset>';
-	echo '		<br><label style="width: 150px;" for="nb_pages">Nombre de pages</label>'; 
+	echo '		<br><label class="tresgrandlabel" for="nb_pages">Nombre de pages :</label>'; 
 	echo '<input type="text" '; 
 				if ($old_nb_pages != ''){echo 'value = "' . $old_nb_pages . '"';}
 	echo 'size="10" maxlength="20" name="nb_pages" id="nb_pages" /><br>';
 	echo '</fieldset>';				
 		
 	echo '<fieldset>';
-	echo '		<br><label style="width: 150px;" for="url">Lien vers le texte intégral</label>'; 
+	echo '		<br><label class="tresgrandlabel" for="url">Lien vers le texte intégral :</label>'; 
 	echo '<input type="text" '; 
 				if ($old_url != ''){echo 'value = "' . $old_url . '"';}
-	echo 'size="50" maxlength="200" name="url" id="url" /><br>Ex: http://ista.univ-fcomte.fr/lien.pdf<br>';
+	echo 'size="50" maxlength="200" name="url" id="url" /><br><label class="indication_form" style="margin-left:220px">Ex: http://ista.univ-fcomte.fr/lien.pdf</label><br>';
 	echo '</fieldset>';				
 	
-	echo"<fieldset><br>";select_ordre('Pays de soutenance', 'id_pays_conf','pays', 'libelle', $old_id_pays_conf); echo"<font class='ast'>*</font><br></fieldset>";
-	echo"<fieldset><br>";select_ordre('Langue du texte intégral', 'id_langue','langue', 'libelle', $old_id_langue); echo"<font class='ast'>*</font><br></fieldset>";
+	echo"<fieldset><br>";select_ordre('Pays de soutenance', 'id_pays_conf','pays', 'libelle', $old_id_pays_conf,"220px"); echo"<font class='ast'>*</font><br></fieldset>";
+	echo"<fieldset><br>";select_ordre('Langue du texte intégral', 'id_langue','langue', 'libelle', $old_id_langue,"220px"); echo"<font class='ast'>*</font><br></fieldset>";
 	
 
 	echo '<fieldset>';
-	echo '		<br><label style="width: 150px;" for="observation">Commentaires</label>'; 
+	echo '		<br><label style="width: 150px;" for="observation">Commentaires</label></br>'; 
 	echo ' 		<TEXTAREA name="observation" rows=4 COLS=60 maxlength="300 "> ';
 					if ($old_observation != '') { echo stripslashes($old_observation); }
 	echo '		</TEXTAREA><br> ';

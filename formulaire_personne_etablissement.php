@@ -31,14 +31,14 @@
 </script>    
 
 	
-		<label for="Ville">Ville :</label>
+		<label  class="grandlabel"  for="Ville">Ville :</label>
 		<input type="text" id="new_ville_etabl_principal" name="new_ville_etabl_principal" autocomplete="off" style="width: 250px; height: 23px;" 
 			<?php  
 			if ($ville_etabl_principal!= ''){
 				echo "value='$ville_etabl_principal'";}
 			?>/>
 		<input type="hidden" id="new_id_ville_etabl_principal" name="new_id_ville_etabl_principal" disabled />
-		<br><br>
+		<br>
 		<label for="Etablissement">Etablissement :</label>
 		<input type="text" id="new_etabl_principal" name="new_etabl_principal" autocomplete="off" style="width: 250px; height: 23px;" disabled <?php  if ($nom_etabl_principal!= ''){echo "value='$nom_etabl_principal'";}?>/>
 		<input type="hidden" id="new_id_etabl_principal" name="new_id_etabl_principal" <?php  if ($id_etabl_principal!= ''){echo "value='$id_etabl_principal'";}?>  />

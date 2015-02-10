@@ -211,13 +211,17 @@ $old_selectionner_ordre="";
 		$nbr_champs=67; // ne sert  a rien
 
 		?> 
-		<fieldset>
+		
 		<input  name="id_type_publi" type="HIDDEN" value=<?php echo $id_type_publi; ?> id="id_type_publi" />
 		<input  name="id_publi" type="HIDDEN" value=<?php echo $id_publi; ?> id="id_publi" />	
-		
-		<br/><label for="libelle_type_publi">Type de publication </label>
-		<input type="text" name="libelle_type_publi" size="50" value="<?php echo $libelle_type_publi; ?>" id="libelle_type_publi" readonly="readonly" />	<br/>
-		</fieldset>
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h2 class="panel-title">Ma nouvelle publication</h2>	
+			</div>
+			<div class="panel-body">	
+				<label class="labelpublibase" for="libelle_type_publi">Type de publication :</label>
+				<input type="text" name="libelle_type_publi" size="50" value="<?php echo $libelle_type_publi; ?>" id="libelle_type_publi" readonly="readonly" />	<br/>
+			
 		
 		<?php	
 		
@@ -234,166 +238,167 @@ $old_selectionner_ordre="";
 		
 			if ($ordre_titre_communication == $i && $visible_titre_communication) 
 			{ 
-				echo ' 	<fieldset><br><label for="titre_communication">' . $libelle_titre_communication . ' </label>'; 
+				echo ' 	<br><label style="width:139px" for="titre_communication">' . $libelle_titre_communication . ': </label>'; 
 				echo ' <TEXTAREA name="titre_communication" rows=2 COLS=49 maxlength="300 "> ';
 							if ($old_titre_communication != '') { echo stripslashes($old_titre_communication); }
-				echo '</TEXTAREA><br></fieldset>';
+				echo '</TEXTAREA><br>';
 			}
 			
 			if ($ordre_titre_journal == $i && $visible_titre_journal) 
 			{
-				echo '<fieldset><br><label for="titre_journal">' . $libelle_titre_journal . ' </label>';
+				echo '<br><label class="labelpublibase" for="titre_journal">' . $libelle_titre_journal . ' : </label>';
 				echo '<input type="text" '; 
 						if ($old_titre_journal != ''){echo 'value = "' . $old_titre_journal . '"';} 
-				echo 'size="50" maxlength="300" name="titre_journal" id="titre_journal" /><br></fieldset>';
+				echo 'size="50" maxlength="300" name="titre_journal" id="titre_journal" /><br>';
 			}
 			
 			if ($ordre_auteur_sec == $i && $visible_auteur_sec) 
 			{
-				echo '<fieldset><br><label for="auteur_sec">' . $libelle_auteur_sec . ' </label>';
+				echo '<br><label class="labelpublibase" for="auteur_sec">' . $libelle_auteur_sec . ': </label>';
 				echo '<input type="text" '; 
 						if ($old_auteur_sec != ''){echo 'value = "' . $old_auteur_sec . '"';} 
-				echo 'size="50" maxlength="200 "name="auteur_sec" id="auteur_sec" /><br></fieldset>';
+				echo 'size="50" maxlength="200 "name="auteur_sec" id="auteur_sec" /><br>';
 			}
 			
 			if ($ordre_revue_volume == $i && $visible_revue_volume) 			
 			{
-				echo '<fieldset><br><label for="revue_volume">' . $libelle_revue_volume . ' </label>';
+				echo '<br><label class="labelpublibase" for="revue_volume">' . $libelle_revue_volume . ': </label>';
 				echo '<input type="text" '; 
 						if ($old_revue_volume != ''){echo 'value = "' . $old_revue_volume . '"';} 
-				echo 'size="50" maxlength="200 "name="revue_volume" id="revue_volume" /><br></fieldset>';
+				echo 'size="50" maxlength="200 "name="revue_volume" id="revue_volume" /><br>';
 			}
 			
 			if ($ordre_revue_fascicule == $i && $visible_revue_fascicule) 
 			{
-				echo '<fieldset><br><label for="revue_fascicule">' . $libelle_revue_fascicule . ' </label>';
+				echo '<br><label class="labelpublibase" for="revue_fascicule">' . $libelle_revue_fascicule . ': </label>';
 				echo '<input type="text" '; 
 						if ($old_revue_fascicule != ''){echo 'value = "' . $old_revue_fascicule . '"';}
-				echo 'size="50" maxlength="200 "name="revue_fascicule" id="revue_fascicule" /><br></fieldset>';
+				echo 'size="50" maxlength="200 "name="revue_fascicule" id="revue_fascicule" /><br>';
 			}
 			
 			if ($ordre_titre_ouvrage == $i && $visible_titre_ouvrage) 
 			{
-				echo '<fieldset><br><label for="titre_ouvrage">' . $libelle_titre_ouvrage . ' </label>';
+				echo '<br><label class="labelpublibase" for="titre_ouvrage">' . $libelle_titre_ouvrage . ': </label>';
 				echo '<input type="text" '; 
 						if ($old_titre_ouvrage != ''){echo 'value = "' . $old_titre_ouvrage . '"';}
-				echo 'size="50" maxlength="300 "name="titre_ouvrage" id="titre_ouvrage" /><br></fieldset>';
+				echo 'size="50" maxlength="300 "name="titre_ouvrage" id="titre_ouvrage" /><br>';
 			}
 			
 			if ($ordre_editeur == $i && $visible_editeur) 
 			{
-				echo '<fieldset><br><label for="editeur">' . $libelle_editeur . ' </label>';
+				echo '<br><label class="labelpublibase" for="editeur">' . $libelle_editeur . ': </label>';
 				echo '<input type="text" '; 
 						if ($old_editeur != ''){echo 'value = "' . $old_editeur . '"';} 
-				echo 'size="50" maxlength="200 "name="editeur" id="editeur" /><br></fieldset>';
+				echo 'size="50" maxlength="200 "name="editeur" id="editeur" /><br>';
 			}
 			
 			if ($ordre_editeur_ville == $i && $visible_editeur_ville)
 			{
-				echo '<fieldset><br><label for="editeur_ville">' . $libelle_editeur_ville . ' </label>';
+				echo '<br><label class="labelpublibase" for="editeur_ville">' . $libelle_editeur_ville . ': </label>';
 				echo '<input type="text" '; 
 						if ($old_editeur_ville != ''){echo 'value = "' . $old_editeur_ville . '"';}
-				echo 'size="50" maxlength="200 "name="editeur_ville" id="editeur_ville" /><br></fieldset>';
+				echo 'size="50" maxlength="200 "name="editeur_ville" id="editeur_ville" /><br>';
 			}
 			
 			if ($ordre_collection == $i && $visible_collection) 
 			{
-				echo '<fieldset><br><label for="collection">' . $libelle_collection . ' </label>';
+				echo '<br><label class="labelpublibase"  for="collection">' . $libelle_collection . ': </label>';
 				echo '<input type="text" '; 
 						if ($old_collection != ''){echo 'value = "' . $old_collection . '"';}
-				echo 'size="50" maxlength="200 "name="collection" id="collection" /><br></fieldset>';
+				echo 'size="50" maxlength="200 "name="collection" id="collection" /><br>';
 			}
 			
 			if ($ordre_url == $i && $visible_url) 
 			{
-				echo '<fieldset><br><label for="url">' . $libelle_url . ' </label>';
+				echo '<br><label for="url">' . $libelle_url . ': &nbsp; </label>';
 				echo '<input type="text" '; 
 						if ($old_url != ''){echo 'value = "' . $old_url . '"';}
-				echo 'size="50" maxlength="200 "name="url" id="url" /><br>Ex: http://ista.univ-fcomte.fr/lien.pdf<br></fieldset>';
+				echo 'size="50" maxlength="200 "name="url" id="url" /><br>
+				<div class="indication_form" style="margin-left:233px">Ex: http://ista.univ-fcomte.fr/lien.pdf</div>';
 			}
 			
 			if ($ordre_page_deb == $i && $visible_page_deb) 
 			{
-				echo '<fieldset><br><label style="width: 150px;" for="page_deb">' . $libelle_page_deb . ' </label>';
+				echo '<br><label style="width: 150px;" for="page_deb">' . $libelle_page_deb . ': </label>';
 				echo '<input type="text" '; 
 						if ($old_page_deb != ''){echo 'value = "' . $old_page_deb . '"';} 
-				echo 'size="10" maxlength="20 "name="page_deb" id="page_deb" /><br></fieldset>';
+				echo 'size="10" maxlength="20 "name="page_deb" id="page_deb" /><br>';
 			}
 			if ($ordre_page_fin == $i && $visible_page_fin) 
 			{
-				echo '<fieldset><br><label style="width: 150px;" for="page_fin">' . $libelle_page_fin . ' </label>';
+				echo '<br><label style="width: 150px;" for="page_fin">' . $libelle_page_fin . ': </label>';
 				echo '<input type="text" '; 
 						if ($old_page_fin != ''){echo 'value = "' . $old_page_fin . '"';} 
-				echo 'size="10" maxlength="20 "name="page_fin" id="page_fin" /><br></fieldset>';
+				echo 'size="10" maxlength="20 "name="page_fin" id="page_fin" /><br>';
 			}
 			if ($ordre_nb_pages == $i && $visible_nb_pages) 
 			{
-				echo '<fieldset><br><label style="width: 150px;"  for="nb_pages">' . $libelle_nb_pages . ' </label>';
+				echo '<br><label style="width: 150px;"  for="nb_pages">' . $libelle_nb_pages . ': </label>';
 				echo '<input type="text" '; 
 						if ($old_nb_pages != ''){echo 'value = "' . $old_nb_pages . '"';}
-				echo 'size="10" maxlength="20 "name="nb_pages" id="nb_pages" /><br></fieldset>';
+				echo 'size="10" maxlength="20 "name="nb_pages" id="nb_pages" /><br>';
 			}
 			
 			if ($ordre_date_conf == $i && $visible_date_conf) 
 			{
-				echo '<fieldset><br><label style="width: 150px;" for="date_conf">' . $libelle_date_conf . ' </label>';
+				echo '<br><label style="width: 230px;" for="date_conf">' . $libelle_date_conf . ': </label>';
 				echo '<input type="text" onkeypress="chiffres(event)"'; 
 						if ($old_date_conf != ''){echo 'value = "' . $old_date_conf . '"';}
-				echo 'size="10" maxlength="4 "name="date_conf" id="date_conf" /><br></fieldset>';
+				echo 'size="10" maxlength="4 "name="date_conf" id="date_conf" /><br>';
 			}
 			if ($ordre_date_publi == $i && $visible_date_publi)
 			{
-				echo '<fieldset><br><label style="width: 150px;"for="date_publi">' . $libelle_date_publi . ' </label>';
+				echo '<br><label style="width: 150px;"for="date_publi">' . $libelle_date_publi . ': </label>';
 				echo '<input type="text" onkeypress="chiffres(event)"'; 
 						if ($old_date_publi != ''){echo 'value = "' . $old_date_publi . '"';}
-				echo 'size="10" maxlength="4 "name="date_publi" id="date_publi" /><br></fieldset><br>';
+				echo 'size="10" maxlength="4 "name="date_publi" id="date_publi" /><br><br>';
 			}
 			
 			if ($ordre_id_pays_conf == $i && $visible_id_pays_conf) 
 			{
-				echo"<fieldset ><br>";select_ordre($libelle_id_pays_conf , 'id_pays_conf','pays', 'libelle', $old_id_pays_conf); echo"<br></fieldset>";
+				echo"<br>";select_ordre($libelle_id_pays_conf , 'id_pays_conf','pays', 'libelle', $old_id_pays_conf,"185px"); echo"<br>";
 			}
 
 			if ($ordre_id_langue == $i && $visible_id_langue) 
 			{ 
-				echo"<fieldset>";select_ordre($libelle_id_langue, 'id_langue','langue', 'libelle', $old_id_langue); echo"</fieldset>";
+				echo"";select_ordre($libelle_id_langue, 'id_langue','langue', 'libelle', $old_id_langue,"185px"); echo"";
 			}
 			
 			/*if ($ordre_audience == $i && $visible_audience) 
 			{
-				echo '<fieldset><br><label for="audience">' . $libelle_audience . ' </label>';
+				echo '<br><label for="audience">' . $libelle_audience . ' </label>';
 				echo '<input type="text" '; 
 						if ($old_audience != ''){echo 'value = "' . $old_audience . '"';}
-				echo 'size="50" maxlength="200 "name="audience" id="audience" /><br></fieldset>';
+				echo 'size="50" maxlength="200 "name="audience" id="audience" /><br>';
 			}*/
 			
 			if ($ordre_etablissement == $i && $visible_etablissement)
 			{
-				echo '<fieldset><br><label for="etablissement">' . $libelle_etablissement . ' </label>';
+				echo '<br><label class="labelpublibase2" for="etablissement">' . $libelle_etablissement . ': </label>';
 				echo '<input type="text" '; 
 						if ($old_etablissement != ''){echo 'value = "' . $old_etablissement . '"';}
-				echo 'size="50" maxlength="200 "name="etablissement" id="etablissement" /><br></fieldset>';
+				echo 'size="50" maxlength="200 "name="etablissement" id="etablissement" /><br>';
 			}
 			
 			if ($ordre_directeur == $i && $visible_directeur) 
 			{
-				echo '<fieldset><br><label for="directeur">' . $libelle_directeur . ' </label>';
+				echo '<br><label for="directeur">' . $libelle_directeur . ':  </label>';
 				echo '<input type="text" '; 
 						if ($old_directeur != ''){echo 'value = "' . $old_directeur . '"';}
-				echo 'size="50" maxlength="200 "name="directeur" id="directeur" /><br></fieldset>';
+				echo 'size="50" maxlength="200 "name="directeur" id="directeur" /><br>';
 			}
 			
 			if ($ordre_id_type_these == $i && $visible_id_type_these) 
 			{ 
-				echo"<fieldset><br>";select_simple($libelle_id_type_these, 'id','type_these', 'libelle', $old_id_type_these); echo"<br></fieldset>";
+				echo"<br>";select_simple($libelle_id_type_these, 'id','type_these', 'libelle', $old_id_type_these); echo"<br>";
 			}
 			
 			if ($ordre_observation == $i && $visible_observation) 
 			{ 
-				echo '<fieldset><br><label for="observation">' . $libelle_observation . ' </label>'; 
+				echo '<br><label for="observation">' . $libelle_observation . ' </label></br>'; 
 				echo ' <TEXTAREA name="observation" rows=4 COLS=60 maxlength="300 "> ';
 							if ($old_observation != '') { echo stripslashes($old_observation); }
-				echo '</TEXTAREA><br></fieldset><br>';
+				echo '</TEXTAREA><br><br>';
 			}				
 		}
 
@@ -406,11 +411,13 @@ $old_selectionner_ordre="";
 ?>
 	<br/>
 	<br/>
-	<input type="submit" value="Valider"/>
-	<a href='bibliographie.php'><input class='button' type='button' value='Cancel'><cancel>&nbsp;Cancel</cancel></a>
+	<div style="margin-left:30%">
+	<input type="submit" value="Valider" style="width:130px;height:50px"/>
+	<a href='bibliographie.php'><input style="width:130px;height:50px" class='button' type='button' value='Cancel'><cancel>&nbsp;Annuler</cancel></a>
+	</div>
 </form>	
 <br>	
-
+</div>
 	
 <?php
 	include "templates/footer.php";

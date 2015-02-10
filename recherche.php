@@ -35,8 +35,8 @@ include ("sql/recup_personne.php");
     		<h2 class="panel-title">Rechercher</h2>
   		</div>
   		<div class="panel-body">
-			<label for="nom">Nom :</label>  <input type="text" maxlength="30" name="nom" id="nom" /><br>
-			<label for="nom">Prénom :</label> <input type="text" maxlength="30 "name="prenom" id="prenom" /><br>
+			<label class="petitlabel" for="nom">Nom :</label>  <input type="text" maxlength="30" name="nom" id="nom" /><br>
+			<label class="petitlabel" for="nom">Prénom :</label> <input type="text" maxlength="30 "name="prenom" id="prenom" /><br>
 			<?php
 			//select_ordre ('Corps', 'id_corps','corps', 'libelle', $old_id_corps );	
 			select_ordre ('Corps', 'id_corps','corps', 'libelle', "unused" );	
@@ -59,8 +59,8 @@ include ("sql/recup_personne.php");
     		<h2 class="panel-title">Contact professionnel</h2>
   		</div>
   		<div class="panel-body">
-    		<label for="Code postal :">Nom :</label> <input type="text" maxlength="30 "name="code_postal_pro" id="code_postal_pro" /><br>
-    		<label for="Ville">Ville :</label> <input type="text" maxlength="30 "name="localite_pro" id="localite_pro" /><br>
+    		<label class="petitlabel" for="Code postal :">Nom :</label> <input type="text" maxlength="30 "name="code_postal_pro" id="code_postal_pro" /><br>
+    		<label class="petitlabel" for="Ville">Ville :</label> <input type="text" maxlength="30 "name="localite_pro" id="localite_pro" /><br>
   			<?php 
 			select_ordre ('Pays', 'id_pays_pro','pays', 'libelle','xxxx');	
 			?>
@@ -75,16 +75,16 @@ include ("sql/recup_personne.php");
   	</div>
   </th>
 <th width="50px"></th >
-  <th >
+  <th width="350px">
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<h2 class="panel-title">Contact personnel  </h2>	
 		</div>
 		<div class="panel-body">
-			<label for="nom">Code postal :</label> <input type="text" maxlength="30 "name="code_postal_perso" id="code_postal_perso" /><br>	
-			<label for="nom">Ville :</label><input type="text" maxlength="30 "name="localite_perso"  id="localite_perso" /><br>
+			<label  class="moyenlabel" for="nom">Code postal :</label> <input type="text" maxlength="30 "name="code_postal_perso" id="code_postal_perso" /><br>	
+			<label  class="moyenlabel" style="width:99px" for="nom">Ville :</label><input type="text" maxlength="30 "name="localite_perso"  id="localite_perso" /><br>
 			<?php 
-			select_ordre ('Pays', 'id_pays_perso','pays', 'libelle','xxxx');	
+			select_ordre ('Pays', 'id_pays_perso','pays', 'libelle','xxxx',"95px");	
 			?>
 			&nbsp;
 			<?php  
