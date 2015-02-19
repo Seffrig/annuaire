@@ -36,7 +36,7 @@ include "templates/menu.php";
 	}
 </script>  
 
-	<h1> 	Modification de l'équipe de recherche	 </h1>
+	<h1> Gestion des équipes de recherche	 </h1>
 	<a href="formulaire_modifier_equipe_recherche.php?type_modif=ajout" >Ajouter une équipe de recherche</a>
 	<br><br>
 	<?php  
@@ -48,7 +48,8 @@ include "templates/menu.php";
 		$_GET['id_rech'] = $id_rech;
 	}
 
-	?>					
+	?>				
+
 	<!--- FORMULAIRE DE RECHERCHE -->
 	<form action="modif_equipe_recherche.php"  method='get'>
 		<label for='libelle_rech'> Acronyme de l'équipe  </label> <input type="text" name="libelle_rech"  id="libelle_rech" size="20" />
@@ -61,9 +62,9 @@ include "templates/menu.php";
 	{
 		 header('Location: formulaire_modifier_equipe_recherche.php?type_modif=modif&id_rech='. $_GET['id_rech'] .'');   
 	}
-
+	echo "</br>	";
 	//function affichage_colonne($id, $champ, $table, $page_modif, $page_sup) 
-	affichage_colonne('num_equipe', 'accronyme', 'recherche','modif_equipe_recherche.php','maj_equipe_recherche.php',"champ");				    			
+	affichage_colonne('num_equipe', 'accronyme', 'recherche','modif_equipe_recherche.php','maj_equipe_recherche.php',"champ","id");				    			
 	?>	
 
 <?php

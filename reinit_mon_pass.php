@@ -20,6 +20,7 @@ include "templates/menu.php";
 
 <?php
 $mdp_bool=true;
+
 // modification du mot de passe
 if($_POST && !empty($_POST['ancien_mot_pass']) && !empty($_POST['new_mot_pass']) && !empty($_POST['new_mot_pass_2'])  )	
 { 
@@ -58,30 +59,37 @@ if($_POST && !empty($_POST['ancien_mot_pass']) && !empty($_POST['new_mot_pass'])
 
 ?>	
 <div id="global">	
-	<h1> Gestion du mot de passse</h1>		
+	<h1> Gestion du mot de passe</h1>		
 	<br>
-	<form action="reinit_mon_pass.php"  method='post'>
 
-			<label for='login_cree'> Ancien mot de passe : </label> <input type="password" name="ancien_mot_pass" id="ancien_mot_pass" size="50"/>
-			<br>
-			<br>	
-			<label for='new_mot_pass'> Nouveau mot de passe :  </label> <input type="password" name="new_mot_pass" id="new_mot_pass" size="50" />		
-			<br>
-			<br>
-			<label for='new_mot_pass_2'> Confirmer le nouveau mot de passe :  </label> <input type="password" name="new_mot_pass_2" id="new_mot_pass_2" size="50" />
-			<br>
-			<br>
-		
-			<?php
+	<form action="reinit_mon_pass.php"  method='post'>
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h2 class="panel-title">Modification</h2>
+			</div>
+			<div class="panel-body">
+				<label style="width:250px" for='login_cree'> Ancien mot de passe : </label> <input type="password" name="ancien_mot_pass" id="ancien_mot_pass" size="50"/>
+				<br>
+				<br>	
+				<label style="width:250px" for='new_mot_pass'> Nouveau mot de passe :  </label> <input type="password" name="new_mot_pass" id="new_mot_pass" size="50" />		
+				<br>
+				<br>
+				<label style="width:250px" for='new_mot_pass_2'> Confirmer le nouveau mot de passe :  </label> <input type="password" name="new_mot_pass_2" id="new_mot_pass_2" size="50" />
+				<br>
+				<br>
+				<?php
 				if (!$mdp_bool)
 				{
 					echo'<div class=erreur >mauvais mot de passe recommencé svp</div>';
 				}
-			?>
-		
-			<div id='recherche_submit'><input type="submit" id="bouton-submit"  value="Changer"  /></div>
-		
-	</form>		
+				?>
+			<div id='recherche_submit'>
+				<input type="submit" id="bouton-submit"  value="Changer" style="margin-left:40%" />
+				<a href="compte.php" > <input type="button" value="Annuler"> </a>
+			</div>
+
+		</div></div>
+		</form>		
 	<br>
 	
 </div>

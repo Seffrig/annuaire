@@ -218,7 +218,8 @@
 		</div>
 		<br>		
 		<div class='position_submit'>
-			<INPUT type="submit" onClick="return check_personne();" value="Valider" style="width:130px ; height : 50px;margin-left:41%"  >
+			<INPUT type="submit" onClick="return check_personne();" value="Valider" style="width:130px ; height : 50px;margin-left:30%"  >
+			<a href="compte.php?id_personne=<?php echo $id_personne ?>" > <input type="button" value="Annuler"  style="width:130px ; height : 50px"> </a>
 		</div>		
 	<br>	
 </form>	

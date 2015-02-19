@@ -101,12 +101,12 @@ affichage_theses($id_personne);
 		}
 
 	}
-
+	//echo "la".$old_titre_ouvrage."ic";
 	echo '<fieldset>';
 	echo '		<br><label class="tresgrandlabel" for="titre_ouvrage :">Intitulé de la thèse :</label><br>'; 
-	echo ' 		<TEXTAREA name="titre_ouvrage" rows=2 COLS=60 maxlength="300 "> ';
-				if ($old_titre_ouvrage != '') { echo stripslashes($old_titre_ouvrage); }
-	echo '		</TEXTAREA><br> ';
+	echo ' 		<TEXTAREA name="titre_ouvrage" rows=2 COLS=60 maxlength="300 ">';
+				if ($old_titre_ouvrage != ' ') { echo stripslashes($old_titre_ouvrage); }
+	echo '</TEXTAREA><br> ';
 	echo '</fieldset>';
 	
 	echo"<fieldset><br>";selection_menu_der('Type de thèse :' , 'id_type_these','type_these', 'libelle', $old_id_type_these,"218px"); echo"<font class='ast'>*</font><br></fieldset>";

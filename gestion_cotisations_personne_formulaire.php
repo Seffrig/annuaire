@@ -3,7 +3,7 @@
 	<th>
 		<?php
 			//select_ordre($libelle_affichage, $identifiant_css, $table, $champ, $preselection) 
-			select_ordre('', 'new_id_type_paiement', 'type_paiement', 'libelle', $id_type_paiement); ?>
+			select_ordre('', 'new_id_type_paiement', 'type_paiement', 'libelle', $id_type_paiement,"300px"); ?>
 	</th>
 	<th>
 		<input type="checkbox" name="new_revue" id="new_revue" <?php  if ($revue=="t"){echo "CHECKED";}?> >

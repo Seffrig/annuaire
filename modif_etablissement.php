@@ -21,7 +21,7 @@ include "templates/menu.php";
 
 ?>
 
- <script type="text/javascript">
+<script type="text/javascript">
 	$(document).ready(function()
 	{
 		$('#libelle_rech').simpleAutoComplete('ajax_query.php?from="etablissement"&champ="nom"',{
@@ -38,7 +38,7 @@ include "templates/menu.php";
 </script>  
 
 		
-	<h1> 	Modification de l'établissement	 </h1>
+	<h1>Gestion des établissements</h1>
 	<a href="formulaire_modifier_etablissement.php?type_modif=ajout" >Ajouter un établissement</a>
 	<br><br>
 	<?php  
@@ -66,7 +66,6 @@ include "templates/menu.php";
 		 header('Location: formulaire_modifier_etablissement.php?type_modif=modif&id_rech='. $_GET['id_rech'] .'');   
 	}
 	echo'<br/>';
-	//affichage_colonne_2_tables($id1, $champ1, $table1, $rel1, $rel2, $champ2, $table2, $page_modif, $page_sup) 
 	affichage_colonne_2_tables('id', 'nom', 'etablissement', 'id_ville', 'id', 'libelle', 'ville' ,'modif_etablissement.php','maj_etablissement.php');				    			
 	?>	
 

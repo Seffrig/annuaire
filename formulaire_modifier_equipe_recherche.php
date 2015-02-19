@@ -23,12 +23,14 @@ include "templates/menu.php";
 	// ajout 
 	if ($_GET['type_modif'] == 'ajout')
 	{
+		$label = "Ajout";
 		echo "<h1> 	Ajout une équipe de recherche	 </h1>";
 		echo "<form action='maj_equipe_recherche.php?type_modif=ajout' onsubmit='return check_valider_equipe()' name='form_equipe_recherche' method='post'  >";
 	}
 	// modification
 	else if ($_GET['type_modif'] == 'modif')
 	{
+		$label = "Modification";
 		$id_recherche = $_GET['id_rech'];
 		echo "<h1> 	Modification de l'équipe de recherche	 </h1>";
 		echo "<form action='maj_equipe_recherche.php?type_modif=modif&id_rech=". $id_recherche ."' onsubmit='return check_valider_equipe()' name='form_equipe_recherche' method='post'  >";
@@ -52,78 +54,82 @@ include "templates/menu.php";
 		$pays = $row_equipe_recherche[7];
 	}
 ?>
-			<a href="formulaire_modifier_equipe_recherche.php?type_modif=ajout" >Ajouter une équipe de recherche</a>
+			
 			<br/><br/>
 			<br/>	
-			<fieldset>			
-			<label for="num_equipe">Numéro Equipe</label> : 
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h2 class="panel-title"><?php echo $label ?></h2>
+				</div>
+				<div class="panel-body">	
+			<label style="width:160px" for="num_equipe">Numéro Equipe :</label> 
 			<input size="10" type="text" maxlength="10 "name="num_equipe" id="num_equipe" onKeyUp="javascript:couleur(this);"
-				<?php  if ($num_equipe != ''){echo 'value = "' . $num_equipe . '"';}  ?>
+				<?php  if (isset($num_equipe) && $num_equipe != ''){echo 'value = "' . $num_equipe . '"';}  ?>
 			/> 
 			<font class='ast'>*</font> par exemple : EA4011
-			</fieldset>	
-			
 			<br/>
-			<fieldset>		
-			<label for="accronyme">Acronyme de l'équipe</label> : 
+			
+			<label style="width:160px" for="accronyme">Acronyme de l'équipe :</label> 
 			<input size="30" type="text" maxlength="30 "name="accronyme" id="accronyme" onKeyUp="javascript:couleur(this);"
-				<?php  if ($accronyme != ''){echo 'value = "' . $accronyme . '"';}  ?>
+				<?php  if (isset($accronyme) && $accronyme != ''){echo 'value = "' . $accronyme . '"';}  ?>
 			/> 
 			<font class='ast'>*</font> par exemple : ISTA
-			</fieldset>	
+			
 			
 			<br/>
-			<fieldset>					
-			<label for="num_rue">Numéro de rue</label> : 
+								
+			<label style="width:160px" for="num_rue">Numéro de rue :</label>
 			<input size="5" type="text" maxlength="5 "name="num_rue" id="num_rue" onKeyUp="javascript:couleur(this);"
-				<?php  if ($num_rue != ''){echo 'value = "' . $num_rue . '"';}  ?>
+				<?php  if (isset($num_rue) && $num_rue != ''){echo 'value = "' . $num_rue . '"';}  ?>
 			/> 
 			<font class='ast'>*</font>
-			</fieldset>	
+				
 			
 			<br/>	
-			<fieldset>					
-			<label for="nom_rue">Nom de la rue</label> : 
+								
+			<label style="width:160px" for="nom_rue">Nom de la rue :</label> 
 			<input size="50" type="text" maxlength="100 "name="nom_rue" id="nom_rue" onKeyUp="javascript:couleur(this);"
-				<?php  if ($nom_rue != ''){echo 'value = "' . $nom_rue . '"';}  ?>
+				<?php  if (isset($nom_rue) && $nom_rue != ''){echo 'value = "' . $nom_rue . '"';}  ?>
 			/> 
 			<font class='ast'>*</font>
-			</fieldset>	
+				
 			
 			<br/>	
-			<fieldset>					
-			<label for="code_postal">Code postal</label> : 
+								
+			<label style="width:160px" for="code_postal">Code postal :</label> 
 			<input size="5" type="text" maxlength="5 "name="code_postal" id="code_postal" onKeyUp="javascript:couleur(this);"
-				<?php  if ($code_postal != ''){echo 'value = "' . $code_postal . '"';}  ?>
+				<?php  if (isset($code_postal) && $code_postal != ''){echo 'value = "' . $code_postal . '"';}  ?>
 			/> 
 			<font class='ast'>*</font>
-			</fieldset>	
+				
 			
 			<br/>	
-			<fieldset>					
-			<label for="ville">Ville</label> : 
+								
+			<label style="width:160px" for="ville">Ville :</label> 
 			<input size="50" type="text" maxlength="50 "name="ville" id="ville" onKeyUp="javascript:couleur(this);"
-				<?php  if ($ville != ''){echo 'value = "' . $ville . '"';}  ?>
+				<?php  if (isset($ville) && $ville != ''){echo 'value = "' . $ville . '"';}  ?>
 			/> 
 			<font class='ast'>*</font>
-			</fieldset>	
+			
 			
 			<br/>	
-			<fieldset>	
+				
 			<?php
 			// select_ordre($libelle_affichage, $identifiant_css, $table, $champ, $preselection) 
-			select_ordre ('Pays ', 'id_pays','pays', 'libelle', $pays );	 
+			$pays ="";
+			select_ordre ('Pays ', 'id_pays','pays', 'libelle', $pays,"158px" );	 
 			?>
 			<font class='ast'>*</font>
-			</fieldset>	
-			<br/>
-			<input type="submit" value="Valider"/>
+				
+			<br/><br/>
+			<input type="submit" value="Valider" style="margin-left: 40%;"/>
+			<a href="modif_equipe_recherche.php"> <input type="button" value="Annuler"> </a>
 		</form>	
 		<br>
-		
+		</div></div>	
 		<?php 
 		//affichage_colonne($id, $champ, $table, $page_modif, $page_sup) 
-		affichage_colonne('id', 'num_equipe', 'recherche','modif_equipe_recherche.php','maj_equipe_recherche.php');	
+		affichage_colonne('num_equipe', 'accronyme', 'recherche','modif_equipe_recherche.php','maj_equipe_recherche.php',"champ");	
 		?>			
 	
 <?php

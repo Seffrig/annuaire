@@ -76,7 +76,7 @@ $dernier_valeur="";
 				echo "<b> - Type d'adhérent : " . $libelle_type_personne . "</b>";	
 			?>
 			<a href="javascript:DivStatus( 'cachediv', '1' )">Modifier</a><br>
-		</div>			
+		
 		
 		<div id="cachediv1" name="cachediv1" class="cachediv">		
 			<div class="secondaire" >	
@@ -90,6 +90,7 @@ $dernier_valeur="";
 				</form>		
 			</div>
 		</div>
+		</div>			
 	</div>	
 
 	<!-- information du contact -->

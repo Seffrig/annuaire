@@ -81,14 +81,15 @@ include "templates/menu.php";
 			<br/>
 			<?php
 			//selection_menu_der($libelle_affichage, $identifiant_css, $table, $champ, $preselection) 
-			if(isset( $id_type_user)){
+			if(isset($id_type_user)){
 				selection_menu_der ("Type d'utilisateur ", "id_type","type_user", "libelle", $id_type_user,"145px" );
 				echo "<font class='ast'>*</font>";
 			}
 				 
 			?>
 			<br/>
-			<input type="submit" value="Valider" style="margin-left: 48%;"/>
+			<input type="submit" value="Valider" style="margin-left: 40%;"/>
+			<a href="modif_gestion_utilisateurs.php"> <input type="button" value="Annuler"> </a>
 		</form>	
 		
 		</div></div>

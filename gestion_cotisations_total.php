@@ -92,30 +92,6 @@ $annee_actuel = date ('Y');
 				
 					}			
 			}
-
-			
-							
-/*
-				{
-
-					echo "<li id='tableau_cotisations'>";	
-						echo '<span id="col1">'. $annee .'</span>';	
-						echo '<span id="col2">'. $libellle_type_paiement .'</span>';			
-						echo '<span id="col3">';
-							if ($revue=="t"){echo "oui";} else {echo "non";} 
-							echo '</span>';		
-						echo '<span id="col4">'. $valeur .'</span>';	
-						echo '<span id="col5"><a href="gestion_cotisations_personne.php?id_cotisant='.$id_personne.'&id=' . $id_cotisation .'&type=modification&nb_cotisations='. $nb_cotisations_afficher .' "><img width="12px" src="images/button_edit.png" ></a></span>';	
-						echo '<span id="col6">';
-						?>
-													
-						<?php
-						echo '</span>';	
-					echo "</li>";		
-				}					
-
-				$i++;
-			}		*/
 		?>
 	</table>
 	<br/>

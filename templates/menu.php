@@ -43,6 +43,11 @@ if($_SESSION['type_user'] == 1){
         <ul class="dropdown-menu" role="menu">
           <li><a href="gestion_cotisations.php">Gestion des cotisations</a></li>
           <li><a href="modif_gestion_utilisateurs.php">Gestions des utilisateurs</a></li>
+          <li><a href="modif_etablissement.php">Gestions des universités</a></li>
+          <li><a href="modif_equipe_recherche.php">Gestions des EDR</a></li>
+          <li><a href="modif_pays.php">Gestions des pays</a></li>
+          <li><a href="modif_ville.php">Gestions des villes</a></li>
+          <li><a href="modif_corps.php">Gestions des corps</a></li>
         </ul>
       </li>
       <li ><a href="deconnexion.php">Deconnexion</a></li> 

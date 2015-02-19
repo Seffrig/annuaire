@@ -51,7 +51,7 @@ function affichage_theses($id_personne)
 		$url = trim ( $url );
 		$observation = trim ( $observation );
 		
-		echo '<p>';
+		
 		
 		echo "" . $libelle_these . " : " . $titre_ouvrage . ", " . $date_publi . " " ;
 		
@@ -60,11 +60,6 @@ function affichage_theses($id_personne)
 		echo " <a href=\"javascript: if (confirm('Cette suppression est définitive. Confirmez-vous?')) { window.location.href='script_these.php?type_modif=supp&id_publi=" . $id_publi . "' } else { void('') }; \"> <img width='16px' src='images/croixsupprimer.gif' ></a> ";
 
 		echo '<br><br>';	
-		
-		echo '</p>';
-		echo '</div>';
-		
-		
 	}	
 	echo '</div>';
 	echo '</div>';

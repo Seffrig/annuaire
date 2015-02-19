@@ -15,6 +15,7 @@ $id_equipe_princ = "";
 $num_equipe_princ = ""; 
 $accronyme_equipe_princ = ""; 
 $libelle_type_personne = "";
+$abonnement_revue ="";
 if ($id_personne != 0) 
 {	
 	$result_personne = pg_query("SELECT  id,  id_titre,  nom,  prenom,  id_corps,  localite_perso,  	

@@ -146,7 +146,8 @@ if ($prenom =='MORALE')
 }
 else 
 {
-	echo "<a href='modif_personne.php'><input type='button' value='Modifier les informations'></a>";
+	echo "<a href='modif_personne.php'><input type='button' value='Modifier les informations' style='width:180px'></a><br><br>";
+	echo "<a href='reinit_mon_pass.php'><input type='button' value='Modifier le mot de passe' style='width:180px'></a>";
 } 
 ?>	
 </th>

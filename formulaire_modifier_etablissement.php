@@ -23,12 +23,14 @@ include "templates/menu.php";
 	// ajout 
 	if ($_GET['type_modif'] == 'ajout')
 	{
-		echo "<h1> 	Ajout un établissement	 </h1>";
+		$label = "Ajout";
+		echo "<h1> 	Ajout d'un établissement	 </h1>";
 		echo "<form action='maj_etablissement.php?type_modif=ajout' onsubmit='return check_valider_etablissement()' name='form_etablissement' method='post'  >";
 	}
 	// modification
 	else if ($_GET['type_modif'] == 'modif')
 	{
+		$label = "Modification";
 		$id_recherche = $_GET['id_rech'];
 		echo "<h1> 	Modification de l'établissement	 </h1>";
 		echo "<form action='maj_etablissement.php?type_modif=modif&id_rech=". $id_recherche ."' onsubmit='return check_valider_etablissement()' name='form_etablissement' method='post'  >";
@@ -48,34 +50,35 @@ include "templates/menu.php";
 
 	}
 ?>
-			<a href="formulaire_modifier_etablissement.php?type_modif=ajout" >Ajouter un établissement</a>
+
+			
 			<br/><br/>
 			<br/>	
 
-			<fieldset>		
-			<label for="nom_etablissement">Nom de l'établissement</label> : 
-			<input size="50" type="text" maxlength="100 "name="nom_etablissement" id="nom_etablissement" onKeyUp="javascript:couleur(this);"
-				<?php  if ($nom_etablissement != ''){echo 'value = "' . $nom_etablissement . '"';}  ?>
-			/> 
-			<font class='ast'>*</font>
-			</fieldset>	
-		
-			<br/>	
-			<fieldset>	
-			<?php
-			//selection_menu_der($libelle_affichage, $identifiant_css, $table, $champ, $preselection) 
-			selection_menu_der ('Ville ', 'id_ville','ville', 'libelle', $id_ville );	 
-			?>
-			<font class='ast'>*</font>
-			</fieldset>	
-			<br/>
-			<input type="submit" value="Valider"/>
-		</form>	
-		<br>
-		
-		<?php 
-		//affichage_colonne_2_tables($id1, $champ1, $table1, $rel1, $rel2, $champ2, $table2, $page_modif, $page_sup) 
-		affichage_colonne_2_tables('id', 'nom', 'etablissement', 'id_ville', 'id', 'libelle', 'ville' ,'modif_etablissement.php','maj_etablissement.php');	
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h2 class="panel-title"><?php echo $label ?></h2>
+				</div>
+				<div class="panel-body">
+					<label for="nom_etablissement">Nom de l'établissement</label> : 
+					<input size="50" type="text" maxlength="100 "name="nom_etablissement" id="nom_etablissement" onKeyUp="javascript:couleur(this);"
+					<?php  if (isset($nom_etablissement) && $nom_etablissement != ''){echo 'value = "' . $nom_etablissement . '"';}  ?>/> 
+					<font class='ast'>*</font>
+					<br/>	
+					<?php
+					$id_ville=0;
+					selection_menu_der ('Ville ', 'id_ville','ville', 'libelle', $id_ville,"170px" );
+					?>
+					<font class='ast'>*</font><br/></br>
+					<input type="submit" value="Valider" style="margin-left: 40%;"/>
+					<a href="modif_etablissement.php"> <input type="button" value="Annuler"> </a>
+					</form>	
+					<br>
+				</div>
+			</div>
+					<?php 
+					//affichage_colonne_2_tables($id1, $champ1, $table1, $rel1, $rel2, $champ2, $table2, $page_modif, $page_sup) 
+					affichage_colonne_2_tables('id', 'nom', 'etablissement', 'id_ville', 'id', 'libelle', 'ville' ,'modif_etablissement.php','maj_etablissement.php');	
 		?>			
 	
 <?php

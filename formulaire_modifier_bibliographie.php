@@ -413,7 +413,7 @@ $old_selectionner_ordre="";
 	<br/>
 	<div style="margin-left:30%">
 	<input type="submit" value="Valider" style="width:130px;height:50px"/>
-	<a href='bibliographie.php'><input style="width:130px;height:50px" class='button' type='button' value='Cancel'><cancel>&nbsp;Annuler</cancel></a>
+	<a href='bibliographie.php'><input style="width:130px;height:50px" class='button' type='button' value='Annuler'><cancel>&nbsp;Annuler</cancel></a>
 	</div>
 </form>	
 <br>	
