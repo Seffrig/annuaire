@@ -67,3 +67,51 @@ function check_valider_equipe()
 		return false ;
 	}
 }
+
+function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+        	['These', c0],
+        	['Article dans une revue', c1],
+        	['Communications avec actes', c3],
+        	['Communications sans actes', c4],
+        	['Conférence invitée', c5],
+        	['Ouvrage', c6],
+        	['Chapitre douvrage', c7],
+        	['Direction douvrage', c8],
+        	['Autre type de publication', c9]
+        	]);
+
+        // Set chart options
+        var options = {'title':'Répartition des publications',
+        'width':900,
+        'height':500};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+
+ function camembertStatGlobale() {
+ 	
+ 	var c0 =parseInt(document.getElementById("c0").value);
+ 	var c1 =parseInt(document.getElementById("c1").value); 
+ 	var c3 =parseInt(document.getElementById("c3").value);
+ 	var c4 =parseInt(document.getElementById("c4").value);
+ 	var c5 =parseInt(document.getElementById("c5").value);
+ 	var c6 =parseInt(document.getElementById("c6").value);
+ 	var c7 =parseInt(document.getElementById("c7").value);
+ 	var c8 =parseInt(document.getElementById("c8").value);
+ 	var c9 =parseInt(document.getElementById("c9").value);
+ 	
+
+ 	google.load('visualization', '1.0', {'packages':['corechart']});
+
+ 	google.setOnLoadCallback(drawChart);
+
+ 	drawChart();
+ }

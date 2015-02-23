@@ -55,42 +55,44 @@ $annee_actuel = date ('Y');
 			
 				$i=0;
 
-					while ($i<4) 
-					{	
-						$annee = $annee_actuel - $i;
-						$result_cotisations = pg_query("SELECT c.annee, c.valeur, c.revue
-												FROM cotisations c 
-												WHERE c.id_personne  = " . $id_personne . "
-												AND c.annee=" . $annee . "
-												AND c.visible=true   
-												");
-						$cotisations_row = pg_fetch_row($result_cotisations);
-						$annee_cotisations = $cotisations_row[0];
-						$valeur_cotisations = $cotisations_row[1];
-						
-						$revue = $cotisations_row[2];
+				while ($i<4) 
+				{	
+					$annee = $annee_actuel - $i;
+					$result_cotisations = pg_query("SELECT c.annee, c.valeur, c.revue
+											FROM cotisations c 
+											WHERE c.id_personne  = " . $id_personne . "
+											AND c.annee=" . $annee . "
+											AND c.visible=true   
+											");
+					$cotisations_row = pg_fetch_row($result_cotisations);
+					$annee_cotisations = $cotisations_row[0];
+					$valeur_cotisations = $cotisations_row[1];
 					
-						
-						echo '<td>'. $valeur_cotisations .'</td>';	
-						
-						$i++;
-						if ($i ==1) 
-						{
-							if ($revue == "t")
-							{
-								$checkbox_revue = "true_min.jpg";
-							}
-							else
-							{
-								$checkbox_revue = "false_min.jpg";
-							}
-							
-						}
-					}
-					echo '<td><img src="images/' . $checkbox_revue . '"</td>';	
-					echo '<tr>';	
+					$revue = $cotisations_row[2];
 				
-					}			
+					
+					?>
+					<td id="blabla" onDblClick="changeValue()"> <?php echo $valeur_cotisations; ?> </td>	
+					
+					<?php
+					$i++;
+					if ($i ==1) 
+					{
+						if ($revue == "t")
+						{
+							$checkbox_revue = "true_min.jpg";
+						}
+						else
+						{
+							$checkbox_revue = "false_min.jpg";
+						}
+						
+					}
+				}
+				echo '<td><img src="images/' . $checkbox_revue . '"</td>';	
+				echo '<tr>';	
+			
+				}			
 			}
 		?>
 	</table>
