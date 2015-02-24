@@ -25,7 +25,16 @@ include("verification_droit.php");
 
 <?php
 
+function modifCotisation()
+{
+	$query = pg_query("SELECT id, nom, prenom FROM personne WHERE visible=true ORDER BY nom, prenom");
+
+}
+
+
 $annee_actuel = date ('Y');
+
+
 
 ?>	
 
@@ -43,6 +52,7 @@ $annee_actuel = date ('Y');
 		</tr>
 	  	<tr>	
  			<?php 
+			$c = 0;
 			$personne_sql = pg_query("SELECT id, nom, prenom FROM personne WHERE visible=true ORDER BY nom, prenom");
 			while ($personne_row = pg_fetch_row($personne_sql))
 			{
@@ -54,7 +64,6 @@ $annee_actuel = date ('Y');
 				echo '<td>'. $prenom_personne .'</td>';	
 			
 				$i=0;
-
 				while ($i<4) 
 				{	
 					$annee = $annee_actuel - $i;
@@ -71,10 +80,31 @@ $annee_actuel = date ('Y');
 					$revue = $cotisations_row[2];
 				
 					
+					$tdId = "" . $annee . $c;
+					$idInput = "Input" . $tdId;
+					$idBut = "But" . $tdId;
+
+					echo '<input name="annee" id="annee" type="HIDDEN" value='.$annee.'  />';
+					echo '<input name="compteur" id="compteur" type="HIDDEN" value='.$c.'  />';
+					echo '<input name="valeurCoti" id="valeurCoti" type="HIDDEN" value='.$valeur_cotisations.'  />';
+					echo '<input name="id_personne" id="id_personne" type="HIDDEN" value='.$id_personne.'  />';
+
 					?>
-					<td id="blabla" onDblClick="changeValue()"> <?php echo $valeur_cotisations; ?> </td>	
-					
+						<td id="<?php echo $tdId; ?>"  
+							onDblClick="showForm(<?php echo $annee . ',' . $c ; ?> )">
+							<?php
+							echo $valeur_cotisations;  
+							echo "<form  action='modif_cotisations.php' name='formModifCoti' id='formModifCoti' method='get'>";
+							echo "<input  name='annee' type='HIDDEN' value=".$annee." id='annee' />";
+							echo "<input  name='id_personne' type='HIDDEN' value=".$id_personne." id='id_personne' />";
+							echo "<input name='valeur' type='text' maxlength='5' size='4' id='" . $idInput . "' value='" . $valeur_cotisations ."' style='visibility:hidden' /> ";
+							echo "<input type='submit' id='". $idBut ."' size='3' style='visibility:hidden' value='OK'>";
+							echo "</form>";
+							?>
+						</td>	
+			
 					<?php
+					
 					$i++;
 					if ($i ==1) 
 					{
@@ -89,6 +119,7 @@ $annee_actuel = date ('Y');
 						
 					}
 				}
+				$c++;
 				echo '<td><img src="images/' . $checkbox_revue . '"</td>';	
 				echo '<tr>';	
 			

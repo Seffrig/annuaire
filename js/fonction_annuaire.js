@@ -155,13 +155,10 @@ function DivStatus( nom, numero )
 
 function hideshow(obj){
 	var nom = obj;
-	alert(nom);
 if (document.getElementById(nom).style.display =='none'){
-	alert("ici");
 	document.getElementById(nom).style.display = 'block';
 }
 if(document.getElementById(nom).style.display == 'block'){
-	alert("la");
 	document.getElementById(nom).style.display = 'none';
 }
 
@@ -172,3 +169,15 @@ function show(){
 	document.getElementById('tabAjout').style.display = 'block';
 }
 
+
+function showForm(annee,c)
+{
+	var id = "" + annee + c;
+	var idInput = "Input" + id;
+	var idBut = "But" + id;
+
+	document.getElementById(id).style.visibility = 'hidden';
+	document.getElementById(idInput).style.visibility = 'visible';
+	document.getElementById(idBut).style.visibility = 'visible';
+
+}
