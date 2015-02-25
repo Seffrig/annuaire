@@ -99,7 +99,7 @@ if( isset( $_REQUEST['query'] ) && $_REQUEST['query'] != "" )
 		$r = pg_query($dbconn, $sql);
 		if ( $r )
 		{
-			echo '<ul>'."\n";
+			echo '<ul >'."\n";
 			while( $l = pg_fetch_row( $r ) )
 			{
 				$id = $l[0];
@@ -123,7 +123,7 @@ if( isset( $_REQUEST['query'] ) && $_REQUEST['query'] != "" )
 		$r = pg_query($dbconn, $sql);
 		if ( $r )
 		{
-			echo '<ul>'."\n";
+			echo '<ul id="listeAuto" name="listeAuto">'."\n";
 
 			while( $l = pg_fetch_row( $r ) )
 			{
@@ -136,6 +136,8 @@ if( isset( $_REQUEST['query'] ) && $_REQUEST['query'] != "" )
 			}
 			echo '</ul>';
 		}
+
+		
     }
 	
 	// pour la recherche de liste générique avec identifiant dans l'url avec extra parametre
@@ -146,9 +148,9 @@ if( isset( $_REQUEST['query'] ) && $_REQUEST['query'] != "" )
 		// pour la CAS
 		$champ_ss_cas = "lower(" . $_GET['champ'] .")" ;
 		$q_ss_cas = "lower('" . $q . "')";
-		$sql = "SELECT * FROM " . $_GET['from'] . " where position(". $q_ss_cas ." IN " . $champ_ss_cas. ") > 0 $sql order by position (". $q_ss_cas ." IN " . $champ_ss_cas . ") limit 10";
+		@$sql = "SELECT * FROM " . $_GET['from'] . " where position(". $q_ss_cas ." IN " . $champ_ss_cas. ") > 0 $sql order by position (". $q_ss_cas ." IN " . $champ_ss_cas . ") limit 10";
 
-		$r = pg_query($dbconn, $sql);
+		$r = @pg_query($dbconn, $sql);
 		if ( $r )
 		{
 			echo '<ul>'."\n";
