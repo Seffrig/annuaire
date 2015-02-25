@@ -18,7 +18,39 @@ include("commun/connexion_db.php");
 include "templates/menu.php";
 
 ?>
+<!--
+ <script type="text/javascript">
+	$(document).ready(function()
+	{
+	    $('#new_ville_etabl_principal').simpleAutoComplete('ajax_query.php?from="ville"&champ="libelle" ',{
+		autoCompleteClassName: 'autocomplete',
+		selectedClassName: 'sel',
+		attrCallBack: 'rel',
+		identifier: 'generique_identifiant'
+	    },majville);
 
+	    $('#new_etabl_principal').simpleAutoComplete('ajax_query.php?from="etablissement"&champ="nom"&champ_extra="id_ville" ',{
+		autoCompleteClassName: 'autocomplete',
+		selectedClassName: 'sel',
+		identifier: 'generique_identifiant_extraparametre',
+		extraParamFromInput: '#new_id_ville_etabl_principal'
+	    },majetablissement);
+        });
+	
+	function majville( par )
+	{
+	    $("#new_id_ville_etabl_principal").val( par[0] );
+	    $("#new_etabl_principal").removeAttr("disabled");
+		$("#new_etabl_principal, #new_id_etabl_principal").val("");
+	}
+
+	function majetablissement( par )
+	{
+	    $("#new_id_etabl_principal").val( par[0] );
+	}
+	
+</script>    
+-->
 <?php
 	// ajout 
 	if ($_GET['type_modif'] == 'ajout')
@@ -60,13 +92,32 @@ include "templates/menu.php";
 		$id_recherche = $row_utilisateur[0]; 
 		$id_type_user = $row_utilisateur[1];
 		$libelle_type_user = $row_utilisateur[2];
-
 	}
 ?>
 			
 			
 
 			<br>		
+			<label class='labelpublibase' for="nom_cree">Nom :</label> 
+			<input size="20" type="text" name="nom_cree" id="nom_cree" onKeyUp="javascript:couleur(this);"/> 
+			<font class='ast'>*</font>
+			<br/>
+			<label class='labelpublibase' for="prenom_cree">Prenom :</label> 
+			<input size="20" type="text" name="prenom_cree" id="prenom_cree" onKeyUp="javascript:couleur(this);"/> 
+			<font class='ast'>*</font>
+			<br/>
+		
+<!--
+			<label  class="labelpublibase"  for="Ville">Ville :</label>
+			<input type="text" id="new_ville_etabl_principal" name="new_ville_etabl_principal" autocomplete="off" style="width: 250px; height: 23px;" >
+			<input type="hidden" id="new_id_ville_etabl_principal" name="new_id_ville_etabl_principal" disabled />
+			<br>
+			<label class="labelpublibase" for="Etablissement">Etablissement :</label>
+			<input type="text" id="new_etabl_principal" name="new_etabl_principal" autocomplete="off" style="width: 250px; height: 23px;" disabled />
+			<input type="hidden" id="new_id_etabl_principal" name="new_id_etabl_principal"/>
+			<br/>
+	-->	
+
 			<label class='labelpublibase' for="login_cree">Login :</label>
 				<input size="10" type="text" maxlength="8" style='text-transform:uppercase' name="login_cree" id="login_cree" onKeyUp="javascript:couleur(this);"
 				<?php  
@@ -78,10 +129,12 @@ include "templates/menu.php";
 			<label class='labelpublibase' for="pass_cree">Mot de passe :</label> 
 			<input size="20" type="password" name="pass_cree" id="pass_cree" onKeyUp="javascript:couleur(this);"/> 
 			<font class='ast'>*</font>
+	
 			<br/>
 			<?php
 			//selection_menu_der($libelle_affichage, $identifiant_css, $table, $champ, $preselection) 
-			if(isset($id_type_user)){
+			if(isset($id_type_user))
+			{
 				selection_menu_der ("Type d'utilisateur ", "id_type","type_user", "libelle", $id_type_user,"145px" );
 				echo "<font class='ast'>*</font>";
 			}

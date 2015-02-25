@@ -1,8 +1,6 @@
 ﻿<?php session_start(); ?>
 
 
-
-
 	
 <?php
 //connection à la base
@@ -69,17 +67,6 @@ include("commun/connexion_db.php");
 	if (isset($_GET["new_id_etabl_principal"])) $id_etabl_princ = $_GET["new_id_etabl_principal"];
 	if (isset($_GET["new_id_equipe_recherche"])) $id_equipe_recherche_princ = $_GET["new_id_equipe_recherche"];
 	$var =  $commentaire;
-
-?>
-<script type="text/javascript">
-alert("azaz");
-alert("<?=$id_equipe_recherche_princ;?>");
-</script>
-
-
-
-<?php
-
 
 
 	$visible_email_perso = 'false';

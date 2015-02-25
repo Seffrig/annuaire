@@ -13,8 +13,10 @@ $now =time();
 $id_rech = '';
 $login_cree = '';	
 $id_utilisateur = '';
-$id_type = 0;
+$id_type = 3;
 $pass_cree = '';
+$nom_cree = '';
+$prenom_cree = '';
 
 // récupération du formulaire
 if(isset($_GET['id_rech']))
@@ -29,6 +31,14 @@ if(isset($_POST['id_utilisateur']))
 if(isset($_POST['id_type']))
 	$id_type = pg_escape_string($_POST['id_type']);
 
+
+if(isset($_POST['nom_cree']))
+	$nom_cree = pg_escape_string($_POST['nom_cree']);	
+
+if(isset($_POST['prenom_cree']))
+	$prenom_cree = pg_escape_string($_POST['prenom_cree']);	
+
+
 //traitement login
 $login_sans_accent = removeaccents($login_cree);
 $login_sans_accent_maj = strtoupper($login_sans_accent);
@@ -40,10 +50,17 @@ $mdp = htmlentities($pass_cree, ENT_QUOTES);
 $password_md5 = md5($mdp);
 
 // cas de l'ajout
-if ($_GET['type_modif'] == 'ajout' && $login_sans_accent_maj != '' && $pass_cree != ''  )
+if ($_GET['type_modif'] == 'ajout' && $login_sans_accent_maj != '' && $pass_cree != ''  && $nom_cree != '' && $prenom_cree != '' )
 { 
-	$result = pg_query ($dbconn, "INSERT INTO utilisateur (login, pass, id_type) 
-								VALUES ('".$login_sans_accent_maj ."', '".$password_md5 ."', ".$id_type.") RETURNING login");
+
+	$res = pg_query ($dbconn, "INSERT INTO personne (nom, prenom, id_etabl_princ) 
+								VALUES ('".$nom_cree ."', '".$prenom_cree ."','1') RETURNING id");
+	$insert_row = pg_fetch_row($res);
+	$idP = $insert_row[0];	
+
+
+	$result = pg_query ($dbconn, "INSERT INTO utilisateur (login, pass, id_type, id_personne) 
+								VALUES ('".$login_sans_accent_maj ."', '".$password_md5 ."', ".$id_type.", ". $idP.") RETURNING login");
 	$insert_row = pg_fetch_row($result);
 	$id_rech = $insert_row[0];	
 }
