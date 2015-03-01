@@ -15,6 +15,12 @@ remplace('templates/header.php',$changements);
 //connection à la base
 include("commun/connexion_db.php");
 
+// modification si id_rech existe
+if (isset ($_GET['id_rech']) && $_GET['id_rech'] != '')
+{
+	header('Location: formulaire_modifier_gestion_utilisateurs.php?type_modif=modif&id_rech='. $_GET['id_rech'] .'');   
+}
+
 //menu
 include "templates/menu.php";
 
@@ -62,11 +68,7 @@ include "templates/menu.php";
 	<br>
 	<?php 
 
-	// modification si id_rech existe
-	if (isset ($_GET['id_rech']) && $_GET['id_rech'] != '')
-	{
-		 header('Location: formulaire_modifier_gestion_utilisateurs.php?type_modif=modif&id_rech='. $_GET['id_rech'] .'');   
-	}
+	
 
 	//function affichage_colonne($id, $champ, $table, $page_modif, $page_sup) 
 	affichage_colonne('login', 'login', 'utilisateur','modif_gestion_utilisateurs.php','maj_gestion_utilisateurs.php');				    			

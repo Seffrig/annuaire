@@ -175,9 +175,11 @@ function showForm(annee,c)
 	var id = "" + annee + c;
 	var idInput = "Input" + id;
 	var idBut = "But" + id;
+	var idTP = "typePai" + id;
 
 	document.getElementById(id).style.visibility = 'hidden';
 	document.getElementById(idInput).style.visibility = 'visible';
 	document.getElementById(idBut).style.visibility = 'visible';
+	document.getElementById(idTP).style.visibility = 'visible';
 
 }

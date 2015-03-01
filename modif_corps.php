@@ -11,6 +11,11 @@ $changements['__KEYWORDS__'] = '<meta name="keywords" content="Modifications cor
 remplace('templates/header.php',$changements);
 
 include("commun/connexion_db.php");
+// modification si id_rech existe
+if (isset ($_GET['id_rech']) && $_GET['id_rech']!='')
+{
+	header('Location: formulaire_modifier_corps.php?type_modif=modif&id_rech='. $_GET['id_rech'] .'');   
+}
 include "templates/menu.php";
 
 
@@ -57,11 +62,7 @@ include "templates/menu.php";
 	</form>	
 	<?php 
 
-	// modification si id_rech existe
-	if (isset ($_GET['id_rech']) && $_GET['id_rech']!='')
-	{
-		 header('Location: formulaire_modifier_corps.php?type_modif=modif&id_rech='. $_GET['id_rech'] .'');   
-	}
+	
 	echo'<br/>';
 	affichage_colonne('id', 'libelle', 'corps', 'modif_corps.php','maj_corps.php',"libelle");
 	?>	

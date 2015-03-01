@@ -16,6 +16,11 @@ remplace('templates/header.php',$changements);
 //connection à la base
 include("commun/connexion_db.php");
 
+// modification si id_rech existe
+if (isset ($_GET['id_rech']) && $_GET['id_rech']!='')
+{
+	 header('Location: formulaire_modifier_etablissement.php?type_modif=modif&id_rech='. $_GET['id_rech'] .'');   
+}
 //menu
 include "templates/menu.php";
 
@@ -60,11 +65,7 @@ include "templates/menu.php";
 	</form>	
 	<?php 
 
-	// modification si id_rech existe
-	if (isset ($_GET['id_rech']) && $_GET['id_rech']!='')
-	{
-		 header('Location: formulaire_modifier_etablissement.php?type_modif=modif&id_rech='. $_GET['id_rech'] .'');   
-	}
+
 	echo'<br/>';
 	affichage_colonne_2_tables('id', 'nom', 'etablissement', 'id_ville', 'id', 'libelle', 'ville' ,'modif_etablissement.php','maj_etablissement.php');				    			
 	?>	

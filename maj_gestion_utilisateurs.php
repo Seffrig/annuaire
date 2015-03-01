@@ -31,7 +31,6 @@ if(isset($_POST['id_utilisateur']))
 if(isset($_POST['id_type']))
 	$id_type = pg_escape_string($_POST['id_type']);
 
-
 if(isset($_POST['nom_cree']))
 	$nom_cree = pg_escape_string($_POST['nom_cree']);	
 
@@ -53,8 +52,8 @@ $password_md5 = md5($mdp);
 if ($_GET['type_modif'] == 'ajout' && $login_sans_accent_maj != '' && $pass_cree != ''  && $nom_cree != '' && $prenom_cree != '' )
 { 
 
-	$res = pg_query ($dbconn, "INSERT INTO personne (nom, prenom, id_etabl_princ) 
-								VALUES ('".$nom_cree ."', '".$prenom_cree ."','1') RETURNING id");
+	$res = pg_query ($dbconn, "INSERT INTO personne (nom, prenom, id_etabl_princ,visible) 
+								VALUES ('".$nom_cree ."', '".$prenom_cree ."','1','TRUE') RETURNING id");
 	$insert_row = pg_fetch_row($res);
 	$idP = $insert_row[0];	
 

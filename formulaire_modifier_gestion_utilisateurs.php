@@ -73,7 +73,7 @@ include "templates/menu.php";
 		<br><br><br><br>
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<h2 class="panel-title">Modification de l'utilisateur</h2>	
+				<h2 class="panel-title">Modification de l'utilisateur (Changement de mot de passe)</h2>	
 			</div>
 			<div class="panel-body">
 				<?php
@@ -82,7 +82,7 @@ include "templates/menu.php";
 		echo "<form action='maj_gestion_utilisateurs.php?type_modif=modif&id_rech=". $id_recherche ."' onsubmit='return check_valider_gestion_utilisateurs()' name='form_gestion_utilisateurs' method='post'  >";
 
 							
-		$result_utilisateur = pg_query("SELECT  u.login, u.id_type, tu.libelle
+		$result_utilisateur = pg_query("SELECT  u.login, u.id_type, tu.libelle,u.id_personne,u.pass
 											FROM utilisateur u, type_user tu
 											WHERE u.id_type = tu.id 
 											AND u.login = '". $id_recherche ."' ");	
@@ -92,6 +92,16 @@ include "templates/menu.php";
 		$id_recherche = $row_utilisateur[0]; 
 		$id_type_user = $row_utilisateur[1];
 		$libelle_type_user = $row_utilisateur[2];
+		$id_personne = $row_utilisateur[3];
+		$id_pass = $row_utilisateur[4];
+
+		$result_personne = pg_query("SELECT nom, prenom
+											FROM personne
+											WHERE id = ".$id_personne."");	
+		$row_personne = pg_fetch_row($result_personne);
+
+		$nom_cree = $row_personne[0];
+		$prenom_cree = $row_personne[1];
 	}
 ?>
 			
@@ -99,11 +109,21 @@ include "templates/menu.php";
 
 			<br>		
 			<label class='labelpublibase' for="nom_cree">Nom :</label> 
-			<input size="20" type="text" name="nom_cree" id="nom_cree" onKeyUp="javascript:couleur(this);"/> 
+			<input size="20" type="text" name="nom_cree" id="nom_cree" onKeyUp="javascript:couleur(this);"
+			<?php  
+				if (isset($id_recherche) && $id_recherche != '')
+					{echo 'value = "' . $nom_cree . '"  ';}  
+				?>
+			/> 
 			<font class='ast'>*</font>
 			<br/>
 			<label class='labelpublibase' for="prenom_cree">Prenom :</label> 
-			<input size="20" type="text" name="prenom_cree" id="prenom_cree" onKeyUp="javascript:couleur(this);"/> 
+			<input size="20" type="text" name="prenom_cree" id="prenom_cree" onKeyUp="javascript:couleur(this);"
+			<?php  
+				if (isset($id_recherche) && $id_recherche != '')
+					{echo 'value = "' . $prenom_cree . '"  ';}  
+				?>
+			/>  
 			<font class='ast'>*</font>
 			<br/>
 		
@@ -122,12 +142,15 @@ include "templates/menu.php";
 				<input size="10" type="text" maxlength="8" style='text-transform:uppercase' name="login_cree" id="login_cree" onKeyUp="javascript:couleur(this);"
 				<?php  
 				if (isset($id_recherche) && $id_recherche != '')
-					{echo 'value = "' . $id_recherche . '"  disabled';}  ?> /> 
-			(8 caractères maxi : 1ere lettre du prénom + 7 premières lettres du nom)
+					{echo 'value = "' . $id_recherche . '"  disabled';}  
+				?>
+				 /> 
+			<span style="font-size:10px">de 8 caractères maxi comprenant la première lettre prénom + 7 premières lettres du nom</span>
 			<font class='ast'>*</font>
 			<br/>	
 			<label class='labelpublibase' for="pass_cree">Mot de passe :</label> 
-			<input size="20" type="password" name="pass_cree" id="pass_cree" onKeyUp="javascript:couleur(this);"/> 
+			<input size="20" type="password" name="pass_cree" id="pass_cree" onKeyUp="javascript:couleur(this);"
+			/>
 			<font class='ast'>*</font>
 	
 			<br/>

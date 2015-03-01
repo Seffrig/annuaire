@@ -53,10 +53,6 @@
 	<?php
 		// select_ordre($libelle_affichage, $identifiant_css, $table, $champ, $preselection) // retourne une liste triée
 		select_ordre ('Corps', 'new_id_corps','corps', 'libelle', $id_corps );
-		if($_SESSION['modif_corps']=='t') 
-		{
-			echo"<a href='modif_corps.php'><img src='images/button_edit.png' ></a>";
-		}
 	?>
 	<br>
 			
@@ -107,10 +103,7 @@
 			<?php
 				//select_ordre($libelle_affichage, $identifiant_css, $table, $champ, $preselection)) // retourn une liste triée
 				select_ordre ('Pays', 'new_id_pays_pro','pays', 'libelle', $id_pays_pro, "113px" );	 
-				if($_SESSION['modif_pays']=='t') 
-				{
-					echo"<a href='modif_pays.php'><img src='images/button_edit.png' ></a>";
-				}
+				
 			?>
 
 			<br>				
@@ -154,10 +147,7 @@
 			<?php 
 				//select_ordre($libelle_affichage, $identifiant_css, $table, $champ, $preselection) // retourn une liste triée
 				select_ordre ('Pays', 'new_id_pays_perso','pays', 'libelle', $id_pays_perso, "113px" );	  
-				if($_SESSION['modif_pays']=='t') 
-				{
-					echo"<a href='modif_pays.php'><img src='images/button_edit.png' ></a>";
-				}
+				
 			?>
 	
 			<br>

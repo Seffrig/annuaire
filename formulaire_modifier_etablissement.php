@@ -60,7 +60,7 @@ include "templates/menu.php";
 					<h2 class="panel-title"><?php echo $label ?></h2>
 				</div>
 				<div class="panel-body">
-					<label for="nom_etablissement">Nom de l'établissement</label> : 
+					<label style="width: 162px;" for="nom_etablissement">Nom de l'établissement</label> : 
 					<input size="50" type="text" maxlength="100 "name="nom_etablissement" id="nom_etablissement" onKeyUp="javascript:couleur(this);"
 					<?php  if (isset($nom_etablissement) && $nom_etablissement != ''){echo 'value = "' . $nom_etablissement . '"';}  ?>/> 
 					<font class='ast'>*</font>

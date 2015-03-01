@@ -21,25 +21,15 @@ include "templates/menu.php";
 // vérifie les droits pour la page
 $page="gestion_cotisation";
 include("verification_droit.php");	
-?>
-
-<?php
-
-function modifCotisation()
-{
-	$query = pg_query("SELECT id, nom, prenom FROM personne WHERE visible=true ORDER BY nom, prenom");
-
-}
-
 
 $annee_actuel = date ('Y');
-
-
 
 ?>	
 
 	<h1> Etat des cotisations </h1>	
 	<br>
+	<span>Vous pouvez changer ou ajouter une cotisation en cliquant sur la case concerné</span>
+	<br><br>
 	<table style='background-color:white' class="table table-bordered table-hover">
 		<tr>
 				<th>Nom</th>
@@ -67,7 +57,7 @@ $annee_actuel = date ('Y');
 				while ($i<4) 
 				{	
 					$annee = $annee_actuel - $i;
-					$result_cotisations = pg_query("SELECT c.annee, c.valeur, c.revue
+					$result_cotisations = pg_query("SELECT c.annee, c.valeur, c.revue, c.id_type_paiement
 											FROM cotisations c 
 											WHERE c.id_personne  = " . $id_personne . "
 											AND c.annee=" . $annee . "
@@ -76,14 +66,26 @@ $annee_actuel = date ('Y');
 					$cotisations_row = pg_fetch_row($result_cotisations);
 					$annee_cotisations = $cotisations_row[0];
 					$valeur_cotisations = $cotisations_row[1];
-					
 					$revue = $cotisations_row[2];
+					$type_paiement = $cotisations_row[3];
 				
+
+					$result= pg_query("SELECT id,libelle FROM type_paiement"); 
+					$listTypePaiment = '';
+					while ($row = pg_fetch_row($result))
+					{
+						if($type_paiement == $row[0])
+							$listTypePaiment = $listTypePaiment."<option value=".$row[0]." selected='selected' >".$row[1]."</option>";
+						else
+							$listTypePaiment = $listTypePaiment."<option value=".$row[0]." >".$row[1]."</option>";
+					}
+												
+
 					
 					$tdId = "" . $annee . $c;
 					$idInput = "Input" . $tdId;
 					$idBut = "But" . $tdId;
-
+					$idTP = "typePai" . $tdId;;
 					echo '<input name="annee" id="annee" type="HIDDEN" value='.$annee.'  />';
 					echo '<input name="compteur" id="compteur" type="HIDDEN" value='.$c.'  />';
 					echo '<input name="valeurCoti" id="valeurCoti" type="HIDDEN" value='.$valeur_cotisations.'  />';
@@ -91,13 +93,17 @@ $annee_actuel = date ('Y');
 
 					?>
 						<td id="<?php echo $tdId; ?>"  
-							onDblClick="showForm(<?php echo $annee . ',' . $c ; ?> )">
+							onClick="showForm(<?php echo $annee . ',' . $c ; ?> )">
 							<?php
 							echo $valeur_cotisations;  
-							echo "<form  action='modif_cotisations.php' name='formModifCoti' id='formModifCoti' method='get'>";
-							echo "<input  name='annee' type='HIDDEN' value=".$annee." id='annee' />";
-							echo "<input  name='id_personne' type='HIDDEN' value=".$id_personne." id='id_personne' />";
-							echo "<input name='valeur' type='text' maxlength='5' size='4' id='" . $idInput . "' value='" . $valeur_cotisations ."' style='visibility:hidden' /> ";
+							echo "<form  action='modif_cotisations.php' name='formModifCoti' id='formModifCoti' method='post'>";
+							echo "<input name='annee' type='HIDDEN' value=".$annee." id='annee' />";
+							echo "<input name='id_personne' type='HIDDEN' value=".$id_personne." id='id_personne' />";
+							echo "<input name='valeur' type='text' maxlength='5' size='4' id='" . $idInput . "' value='" . $valeur_cotisations ."' style='visibility:hidden;width: 40px;' /> ";
+							
+							echo "<select id='".$idTP."' name='typePai' style='visibility:hidden'>";
+								echo $listTypePaiment;
+							echo "</select>";
 							echo "<input type='submit' id='". $idBut ."' size='3' style='visibility:hidden' value='OK'>";
 							echo "</form>";
 							?>
