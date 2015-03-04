@@ -71,7 +71,7 @@ include "templates/menu.php";
 	
 
 	//function affichage_colonne($id, $champ, $table, $page_modif, $page_sup) 
-	affichage_colonne('login', 'login', 'utilisateur','modif_gestion_utilisateurs.php','maj_gestion_utilisateurs.php');				    			
+	affichage_colonne('login', 'login', 'utilisateur','modif_gestion_utilisateurs.php','maj_gestion_utilisateurs.php', $dbconn);				    			
 	?>	
 
 <?php

@@ -45,15 +45,15 @@
 
 			$x = 15;
 			$y = 10;
-			$leftBorder = 190;
+			$border = 190;
 		    $this->SetXY( $x, $y );
 
 			$this->SetFont('Arial','B',10);
 
 			if($id_type_publi == 6 || $id_type_publi == 9)
-				 $this->MultiCell($leftBorder,3,$titre_ouvrage_publi , 0, 'L');
+				 $this->MultiCell($border,3,$titre_ouvrage_publi , 0, 'L');
 			else
-				$this->MultiCell($leftBorder,3,$titre_communication_publi , 0, 'L');
+				$this->MultiCell($border,3,$titre_communication_publi , 0, 'L');
 			$this->SetFont('Arial','',10);			
 
 			
@@ -91,7 +91,7 @@
 			}
 
 			$y += 5;
-			$this->Line($x,$y,$leftBorder + 10, $y);
+			$this->Line($x,$y,$border + 10, $y);
 
 			if ($id_type_publi == 7 || $id_type_publi == 8)
 			{
@@ -107,7 +107,7 @@
 				{
 					$y += 5;
 					$this->SetXY( $x, $y );
-					$this->MultiCell($leftBorder,4,"Publié dans : " . $titre_ouvrage_publi, 0, 'L');
+					$this->MultiCell($border,4,"Publié dans : " . $titre_ouvrage_publi, 0, 'L');
 					$y += 10;
 				}
 			}
@@ -123,7 +123,7 @@
 				{
 					$y += 5;
 					$this->SetXY( $x, $y );
-					$this->MultiCell($leftBorder,4,$line , 0, 'L');
+					$this->MultiCell($border,4,$line , 0, 'L');
 					$y+=5;
 				}
 			}
@@ -135,7 +135,7 @@
 					$y += 5;
 					$this->SetXY( $x, $y );
 
-					$this->MultiCell($leftBorder,4,"Intitulé du colloque : " . $titre_ouvrage_publi , 0, 'L');
+					$this->MultiCell($border,4,"Intitulé du colloque : " . $titre_ouvrage_publi , 0, 'L');
 					$y+=10;
 				}
 			}
@@ -190,7 +190,7 @@
 			{
 				$y += 5;
 				$this->SetXY( $x, $y );
-				$this->MultiCell($leftBorder,3,$observation_publi , 0, 'L');
+				$this->MultiCell($border,3,$observation_publi , 0, 'L');
 				$y += 25;
 			}
 

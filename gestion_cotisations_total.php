@@ -32,8 +32,8 @@ $annee_actuel = date ('Y');
 	<br><br>
 	<table style='background-color:white' class="table table-bordered table-hover">
 		<tr>
-				<th>Nom</th>
-				<th>Prénom</th>
+				<th style="width:70px">Nom</th>
+				<th style="width:70px">Prénom</th>
 				<th>Paiement <?php echo $annee_actuel ?></th>
 				<th>Paiement <?php echo ($annee_actuel - 1 ) ?></th>
 				<th>Paiement <?php echo ($annee_actuel - 2 ) ?></th>
@@ -50,8 +50,8 @@ $annee_actuel = date ('Y');
 				$nom_personne = $personne_row[1];
 				$prenom_personne = $personne_row[2];
 				if($nom_personne != ""){
-				echo "<td><a href='gestion_cotisations_personne.php?id_cotisant=".$id_personne."'>". $nom_personne ."</a></td>";	
-				echo '<td>'. $prenom_personne .'</td>';	
+				echo "<td style='font-size:12px'><a href='gestion_cotisations_personne.php?id_cotisant=".$id_personne."'>". $nom_personne ."</a></td>";	
+				echo '<td style="font-size:12px">'. $prenom_personne .'</td>';	
 			
 				$i=0;
 				while ($i<4) 
@@ -99,12 +99,12 @@ $annee_actuel = date ('Y');
 							echo "<form  action='modif_cotisations.php' name='formModifCoti' id='formModifCoti' method='post'>";
 							echo "<input name='annee' type='HIDDEN' value=".$annee." id='annee' />";
 							echo "<input name='id_personne' type='HIDDEN' value=".$id_personne." id='id_personne' />";
-							echo "<input name='valeur' type='text' maxlength='5' size='4' id='" . $idInput . "' value='" . $valeur_cotisations ."' style='visibility:hidden;width: 40px;' /> ";
+							echo "<input name='valeur' type='text' maxlength='5' size='4' id='" . $idInput . "' value='" . $valeur_cotisations ."' style='visibility:hidden;width:25px;margin-left:-6px;height:22px' /> ";
 							
-							echo "<select id='".$idTP."' name='typePai' style='visibility:hidden'>";
+							echo "<select id='".$idTP."' name='typePai' style='visibility:hidden;height: 22px;margin-left:-2px;font-size:12px'>";
 								echo $listTypePaiment;
 							echo "</select>";
-							echo "<input type='submit' id='". $idBut ."' size='3' style='visibility:hidden' value='OK'>";
+							echo "<input type='submit' id='". $idBut ."' size='3' style='visibility:hidden;position:absolute;width:17px;font-size:8px;height:22px;' value='OK'>";
 							echo "</form>";
 							?>
 						</td>	

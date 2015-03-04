@@ -1,4 +1,5 @@
 	<?php
+
 	/* lit un fichier en lecture et remplace les caractères */
 	function remplace($fichier,$changements)
 	{
@@ -191,7 +192,7 @@ echo '</a></li>';
 
 	// utilisé lors des creation ou modification de table 
 	// affiche le champ d 'une table dans un tableau
-function affichage_colonne($id, $champ, $table, $page_modif, $page_sup,$champTri = "",$paramsupid="") 
+function affichage_colonne($id, $champ, $table, $page_modif, $page_sup,$champTri = "",$paramsupid="", $dbconn="") 
 {
 	//pour gerer la supression
 	if($paramsupid != ""){
@@ -254,6 +255,12 @@ function affichage_colonne($id, $champ, $table, $page_modif, $page_sup,$champTri
 			}
 			echo " <a href=' " . $page_modif . "?id_rech=" . $row[2] . " '> " . $row[1] . "(".$row[0].") </a>";
 		}				
+
+		$select = pg_query("SELECT id_personne FROM utilisateur WHERE login like '$row[0]' ;");
+		$tab = pg_fetch_row($select);
+		$id_pers = $tab[0];
+
+		echo  '<a href="PDFChercheur.php?id_pers='.$id_pers.'" > <img width="12px" src="images/pdf_button.png" ></a>';
 		if($paramsupid != ""){
 		?>
 		<img width='16px' src='images/croixsupprimer.gif' 
@@ -262,6 +269,7 @@ function affichage_colonne($id, $champ, $table, $page_modif, $page_sup,$champTri
 		<?php	
 		}
 		else{
+
 			?>
 			<img width='16px' src='images/croixsupprimer.gif' 
 		onclick="if(confirm('Cette suppression est définitive. Confirmez-vous?')){
