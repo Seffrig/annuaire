@@ -30,12 +30,14 @@ $page="recherche";
 include("verification_droit.php");	
 include ("sql/recup_personne.php"); 
 
+//on selectionne toute les dates de publication
 $result= pg_query("SELECT DISTINCT date_publi
 		FROM publication
 		ORDER BY date_publi"); 
 
-	//pour chaque personne on compte le nb de publi par type
-	
+
+//On test si on à déjà selectionné des dates dans les liste déoulante
+//Si c'est la cas on met ces valeurs selectionner dans les listes	
 if(isset($_GET["dateDebut"]) && $_GET["dateDebut"] != ""){
 	if(isset($_GET["dateFin"]) && $_GET["dateFin"] != ""){
 		$listeOptionDeb ="<option selected>".$_GET["dateDebut"]."</option>";
@@ -47,34 +49,35 @@ else{
 	$listeOptionFin ="";
 }
 
-	while ($row = pg_fetch_row($result))
-	{
-		$elemListe = substr($row[0], 0, 4);
-		if($elemListe == "" || !is_numeric($elemListe) || strlen($elemListe) < 4 || $elemListe == "0000" ){
-			$elemListe = "Non renseigné";
+while ($row = pg_fetch_row($result))
+{
+	$elemListe = substr($row[0], 0, 4); //on ne sélectionne que les 4 premiers caractere
+	//On vérifie que l'élement selectionné ne soit pas vide, soit numérique
+	if($elemListe == "" || !is_numeric($elemListe) || strlen($elemListe) < 4 || $elemListe == "0000" ){
+		$elemListe = "Non renseigné";
+	}
+	else{
+		//liste debut : si l'élèment n'existe pas, on l'ajoute à la liste
+		if(substr_count ($listeOptionDeb,$elemListe) >= 1){
+			$listeOptionDeb = $listeOptionDeb;
 		}
 		else{
-			//liste deb
-			if(substr_count ($listeOptionDeb,$elemListe) >= 1){
-				$listeOptionDeb = $listeOptionDeb;
-			}
-			else{
-				$listeOptionDeb = $listeOptionDeb."<option>".$elemListe."</option>";	
-			}
-			//listefin
-			if(substr_count ($listeOptionFin,$elemListe) >= 1){
-				$listeOptionFin = $listeOptionFin;
-			}
-			else{
-				if($elemListe == $annee_actuel)
-					$listeOptionFin = $listeOptionFin."<option selected='selected' >".$elemListe."</option>";	
-				else
-					$listeOptionFin = $listeOptionFin."<option >".$elemListe."</option>";	
-			}
+			$listeOptionDeb = $listeOptionDeb."<option>".$elemListe."</option>";	
 		}
-		
-
+		//liste fin : si l'élèment n'existe pas, on l'ajoute à la liste
+		if(substr_count ($listeOptionFin,$elemListe) >= 1){
+			$listeOptionFin = $listeOptionFin;
+		}
+		else{
+			if($elemListe == $annee_actuel)
+				$listeOptionFin = $listeOptionFin."<option selected='selected' >".$elemListe."</option>";	
+			else
+				$listeOptionFin = $listeOptionFin."<option >".$elemListe."</option>";	
+		}
 	}
+
+
+}
 
 	
 
@@ -104,9 +107,12 @@ Fin :
 </div></div>
 <?php
 
+//On vérifie qu'on à une date de fin et de début 
+//On verifie que la date de fin > que la date de début
 if(isset($_GET["dateDebut"]) && $_GET["dateDebut"] != ""){
 	if(isset($_GET["dateFin"]) && $_GET["dateFin"] != ""){
 		if($_GET["dateDebut"] <= $_GET["dateFin"]){
+			//on récupere les comptes de publications par type pour une période donné
 			statPubli("",$_GET["dateDebut"],$_GET["dateFin"]);
 		}
 		else{
@@ -116,6 +122,7 @@ if(isset($_GET["dateDebut"]) && $_GET["dateDebut"] != ""){
 	}
 }
 else{
+	//on récupere les comptes de publications par type depuis le début
 	statPubli("global");
 }
 
@@ -126,6 +133,7 @@ else{
 
 
 <script type="text/javascript">
+	//sert a stocker chaque compte de publication par type(récupéré précedement) dans des variables javascript
 	var c0 =parseInt(document.getElementById("c0").value);
  	var c1 =parseInt(document.getElementById("c1").value); 
  	var c3 =parseInt(document.getElementById("c3").value);
@@ -141,6 +149,7 @@ else{
 
  	google.setOnLoadCallback(drawChart);
 
+ 	//dessine le graphique
  	drawChart();
 </script>
 

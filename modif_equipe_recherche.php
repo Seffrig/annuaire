@@ -43,7 +43,8 @@ include "templates/menu.php";
 </script>  
 
 	<h1> Gestion des équipes de recherche	 </h1>
-	<a href="formulaire_modifier_equipe_recherche.php?type_modif=ajout" >Ajouter une équipe de recherche</a>
+	
+	
 	<br><br>
 	<?php  
 	//trouve_a_modifier($table, $champ, $libelle_rech)
@@ -59,7 +60,9 @@ include "templates/menu.php";
 	<!--- FORMULAIRE DE RECHERCHE -->
 	<form action="modif_equipe_recherche.php"  method='get'>
 		<label for='libelle_rech'> Acronyme de l'équipe  </label> <input type="text" name="libelle_rech"  id="libelle_rech" size="20" />
-		<input type="submit" id="bouton-submit"  value="Rechercher"  /><br />	
+		<input type="submit" id="bouton-submit"  value="Rechercher"  />
+		<a href="formulaire_modifier_equipe_recherche.php?type_modif=ajout" ><input style="float: right;" type='button' value='Ajouter une équipe de recherche'></a>
+		<br />	
 	</form>	
 	<?php 
 

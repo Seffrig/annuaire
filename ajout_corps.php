@@ -15,7 +15,7 @@ include("Commun/connexionDB.php");
 ?> 
 <div id="global">	
 	<h1> 	Ajout corps	 </h1>	<?php					
-		if(isset($_POST[nom])) {				
+		if(isset($_POST['nom'])) {				
 			$result = pg_query ($dbconn, "INSERT INTO corps (libelle) 
 										VALUES ('".$_POST[nom]."')");
 		}								 

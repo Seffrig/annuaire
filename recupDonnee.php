@@ -2,7 +2,7 @@
 include("commun/connexion_db.php");
 
 
-
+//Si on a un id d'équipe de recherche (selection d'un EDR dans liste déroulante)
 if(isset( $_GET["id"]) &&  $_GET["id"] != "Choix possible d'équipe de recherche")
 {
 	$id = $_GET["id"];
@@ -17,6 +17,7 @@ if(isset( $_GET["id"]) &&  $_GET["id"] != "Choix possible d'équipe de recherche
 	}
 	
 }
+//Si on a un numéro d'équipe( Si on a changé le champ du numéro de l'équipe)
 if(isset( $_GET["numEq"]) &&  $_GET["numEq"] != "")
 {
 	$numEq = $_GET["numEq"];
@@ -31,6 +32,7 @@ if(isset( $_GET["numEq"]) &&  $_GET["numEq"] != "")
 	}
 }
 
+//Si on a un id de ville(= sélection dans liste déroulante des villes)
 if(isset( $_GET["idVille"]) &&  $_GET["idVille"] != "")
 {
 	$idVille = $_GET["idVille"];
@@ -45,6 +47,7 @@ if(isset( $_GET["idVille"]) &&  $_GET["idVille"] != "")
 	}
 }
 
+//Si on a un nim de ville (si on a changé le nom de la ville dans le champ texte)
 if(isset( $_GET["nomVille"]) &&  $_GET["nomVille"] != "")
 {
 	$nomVille = $_GET["nomVille"];
@@ -58,6 +61,8 @@ if(isset( $_GET["nomVille"]) &&  $_GET["nomVille"] != "")
 	
 	}
 }
+
+//Si on a un id d'établissement (Si on choisis un établissement dans la liste déroulante)
 if(isset( $_GET["idEta"]) &&  $_GET["idEta"] != "")
 {
 	$idEta = $_GET["idEta"];
@@ -71,6 +76,7 @@ if(isset( $_GET["idEta"]) &&  $_GET["idEta"] != "")
 	
 	}
 }
+//Si on a un nom d'établissement (si on a changé le nom de l'établissement dans le champ texte)
 if(isset( $_GET["nomEta"]) &&  $_GET["nomEta"] != "")
 {
 	$nomEta = $_GET["nomEta"];
@@ -84,7 +90,8 @@ if(isset( $_GET["nomEta"]) &&  $_GET["nomEta"] != "")
 	
 	}
 }
-//ecrit ville
+//Si on chamge le champ texte de ville
+//on génére la liste des établissements possibles pour cette ville
 if(isset( $_GET["nomVilleForListe"]) &&  $_GET["nomVilleForListe"] != "")
 {
 	$nomVilleForListe = $_GET["nomVilleForListe"];
@@ -109,7 +116,8 @@ if(isset( $_GET["nomVilleForListe"]) &&  $_GET["nomVilleForListe"] != "")
 		
 	
 }
-//selectionne ville dans liste
+//Si on selectionne une ville dans la liste déroulante
+//on génére la liste des établissements possibles pour cette ville
 if(isset( $_GET["idVilleListe"]) &&  $_GET["idVilleListe"] != "")
 {
 	$idVilleListe = $_GET["idVilleListe"];

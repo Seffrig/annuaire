@@ -23,6 +23,7 @@ include "templates/menu.php";
 	// ajout 
 	if ($_GET['type_modif'] == 'ajout')
 	{
+		//$label permet de choisir le label par rapport au type de mofif
 		$label = "Ajout";
 		echo "<h1> 	Ajout une équipe de recherche	 </h1>";
 		echo "<form action='maj_equipe_recherche.php?type_modif=ajout' onsubmit='return check_valider_equipe()' name='form_equipe_recherche' method='post'  >";
@@ -30,6 +31,7 @@ include "templates/menu.php";
 	// modification
 	else if ($_GET['type_modif'] == 'modif')
 	{
+		//permet de choisir la valeur du label
 		$label = "Modification";
 		$id_recherche = $_GET['id_rech'];
 		echo "<h1> 	Modification de l'équipe de recherche	 </h1>";

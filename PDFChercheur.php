@@ -9,11 +9,14 @@
 
 	class PDFChercheur extends FPDF
 	{
+		// constructeur du PDF avec en paramètre les 3 requetes utilisées pour récupérer les infos de la bdd 
 		function createPDF($infoChercheur, $theses, $publications)
 		{	    
 
+			// On créer un tableau de toutes les infos
 			$row = pg_fetch_row($infoChercheur);
 			
+			// on les mets dans des variables pour se repérer plus facilement 
 			$prenom 			= $row[0];
 			$nom 				= $row[1];
 			$corps 				= $row[2];
@@ -34,13 +37,20 @@
 			$code_postal_pro	= $row[17];
 			$num_rue_pro		= $row[18];
 
-			
+			// déclaration de différentes valeurs qui vont servir a placer nos elements
     		$x = 15;
 			$y = 10;
 			$border = 190;
 		    $this->SetXY( $x, $y );
 
+		    // Police d'écriture en gras (pour nom prenon)
 			$this->SetFont('Arial','B',10);
+
+			/*
+				Toutes les informations sont affiches via les fonctions Cell/MultiCell
+				on sautes des lignes via en incrémentatn $y 
+				on change la presentation du texte (italique gras ou normal) en fonction des besoins de presentation
+			*/
 
 			$fullname =  $nom . ' ' . $prenom;
 			$this->Cell(0,0, $fullname ,0,0,'L');
@@ -102,6 +112,9 @@
 			$this->Cell(0,0, "Thèse : " ,0,0,'L');
 			$this->SetFont('Arial','',8);
 
+			/*
+				Tableau comportant toutes les thèses on les affiches de la meme manière que précedemment 
+			*/ 
 			while ($row2 = pg_fetch_row($theses) )
 			{
 				$titreThese 	= $row2[0];
@@ -126,6 +139,10 @@
 			$this->Cell(0,0, " Publications choisies : " ,0,0,'L');
 			$this->SetFont('Arial','',8);
 
+
+			/*
+				Tableau comportant toutes les publications on les affiches de la meme manière que précedemment 
+			*/ 
 			while ($row3 = pg_fetch_row($publications) )
 			{
 
@@ -216,6 +233,7 @@
 	$id_pers ='';
 	if (isset($_GET['id_pers'])) $id_pers = $_GET['id_pers']; 
 
+	// requetes permettant de recupérer les informations du chercheur
 	$r = "SELECT p.prenom, p.nom, c.libelle, p.courriel_pro, e.nom,
 				p.localite_perso, p.complement_perso, p.nom_rue_perso, p.courriel_perso, p.tel_perso, p.code_postal_perso, p.num_rue_perso,
 				p.localite_pro, p.complement_pro, p.nom_rue_pro, p.courriel_pro, p.tel_pro, p.code_postal_pro, p.num_rue_pro		
@@ -227,6 +245,7 @@
 
 	$q = pg_query ($dbconn, $r);
 
+	// requete permettant de recupérer les theses du chercheur
 	$req2 = "SELECT pu.titre_ouvrage, pu.directeur, t.libelle, pu.date_conf, pu.etablissement
 			FROM publication pu, type_these t
 			WHERE pu.id_personne = $id_pers
@@ -236,6 +255,7 @@
 
 	$q2 = pg_query ($dbconn, $req2);	
 
+	// requete permettant de recupérer les publications du chercheur
 
 	$req3 = "SELECT pu.id_type, pu.directeur, pu.titre_communication, pu.titre_journal, pu.revue_volume, pu.page_deb, pu.page_fin, pu.nb_pages, pu.date_publi, pu.auteur_sec, pu.titre_ouvrage, pu.editeur_ville , pu.editeur, pu.collection, pu.date_conf
 			FROM publication pu
@@ -246,9 +266,10 @@
 	$q3 = pg_query ($dbconn, $req3);	
 
 
-
+	// constructeur du pdf
 	$pdf = new PDFChercheur();
 	$pdf->AddPage();
+	// initialisations du pdf avec les requetes que l'on a declarer plus haut
 	$pdf->createPDF($q, $q2, $q3);
 	$pdf->Output();
 

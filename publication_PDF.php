@@ -14,6 +14,12 @@
 			$publi = pg_fetch_row($query);
 			$line ="";
 
+			/*
+				Toutes les informations sont affiches via les fonctions Cell/MultiCell
+				on sautes des lignes via en incrémentatn $y 
+				on change la presentation du texte (italique gras ou normal) en fonction des besoins de presentation
+			*/
+
 			//$id_personne_publi = $publi[1];
 			$id_type_publi = $publi[2];
 			//$type_publi_publi = $publi[3];
@@ -50,6 +56,8 @@
 
 			$this->SetFont('Arial','B',10);
 
+
+			// verification si le type de publication contient bienla valeur que l'on veut afficher
 			if($id_type_publi == 6 || $id_type_publi == 9)
 				 $this->MultiCell($border,3,$titre_ouvrage_publi , 0, 'L');
 			else
@@ -231,6 +239,7 @@
 	$id_publi ='';
 	if (isset($_GET['id_publi'])) $id_publi = $_GET['id_publi']; 
 
+	// on recupère toutes les nformationq que l'on peut avoir besoin d'afficher
 	$r = "SELECT  pub.id, pub.id_personne, t_pub.id, t_pub.libelle, pub.titre_communication, pub.titre_journal, pub.auteur_sec, pub.revue_volume, pub.revue_fascicule, 
 								pub.titre_ouvrage, pub.editeur, pub.editeur_ville, pub.collection, pub.url, pub.page_deb, pub.page_fin, pub.nb_pages, pub.date_conf, pub.date_publi, 
 								pa.libelle, l.libelle, pub.audience, pub.etablissement, pub.directeur, t_these.libelle, pub.observation, pub.selectionner_ordre, pers.nom, pers.prenom

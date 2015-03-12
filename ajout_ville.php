@@ -14,7 +14,7 @@ include("connexionDB.php");
 ?> 
 <div id="global">	
 	<h1> 	Ajout ville	 </h1>	<?php					
-		if(isset($_POST[nom])) {				
+		if(isset($_POST['nom'])) {				
 			$result = pg_query ($dbconn, "INSERT INTO ville (libelle) 
 										VALUES ('".$_POST[nom]."')");
 		}								 

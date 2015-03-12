@@ -23,6 +23,7 @@ include "templates/menu.php";
 	// ajout 
 	if ($_GET['type_modif'] == 'ajout')
 	{
+		//permet de changer le label
 		$label = "Ajout";
 		echo "<h1> 	Ajout d'un établissement	 </h1>";
 		echo "<form action='maj_etablissement.php?type_modif=ajout' onsubmit='return check_valider_etablissement()' name='form_etablissement' method='post'  >";
@@ -30,6 +31,7 @@ include "templates/menu.php";
 	// modification
 	else if ($_GET['type_modif'] == 'modif')
 	{
+		//permet de changer le label
 		$label = "Modification";
 		$id_recherche = $_GET['id_rech'];
 		echo "<h1> 	Modification de l'établissement	 </h1>";

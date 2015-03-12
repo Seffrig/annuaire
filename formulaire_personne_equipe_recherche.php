@@ -12,21 +12,24 @@
         });
 	
 	$(function() {
-
+		//cette donction à pour but de mettre à jour les champs lié au Equipe de recherche
+		//lorsque qu'on sélectionne une équipe dans la liste déroulante
+		//si on sélectionne un élement dans la liste des équipes de recherche
         $('#listeEDR').click(function() {
-        	var id = document.getElementById('listeEDR').value;
+        	var id = document.getElementById('listeEDR').value; //on récupere l'id de l'équipe choisis
           	$.ajax({
             	type: 'GET',
-            	url: 'recupDonnee.php',
+            	url: 'recupDonnee.php', //manipulation des données faites sur la page recupDonne.php
             	timeout: 3000,
             	data: { id : id },
-            	success: function(data) {
+            	success: function(data) { //si données récupérées
             		if(id != "Choix possible d'équipe de recherche"){
+            			//on récupere les données sous forme de liste donc on va les séparer
             			var res = data.split(",");
             			var majId = res[0];
             			var majNumEq = res[1];
             			var majLibelEq = res[2];
-              
+              			//on met à jour l'id,le numéro et le libélé de l'équipe de recherche
               			document.getElementById('new_id_equipe_recherche').value=majId;
               			document.getElementById('new_num_equipe_recherche').value=majNumEq;
               			document.getElementById('new_libelle_equipe_recherche').value=majLibelEq;
@@ -38,28 +41,33 @@
           });    
 
         });  
+ 		//Cette fonction à pour but de mettre à jour la liste déoulante des EDR
+ 		//lorsque qu'on clique/modifie l'EDR dans le champ texte
         $('#new_num_equipe_recherche').focus(function() {
         	var numEq = document.getElementById('new_num_equipe_recherche').value;
           	$.ajax({
             	type: 'GET',
-            	url: 'recupDonnee.php',
+            	url: 'recupDonnee.php', //on récupere les données sous forme de liste donc on va les séparer
             	timeout: 3000,
             	data: { numEq : numEq },
             	success: function(data) {
-            		//alert(data);
             		if(numEq != ""){
+            			//on récupere les données sous forme de liste donc on va les séparer
             			var res = data.split(",");
             			var majId = res[0];
             			var majNumEq = res[1];
             			var majLibelEq = res[2];
             			var listeEDR = document.getElementById('listeEDR');
 						var i = 0;
+						//on parcours la liste déroulante
+						//et quand on trouve que la valeur entré 
+						//correspond à une valeur dans la liste
+						//on "selectionne" cette valeur pour qu'elle s'affiche dans la liste
 						for(i=0;i<=listeEDR.length-1;i++) 
 						{
            					var text=listeEDR.options[i].value;
            					if(text==majId)
             				{
-            					//alert("la");
                 				listeEDR.selectedIndex=i;
                 				break;
            					 }

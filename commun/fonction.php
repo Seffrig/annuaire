@@ -67,6 +67,7 @@
 	// $identifiant_css sert à l'identifiant du composant pour la css
 	// $libelle_affichage le libellé affiché
 	// $ preselection pour spécifié quelle élément et sélectionné
+	// $taille un attribut optionnel qui définie la taille par défaut des labels et peut donc etre changé si besoin
 	function select_ordre($libelle_affichage, $identifiant_css, $table, $champ, $preselection,$taille=66) 
 	{
 		if($libelle_affichage != ""){
@@ -118,6 +119,7 @@
 	// $identifiant_css sert à l'identifiant du composant pour la css
 	// $libelle_affichage le libellé affiché
 	// $ preselection pour spécifié quelle élément et sélectionné
+	// $taille un attribut optionnel qui définie la taille par défaut des labels et peut donc etre changé si besoin
 	function selection_menu_der($libelle_affichage, $identifiant_css, $table, $champ, $preselection,$taille=66) 
 	{
 		echo "<label class='petitlabel' style='width:".$taille."' for=".$identifiant_css.">".$libelle_affichage." :</label>  ";
@@ -190,8 +192,7 @@ echo '</a></li>';
 <?php	
 }
 
-	// utilisé lors des creation ou modification de table 
-	// affiche le champ d 'une table dans un tableau
+//affiche une suite de résultat en suivant l'odre alphabétique dans des sous catégorie par lettre
 function affichage_colonne($id, $champ, $table, $page_modif, $page_sup,$champTri = "",$paramsupid="", $dbconn="") 
 {
 	//pour gerer la supression
@@ -256,11 +257,14 @@ function affichage_colonne($id, $champ, $table, $page_modif, $page_sup,$champTri
 			echo " <a href=' " . $page_modif . "?id_rech=" . $row[2] . " '> " . $row[1] . "(".$row[0].") </a>";
 		}				
 
-		$select = pg_query("SELECT id_personne FROM utilisateur WHERE login like '$row[0]' ;");
-		$tab = pg_fetch_row($select);
-		$id_pers = $tab[0];
+		if($page_modif == 'modif_gestion_utilisateurs.php')
+		{
+			$select = pg_query("SELECT id_personne FROM utilisateur WHERE login like '$row[0]' ;");
+			$tab = pg_fetch_row($select);
+			$id_pers = $tab[0];
 
-		echo  '<a href="PDFChercheur.php?id_pers='.$id_pers.'" > <img width="12px" src="images/pdf_button.png" ></a>';
+			echo  '<a href="PDFChercheur.php?id_pers='.$id_pers.'" > <img width="12px" src="images/pdf_button.png" ></a>';		
+		}
 		if($paramsupid != ""){
 		?>
 		<img width='16px' src='images/croixsupprimer.gif' 
@@ -289,8 +293,8 @@ function affichage_colonne($id, $champ, $table, $page_modif, $page_sup,$champTri
 <?php	
 }
 
-	// utilisé lors des creation ou modification de table 
-	// affiche le champ d 'une table dans un tableau
+//affiche une suite de résultat en suivant l'odre alphabétique dans des sous catégorie par lettre
+//Cette fonction s'utilise sur 2 tables
 function affichage_colonne_2_tables($id1, $champ1, $table1, $rel1, $rel2, $champ2, $table2, $page_modif, $page_sup) 
 {
 	$result= pg_query("SELECT $table1.$id1, $table1.$champ1, $table2.$champ2 
@@ -351,6 +355,7 @@ function affichage_colonne_2_tables($id1, $champ1, $table1, $rel1, $rel2, $champ
 <br>
 <?php	
 }
+
 function affichage_colonne_2e_tables($id1, $champ1, $table1, $rel1, $rel2, $champ2, $table2, $page_modif, $page_sup) 
 			{
 				$result= pg_query("SELECT $table1.$id1, $table1.$champ1, $table2.$champ2 

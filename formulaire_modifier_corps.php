@@ -23,6 +23,7 @@ include "templates/menu.php";
 	// ajout 
 	if ($_GET['type_modif'] == 'ajout')
 	{
+		//permet de choisir la valeur du label
 		$label = "Ajout";
 		echo "<h1> 	Ajout d'un corps	 </h1>";
 		echo "<form action='maj_corps.php?type_modif=ajout' onsubmit='return check_valider_corps()' name='form_corps' method='post'  >";
@@ -30,6 +31,7 @@ include "templates/menu.php";
 	// modification
 	else if ($_GET['type_modif'] == 'modif')
 	{
+		//permet de choisir la valeur du label
 		$label = "Modification";
 		$id_recherche = $_GET['id_rech'];
 		echo "<h1> 	Modification du corps	 </h1>";
